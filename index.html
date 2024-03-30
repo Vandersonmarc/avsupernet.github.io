@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(45deg, #000000, #000000);
+            background: linear-gradient(45deg, #000066, #000000); /* Gradiente preto para azul escuro */
             color: #fff;
             animation: colorChange 10s infinite alternate;
         }
@@ -62,6 +62,36 @@
             max-width: 100%;
             height: auto;
         }
+
+        /* Estilo para o contador */
+        #contador {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1.2em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        /* Estilo para o rodapé */
+        footer {
+            position: relative;
+            margin-top: 10cm; /* Ajuste para 10 cm do vídeo */
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo preto transparente */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: smaller;
+        }
+
+        /* Estilo para a mensagem de boas-vindas */
+        .welcome-message {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -71,7 +101,7 @@
 </header>
 
 <div class="container">
-    <p>Bem-vindo ao AVsuperNET, a solução para uma experiência de internet sem limites.</p>
+    <p class="welcome-message">Bem-vindo ao AVsuperNET. <p class="welcome-message">A solução para uma experiência de internet sem limites.</p>
     <p>Descubra nossos serviços:</p>
     <div class="button-container">
         <a href="planos.html" class="button">Ver Planos</a>
@@ -80,8 +110,13 @@
         <a href="https://api.whatsapp.com/send/?phone=5511915640282&text&type=phone_number&app_absent=0" class="button">Contato</a>
     </div>
     <p>Vídeo mostrando como funciona nosso sistema:</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/HpRCnR0hLLM" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="560" src="https://www.youtube.com/embed/HpRCnR0hLLM" frameborder="0" allowfullscreen></iframe>
+    
 </div>
+<!-- Rodapé -->
+<footer>
+    <p>Desenvolvido por Vanderson Marcone | Empresa AVsuperNET | Atuando desde 2020</p>
+</footer>
 
 </body>
-</html>
+    </html>
