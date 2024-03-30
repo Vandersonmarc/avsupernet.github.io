@@ -101,7 +101,7 @@
 </header>
 
 <div class="container">
-    <p class="welcome-message">Bem-vindo ao AVsuperNET. <p class="welcome-message">A solução para uma experiência de internet sem limites.</p>
+    <p class="welcome-message">Bem-vindo ao AVsuperNET. A solução para uma experiência de internet sem limites.</p>
     <p>Descubra nossos serviços:</p>
     <div class="button-container">
         <a href="planos.html" class="button">Ver Planos</a>
@@ -111,12 +111,40 @@
     </div>
     <p>Vídeo mostrando como funciona nosso sistema:</p>
     <iframe width="560" height="560" src="https://www.youtube.com/embed/HpRCnR0hLLM" frameborder="0" allowfullscreen></iframe>
-    
 </div>
+
+<p>Você é nosso visitante número:</p>
+<div id="sfcdz5nn34up1l4rzbudzy3tq6q42emb29m"></div>
+<script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=dz5nn34up1l4rzbudzy3tq6q42emb29m&down=async" async></script>
+
+<!-- Script para exibir o IP local e o local geográfico -->
+<script>
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const ipAddress = data.ip;
+            const ipAddressElement = document.createElement('p');
+            ipAddressElement.innerHTML = `Seu IP Local é: ${ipAddress}`;
+            document.body.insertBefore(ipAddressElement, document.querySelector('footer'));
+
+            // Obter o local geográfico
+            fetch(`https://ipapi.co/${ipAddress}/json/`)
+                .then(response => response.json())
+                .then(locationData => {
+                    const location = locationData.city + ', ' + locationData.region + ', ' + locationData.country_name;
+                    const locationElement = document.createElement('p');
+                    locationElement.innerHTML = `Local geográfico do IP: ${location}`;
+                    document.body.insertBefore(locationElement, document.querySelector('footer'));
+                })
+                .catch(error => console.error('Erro ao obter localização:', error));
+        })
+        .catch(error => console.error('Erro ao obter o endereço IP:', error));
+</script>
+
 <!-- Rodapé -->
 <footer>
     <p>Desenvolvido por Vanderson Marcone | Empresa AVsuperNET | Atuando desde 2020</p>
 </footer>
 
 </body>
-    </html>
+</html>
