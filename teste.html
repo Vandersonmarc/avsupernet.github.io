@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(45deg, #000000, #000000);
+            background: linear-gradient(45deg, #000066, #000000); /* Gradiente preto para azul escuro */
             color: #fff;
             animation: colorChange 10s infinite alternate;
         }
@@ -62,6 +62,19 @@
             max-width: 100%;
             height: auto;
         }
+
+        /* Estilo para o texto */
+        .text-container {
+            margin-top: 20px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .text-container {
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -77,9 +90,15 @@
         <a href="https://avsupernet.anypainel.com/criarteste.php?token=506650513825" class="button">Fazer Teste</a>
         <a href="https://avsupernet.anypainel.com/renovar.php" class="button">Renovação</a>
     </div>
-    <p>
-        Clique em " Fazer teste " para iniciar sua avaliação gratuita. Você será solicitado a fornecer seu número de telefone. Após enviar, você receberá um usuário e senha. **Não se esqueça de copiá-los**. O teste é válido por **2 horas** a partir do momento em que você pressionar o botão. Se precisar de assistência, não hesite em entrar em contato conosco. 🛠️📧
-    </p>
+    <div class="text-container">
+        <ol>
+            <li>Clique em "Fazer teste" para iniciar sua avaliação gratuita.</li>
+            <li>Você será solicitado a fornecer seu número de telefone.</li>
+            <li>Após enviar, você receberá um usuário e senha. <b>Não se esqueça de copiá-los</b>.</li>
+        </ol>
+        <p>O teste é válido por <b>2 horas</b> a partir do momento em que você pressionar o botão.</p>
+        <p>Se precisar de assistência, não hesite em entrar em contato conosco. 🛠️📧</p>
+    </div>
 </div>
 
 <div class="button-container">
