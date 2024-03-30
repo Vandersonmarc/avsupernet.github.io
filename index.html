@@ -67,10 +67,12 @@
         #contador {
             background-color: #f0f0f0;
             border-radius: 5px;
-            padding: 10px;
-            font-size: 1.2em;
+            padding: 5px; /* Reduzindo o padding para deixar o contador menor */
+            font-size: 1em; /* Reduzindo o tamanho da fonte */
             color: #333;
             text-align: center;
+            margin: 0 auto; /* Centralizando horizontalmente */
+            width: fit-content; /* Ajustando a largura conforme o conteúdo */
             margin-bottom: 20px;
         }
         
@@ -114,7 +116,7 @@
 </div>
 
 <p>Você é nosso visitante número:</p>
-<div id="sfcdz5nn34up1l4rzbudzy3tq6q42emb29m"></div>
+<div id="contador"></div>
 <script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=dz5nn34up1l4rzbudzy3tq6q42emb29m&down=async" async></script>
 
 <!-- Script para exibir o IP local e o local geográfico -->
@@ -145,6 +147,21 @@
 <footer>
     <p>Desenvolvido por Vanderson Marcone | Empresa AVsuperNET | Atuando desde 2020</p>
 </footer>
+
+<script>
+    // Mudança dinâmica de cor de fundo
+    const body = document.querySelector('body');
+    const colors = ['#1a1a1a', '#333333', '#4d4d4d']; // Cores escuras
+
+    let index = 0;
+
+    function changeBackgroundColor() {
+        body.style.background = `linear-gradient(45deg, ${colors[index]}, ${colors[(index + 1) % colors.length]})`;
+        index = (index + 1) % colors.length;
+    }
+
+    setInterval(changeBackgroundColor, 5000); // Altera a cor de fundo a cada 5 segundos
+</script>
 
 </body>
 </html>
