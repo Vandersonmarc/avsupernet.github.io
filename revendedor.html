@@ -1,83 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seja um Revendedor - AVsuperNET</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #000033, #000000);
-            color: #fff;
-            animation: colorChange 10s infinite alternate;
-        }
-
-        @keyframes colorChange {
-            0% {
-                filter: hue-rotate(0deg);
-            }
-            100% {
-                filter: hue-rotate(360deg);
-            }
-        }
-
-        header {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-        }
-
-        p {
-            margin: 10px 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revendedor AVsuperNET</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #000046, #000000);
+    color: #fff;
+    text-align: center;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+  .header {
+    background-color: #00416A;
+    color: #fff;
+    padding: 20px 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  th {
+    background-color: #00416A;
+    color: #fff;
+  }
+  td {
+    background-color: #f7f7f7;
+  }
+  .botao, .botao-contato, .botao-voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s;
+    animation: colorChange 5s infinite;
+  }
+  .botao-voltar {
+    background-color: #555;
+  }
+  .botao-voltar:hover {
+    background-color: #333;
+  }
+  @media (max-width: 600px) {
+    .container {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .botao, .botao-contato, .botao-voltar {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  @keyframes colorChange {
+    0% { background-color: #ff0000; }
+    14% { background-color: #ff7f00; }
+    28% { background-color: #ffff00; }
+    42% { background-color: #7fff00; }
+    56% { background-color: #00ff00; }
+    70% { background-color: #00ff7f; }
+    84% { background-color: #00ffff; }
+    100% { background-color: #0000ff; }
+  }
+</style>
 </head>
 <body>
-
-<header>
-    <h1>Seja um Revendedor - AVsuperNET</h1>
-</header>
-
 <div class="container">
-    <p>Deseja ser revendedor?</p>
-    <p>Seja um REVENDEDOR e tenha uma renda extra trabalhando no conforto da sua casa. Ganhe até 300% de lucro comercializando nossa VPN. Fornecemos todo o suporte necessário. Você só precisa ter um celular e não é necessário nenhum conhecimento técnico. Chame nosso atendimento e confira nossos planos.</p>
-    <p>Para consultar preços, entre em contato conosco:</p>
-    <div class="button-container">
-        <a href="index.html" class="button">Voltar</a>
-        <a href="https://api.whatsapp.com/send/?phone=5511915640282&text&type=phone_number&app_absent=0" class="button">Contato</a>
-    </div>
+  <div class="header">
+    <h1>Seja um Revendedor AVsuperNET</h1>
+    <p>Descubra a oportunidade que mudará sua vida financeira. Junte-se a nós e torne-se um empreendedor de sucesso!</p>
+  </div>
+  <div class="plano">
+    <h2>Internet Ilimitada - Tabela de Preços para Revendedores</h2>
+    <p>Oferecemos os melhores preços do mercado e um serviço de qualidade inigualável. Confira nossa tabela e escolha o plano que mais se adapta ao seu negócio:</p>
+    <table>
+      <tr><th>Créditos</th><th>Preço</th></tr>
+      <tr><td>10</td><td>R$ 35,00</td></tr>
+      <tr><td>20</td><td>R$ 40,00</td></tr>
+      <tr><td>30</td><td>R$ 50,00</td></tr>
+      <tr><td>50</td><td>R$ 60,00</td></tr>
+      <tr><td>80</td><td>R$ 80,00</td></tr>
+      <tr><td>100</td><td>R$ 90,00</td></tr>
+      <tr><td>300</td><td>R$ 100,00</td></tr>
+      <tr><td>500</td><td>R$ 150,00</td></tr>
+      <tr><td>Ilimitado</td><td>R$ 250,00</td></tr>
+    </table>
+    <p class="nota">*Valores mensais. Para outras quantidades, consulte-nos para preços especiais.</p>
+  </div>
+  <div class="plano">
+    <h2>Vantagens de Ser um Revendedor AVsuperNET</h2>
+    <p>Além de preços competitivos, oferecemos uma série de benefícios que garantem a satisfação dos nossos parceiros e clientes:</p>
+    <ul>
+      <li>Servidor próprio no Brasil</li>
+      <li>Painel de gerenciamento web</li>
+      <li>PAINEL ATLAS</li>
+      <li>Testes ilimitados</li>
+      <li>Pagamento e renovação automático</li>
+      <li>Grupo de suporte a revendedores</li>
+      <li>App na Playstore</li>
+      <li>Material de divulgação</li>
+      <li>Compatível com Android</li>
+    </ul>
+  </div>
+  <div class="plano">
+    <h2>Operadoras Disponíveis</h2>
+    <ul>
+      <li>Vivo Pré</li>
+      <li>Vivo Controle</li>
+      <li>Tim Saldo Válido (Alguns DDD's)</li>
+      <li>Tim Saldo Expirado (Alguns DDD's)</li>
+    </ul>
+  </div>
+  <a href="index.html" class="botao botao-voltar">Voltar</a>
+  <a href="https://wa.me/5521965515451?text=Queria%20saber%20mais%20sobre%20planos%20de%20revenda" class="botao" target="_blank">Entre em Contato</a>
 </div>
-
 </body>
 </html>
