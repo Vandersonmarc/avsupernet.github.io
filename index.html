@@ -8,31 +8,28 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #000033, #000000);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #000046, #000000);
             color: #fff;
-            animation: colorChange 10s infinite alternate;
-        }
-
-        @keyframes colorChange {
-            0% {
-                filter: hue-rotate(0deg);
-            }
-            100% {
-                filter: hue-rotate(360deg);
-            }
-        }
-
-        header {
             text-align: center;
-            padding: 20px 0;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
             padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        header {
+            background-color: #00416A;
+            color: #fff;
+            padding: 20px 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
 
         .button-container {
@@ -44,14 +41,14 @@
 
         .button {
             display: inline-block;
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            color: #fff;
+            text-decoration: none;
+            transition: transform 0.2s;
+            animation: colorChange 5s infinite;
         }
 
         .button:hover {
@@ -59,24 +56,69 @@
         }
 
         .plan {
-            margin-bottom: 20px;
+            margin: 25px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            background-color: #f7f7f7;
+        }
+
+        .plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .plan h3 {
-            color: #007bff;
+            color: #00416A;
         }
 
         .plan p {
             margin: 5px 0;
         }
 
-        /* Estilos para o vídeo */
         iframe {
-            width: 100%; /* Preenche a largura do contêiner */
-            max-width: calc(100% - 40px); /* Define a largura máxima, considerando o padding da .container */
-            height: auto; /* Mantém a proporção de aspecto */
-            margin: 0 auto; /* Centraliza o vídeo */
-            display: block; /* Garante que o vídeo seja exibido como um bloco */
+            width: 100%;
+            max-width: calc(100% - 40px);
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .time-container {
+            margin: 30px 0;
+            padding: 10px;
+            background-color: #00416A;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        footer {
+            padding: 10px 0;
+            background-color: #00416A;
+            color: #fff;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        @keyframes colorChange {
+            0% { background-color: #ff0000; }
+            14% { background-color: #ff7f00; }
+            28% { background-color: #ffff00; }
+            42% { background-color: #7fff00; }
+            56% { background-color: #00ff00; }
+            70% { background-color: #00ff7f; }
+            84% { background-color: #00ffff; }
+            100% { background-color: #0000ff; }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 0;
+            }
         }
     </style>
 </head>
@@ -97,15 +139,25 @@
     </div>
     <p>Vídeo mostrando como funciona nosso sistema:</p>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/HpRCnR0hLLM" frameborder="0" allowfullscreen></iframe>
-    <p style="color: #fff;">A segurança e confiabilidade da Internet são fundamentais. Com a nossa VPN, seus dados são protegidos criptograficamente, garantindo sua privacidade e segurança online. Venha para AVsuperNET.</p>
+    
+    <p style="color: #333; margin-top: 30px;">A AVsuperNET é líder em fornecer conexões de internet móvel ilimitada de alta velocidade. Com a nossa tecnologia, você pode desfrutar de uma conexão estável e segura, onde quer que esteja. Nossos planos são flexíveis e adaptáveis às suas necessidades, garantindo que você esteja sempre conectado ao que importa. Experimente a liberdade de navegar, trabalhar e jogar sem limites com a AVsuperNET.</p>
 </div>
-
+    <div class="time-container" id="time-display"></div>
 <p align="center">Você é nosso visitante número:</p>
 <div align="center"><img src='https://megacontador.com.br/img-0pbd06DsT7I3x0QA-29.gif' border='0' alt='Contador de visitas'></div>
 
 <footer>
     <p>Desenvolvido por Vanderson Marcone | Empresa AVsuperNET | Atuando desde 2020</p>
 </footer>
+
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        document.getElementById('time-display').textContent = now.toLocaleDateString('pt-BR', options);
+    }
+    setInterval(updateDateTime, 1000);
+</script>
 
 </body>
 </html>
