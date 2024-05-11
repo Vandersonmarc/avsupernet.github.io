@@ -14,7 +14,7 @@
     margin: 0; 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: center; 
     height: 100%;
     min-height: 100vh; 
   }
@@ -27,10 +27,11 @@
     display: inline-block;
     margin: 20px 0;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
   .botao:hover {
     background-color: #218838; 
+    transform: scale(1.05);
   }
   .video-container {
     position: relative;
@@ -49,6 +50,10 @@
   .conteudo {
     max-width: 800px;
     margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
   }
   table {
     width: 100%;
@@ -85,24 +90,18 @@
   <h1>Conecte-se com Liberdade</h1>
   <p>Descubra o poder da conexão sem limites. A AVsuperNET oferece a você uma experiência de navegação segura, privada e ilimitada.</p>
 
-  <!-- Vídeo -->
   <div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/k0x2KCJEk4c?vq=hd720" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/fO5pWjkUW0s?rel=0&controls=0&showinfo=0&autoplay=1&vq=hd1080" frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <!-- Botões -->
   <a href="https://github.com/Vandersonmarc/AVsuperNET_4.3.3/raw/main/4.3.3_base_v2ray.apk" class="botao" download>Baixe o Aplicativo</a>
   <a href="https://avsupernet.paineldegerenciamento.cloud/criarteste.php?token=506650513825" class="botao">Teste Grátis</a>
-
-  <!-- WhatsApp Link -->
   <a href="https://wa.me/5521965515451?text=estou%20interessado%20em%20adquirir" class="botao">Adquirir</a>
 
   <h2>Por que escolher a AVsuperNET?</h2>
   <p>Com a AVsuperNET, você tem a garantia de uma conexão VPN robusta e confiável. Nossos servidores otimizados garantem a máxima velocidade e segurança. Não perca tempo, faça um teste grátis de 2 horas e sinta a diferença!</p>
-  <br>
   <p>Por apenas R$ 15,00 você tem acesso por 30 dias sem redução, pode assistir, filmes, series, YouTube e tudo mais que você quiser!</p>
-  <br>
-  <p>A AVsuperNET é líder em fornecer conexões de internet móvel ilimitada de alta velocidade. Com a nossa tecnologia, você pode desfrutar de uma conexão estável e segura, onde quer que esteja. Nossos planos são flexíveis e adaptáveis às suas necessidades, garantindo que você esteja sempre conectado ao que importa. Experimente a liberdade de navegar, trabalhar e jogar sem limites com a AVsuperNET.<p>
+  <p>A AVsuperNET é líder em fornecer conexões de internet móvel ilimitada de alta velocidade. Com a nossa tecnologia, você pode desfrutar de uma conexão estável e segura, onde quer que esteja. Nossos planos são flexíveis e adaptáveis às suas necessidades, garantindo que você esteja sempre conectado ao que importa. Experimente a liberdade de navegar, trabalhar e jogar sem limites com a AVsuperNET.</p>
   <a href="https://avsupernet.paineldegerenciamento.cloud/renovar.php" class="botao">Renovar Acesso</a>
   <div class="container">
   <div class="header">
@@ -111,7 +110,6 @@
   </div>
   <div class="plano">
     <h2>Internet Ilimitada - Tabela de Preços para Revendedores</h2>
-    <p>Oferecemos os melhores preços do mercado e um serviço de qualidade inigualável. Confira nossa tabela e escolha o plano que mais se adapta ao seu negócio:</p>
     <table>
       <tr><th>Créditos</th><th>Preço</th></tr>
       <tr><td>10</td><td>R$ 35,00</td></tr>
@@ -128,7 +126,6 @@
   </div>
   <div class="plano">
     <h2>Vantagens de Ser um Revendedor AVsuperNET</h2>
-    <p>Além de preços competitivos, oferecemos uma série de benefícios que garantem a satisfação dos nossos parceiros e clientes:</p>
     <ul>
       <li>Servidor próprio no Brasil</li>
       <li>Painel de gerenciamento web</li>
