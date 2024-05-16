@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AVsuperNET - Internet Ilimitada VPN</title>
 <style>
+  /* Estilos existentes */
   body {
     background: linear-gradient(45deg, #0056b3, #003366); 
     color: #fff;
@@ -29,48 +30,62 @@
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  .botao:hover {
-    background-color: #218838; 
-    transform: scale(1.05);
+  /* ... outros estilos ... */
+
+  /* Estilos CSS comuns adicionados */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: normal;
+    margin-top: 0;
   }
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 25px;
-    height: 0;
-    margin-bottom: 30px;
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.6rem;
   }
-  .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .container {
     width: 100%;
-    height: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
   }
-  .conteudo {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+  .header {
+    padding: 2rem 0;
+  }
+  .plano {
+    margin-bottom: 1.5rem;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    padding: 0.25rem 0;
   }
   table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
+    margin-left: auto; /* Centraliza a tabela */
+    margin-right: auto; /* Centraliza a tabela */
   }
   th, td {
     padding: 10px;
     border: 1px solid #ffffff50;
     text-align: left;
   }
-  th {
-    background-color: #0056b3;
-  }
-  td {
-    background-color: #003366;
-  }
+  /* ... outros estilos ... */
+
+  /* Media Queries para responsividade */
   @media (max-width: 768px) {
     body {
       padding: 20px;
