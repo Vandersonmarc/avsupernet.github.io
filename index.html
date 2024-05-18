@@ -6,7 +6,7 @@
 <title>AVsuperNET - Internet Ilimitada VPN</title>
 <style>
   body {
-    background: linear-gradient(45deg, #0056b3, #003366); 
+    background: linear-gradient(45deg, #ff6b6b, #f06595); 
     color: #fff;
     font-family: 'Arial', sans-serif;
     text-align: center;
@@ -19,7 +19,7 @@
     min-height: 100vh; 
   }
   .botao {
-    background-color: #28a745; 
+    background-color: #6c5ce7; 
     color: #fff;
     padding: 15px 30px;
     text-decoration: none;
@@ -40,7 +40,7 @@
     margin-bottom: 1.6rem;
   }
   a {
-    color: #007bff;
+    color: #74b9ff;
     text-decoration: none;
   }
   a:hover {
@@ -79,6 +79,21 @@
     border: 1px solid #ffffff50;
     text-align: left;
   }
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+  }
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
   @media (max-width: 768px) {
     body {
       padding: 20px;
@@ -86,8 +101,8 @@
     .conteudo {
       padding: 0;
     }
-    table {
-      width: auto;
+    .video-container {
+      padding-bottom: 30%; /* Smaller aspect ratio for mobile */
     }
   }
 </style>
@@ -99,13 +114,13 @@
   <p>Descubra o poder da conexão sem limites. A AVsuperNET oferece a você uma experiência de navegação segura, privada e ilimitada.</p>
 
   <div class="video-container">
-    <video width="100%" height="auto" controls autoplay>
+    <video controls autoplay>
       <source src="VID-20240518-WA0013.mp4" type="video/mp4">
       Seu navegador não suporta vídeos.
     </video>
   </div>
 
-  <a href="https://github.com/Vandersonmarc/AVsuperNET_4.3.3/raw/main/4.3.3_base_v2ray.apk" class="botao" download>Baixe o Aplicativo</a>
+  <a href="4.3.3_base_v2ray (2).apk" class="botao" download>Baixe o Aplicativo</a>
   <a href="https://avsupernet.paineldegerenciamento.cloud/criarteste.php?token=506650513825" class="botao">Teste Grátis</a>
   <a href="https://wa.me/5521965515451?text=estou%20interessado%20em%20adquirir" class="botao">Adquirir</a>
 
@@ -178,6 +193,7 @@
     }
 
     if (/Android/i.test(navigator.userAgent)) {
+      video.addEventListener('play', () => {
       video.addEventListener('play', () => {
         openFullscreen(video);
       });
