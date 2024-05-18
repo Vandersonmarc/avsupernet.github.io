@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AVsuperNET - Internet Ilimitada VPN</title>
 <style>
-  /* Estilos existentes */
   body {
     background: linear-gradient(45deg, #0056b3, #003366); 
     color: #fff;
@@ -30,9 +29,6 @@
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  /* ... outros estilos ... */
-
-  /* Estilos CSS comuns adicionados */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-weight: normal;
@@ -75,17 +71,14 @@
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
-    margin-left: auto; /* Centraliza a tabela */
-    margin-right: auto; /* Centraliza a tabela */
+    margin-left: auto;
+    margin-right: auto;
   }
   th, td {
     padding: 10px;
     border: 1px solid #ffffff50;
     text-align: left;
   }
-  /* ... outros estilos ... */
-
-  /* Media Queries para responsividade */
   @media (max-width: 768px) {
     body {
       padding: 20px;
@@ -106,7 +99,10 @@
   <p>Descubra o poder da conexão sem limites. A AVsuperNET oferece a você uma experiência de navegação segura, privada e ilimitada.</p>
 
   <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/fO5pWjkUW0s?rel=0&controls=0&showinfo=0&autoplay=1&vq=hd1080" frameborder="0" allowfullscreen></iframe>
+    <video width="100%" height="auto" controls autoplay>
+      <source src="VID-20240518-WA0013.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos.
+    </video>
   </div>
 
   <a href="https://github.com/Vandersonmarc/AVsuperNET_4.3.3/raw/main/4.3.3_base_v2ray.apk" class="botao" download>Baixe o Aplicativo</a>
@@ -167,9 +163,25 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
-    document.body.style.opacity = 0;
-    document.body.style.transition = 'opacity 2s';
-    document.body.style.opacity = 1;
+    var video = document.querySelector('video');
+    
+    function openFullscreen(elem) {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    }
+
+    if (/Android/i.test(navigator.userAgent)) {
+      video.addEventListener('play', () => {
+        openFullscreen(video);
+      });
+    }
   });
 
   document.querySelectorAll('.botao').forEach(button => {
