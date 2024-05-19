@@ -6,111 +6,139 @@
 <title>AVsuperNET - Internet Ilimitada VPN</title>
 <style>
   body {
-  background: linear-gradient(135deg, #0a0f0d 0%, #2c3e50 100%);
-  color: #f5f6fa;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  padding: 1rem; 
-  margin: 0; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
-  height: 100%;
-  min-height: 100vh; 
-}
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header {
-  padding: 2rem 0;
-}
-
-.botao {
-  background-color: #34495e; 
-  color: #ecf0f1;
-  padding: 15px 30px;
-  text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  margin: 20px 0;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.botao:hover {
-  background-color: #4a69bd;
-  transform: scale(1.05);
-}
-
-.coluna {
-  flex: 1;
-  padding: 1rem;
-  margin: 0.5rem;
-  background-color: #34495e;
-  color: #ecf0f1;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.iframe-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
-}
-
-.iframe-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-table {
-  margin: 2rem auto;
-  border-collapse: collapse;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-th, td {
-  padding: 15px;
-  border: 1px solid #7f8c8d;
-  text-align: center;
-  background-color: #34495e;
-  color: #ecf0f1;
-}
-
-@media (max-width: 768px) {
-  .container {
+    background: linear-gradient(135deg, #0a0f0d 0%, #2c3e50 100%);
+    color: #f5f6fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 1rem; 
+    margin: 0; 
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 100%;
+    min-height: 100vh; 
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header {
+    padding: 2rem 0;
+  }
+
+  .botao {
+    background-color: #34495e; 
+    color: #ecf0f1;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 20px 0;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .botao:hover {
+    background-color: #4a69bd;
+    transform: scale(1.05);
   }
 
   .coluna {
-    margin: 0.5rem 0;
+    flex: 1;
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: #34495e;
+    color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+
+  .iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
   table {
-    width: 100%;
-    box-shadow: none;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-}
+
+  th, td {
+    padding: 15px;
+    border: 1px solid #7f8c8d;
+    text-align: center;
+    background-color: #34495e;
+    color: #ecf0f1;
+  }
+
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .coluna {
+      margin: 0.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      box-shadow: none;
+    }
+  }
 </style>
 </head>
 <body>
 
 <div class="conteudo">
-  <h1>Conecte-se com Liberdade</h1>
-  <p>Descubra o poder da conexão sem limites. A AVsuperNET oferece a você uma experiência de navegação segura, privada e ilimitada.</p>
+  <div class="coluna" style="background-color: #3b4f5c;">
+    <h2>O que é Internet Móvel Ilimitada AVsuperNET?</h2>
+    <p>A Internet Móvel Ilimitada AVsuperNET é um serviço que permite navegar na internet pelo celular sem limites de dados, com segurança e privacidade reforçadas por uma Rede Privada Virtual.</p>
+  </div>
+
+  <h2 class="video-title" style="margin-top: 20px;">COMO FUNCIONA</h2>
 
   <div class="video-container">
     <video width="65%" height="auto" controls autoplay>
@@ -122,19 +150,62 @@ th, td {
   <a href="4.3.6_base_v2ray.apk" class="botao" download>Baixe o Aplicativo</a>
   <a href="https://avsupernet.paineldegerenciamento.cloud/criarteste.php?token=506650513825" class="botao">Teste Grátis</a>
   <a href="https://wa.me/5521965515451?text=estou%20interessado%20em%20adquirir" class="botao">Adquirir</a>
-
-  <h2>Por que escolher a AVsuperNET?</h2>
-  <p>Com a AVsuperNET, você tem a garantia de uma conexão VPN robusta e confiável. Nossos servidores otimizados garantem a máxima velocidade e segurança. Não perca tempo, faça um teste grátis de 2 horas e sinta a diferença!</p>
-  <p>Por apenas R$ 15,00 você tem acesso por 30 dias sem redução, pode assistir, filmes, series, YouTube e tudo mais que você quiser!</p>
-  <p>A AVsuperNET é líder em fornecer conexões de internet móvel ilimitada de alta velocidade. Com a nossa tecnologia, você pode desfrutar de uma conexão estável e segura, onde quer que esteja. Nossos planos são flexíveis e adaptáveis às suas necessidades, garantindo que você esteja sempre conectado ao que importa. Experimente a liberdade de navegar, trabalhar e jogar sem limites com a AVsuperNET.</p>
-  <a href="https://avsupernet.paineldegerenciamento.cloud/renovar.php" class="botao">Renovar Acesso</a>
-  <div class="container">
-  <div class="header">
-    <h1>Seja um Revendedor AVsuperNET</h1>
-    <p>Descubra a oportunidade que mudará sua vida financeira. Junte-se a nós e torne-se um empreendedor de sucesso!</p>
+  <div class="conteudo">
+  <div class="coluna" style="background-color: #3b4f5c;">
+    <h2>Navegação ilimitada</h2>
+    <p>Explore a internet sem limites! Com nossa oferta de navegação ilimitada, você pode aproveitar a web ao máximo, sem se preocupar com cortes de serviço ou reduções de velocidade.</p>
   </div>
-  <div class="plano">
-    <h2>Internet Ilimitada - Tabela de Preços para Revendedores</h2>
+  <div class="coluna" style="background-color: #3b4f5c;">
+  <button class="accordion">1. Posso utilizar o mesmo plano em vários aparelhos?</button>
+  <div class="panel">
+    <p>Não, todos os planos são individuais e não é possível compartilhar suas credenciais para outras pessoas.</p>
+  </div>
+
+  <button class="accordion">2. Qual a diferença entre a AVsuperNET e as operadoras tradicionais?</button>
+  <div class="panel">
+    <p>As operadoras normalmente cobram por mega usado. A AVsuperNET é diferente, oferecemos um aplicativo para você utilizar internet ilimitada todo o mês por um valor fixo acessível a todos.</p>
+  </div>
+
+  <button class="accordion">3. Posso rotear minha internet para outras pessoas?</button>
+  <div class="panel">
+    <p>Não, pois o sistema é projetado apenas para o aparelho que conecta através do usuário e senha.</p>
+  </div>
+
+  <button class="accordion">4. Quais são os meios de pagamentos aceitos?</button>
+  <div class="panel">
+    <p>Atualmente aceitamos somente pagamentos via pix.</p>
+  </div>
+
+  <button class="accordion">5. Como faço para solicitar suporte técnico para o meu plano?</button>
+  <div class="panel">
+    <p>Você pode obter atendimento através do WhatsApp. Os links de acesso estão no rodapé do nosso site.</p>
+  </div>
+
+  <button class="accordion">6. Possui plano fidelidade? Posso cancelar quando desejar?</button>
+  <div class="panel">
+    <p>Todos os nossos planos não exigem contrato e nem verificações de crédito! Você pode cancelar sua assinatura conosco a qualquer momento.</p>
+  </div>
+</div>
+  <div class="conteudo">
+  <div class="coluna" style="background-color: #3b4f5c;">
+    <h2>Porque escolher a AVsuperNET para ser seu provedor móvel?</h2>
+    <p>Seja você um entusiasta das redes sociais, um viciado em streaming de vídeo ou um profissional que precisa estar sempre conectado, os Planos AVsuperNET foram projetados para atender às suas necessidades de comunicação e entretenimento móvel. Com uma combinação irresistível de cobertura confiável, velocidade de internet rápida e preços acessíveis, nossa oferta vai além do básico para oferecer uma experiência verdadeiramente excepcional.</p>
+  </div>
+  <h2>PLANOS COM PREÇOS PARA NAVEGAR À VONTADE</h2>
+    <div class="conteudo">
+  <div class="coluna" style="background-color: #3b4f5c;">
+    <h2>Plano Individual</h2>
+    <p>R$ 15,00 por 30 dias</p>
+  </div>
+  <div class="conteudo">
+  <div class="coluna" style="background-color: #3b4f5c;">
+    <h2>Plano Família</h2>
+    <p>R$ 50,00 por 30 dias</p>
+    <p>Disponível até para 5 pessoas</p>
+  </div>
+  
+  <button class="accordion">Tabela de Preços para Revendedores</button>
+  <div class="panel">
     <table>
       <tr><th>Créditos</th><th>Preço</th></tr>
       <tr><td>10</td><td>R$ 35,00</td></tr>
@@ -147,67 +218,47 @@ th, td {
       <tr><td>500</td><td>R$ 150,00</td></tr>
       <tr><td>Ilimitado</td><td>R$ 250,00</td></tr>
     </table>
-    <p class="nota">*Valores mensais. Para outras quantidades, consulte-nos para preços especiais.</p>
   </div>
-  <div class="plano">
+  <div class="conteudo">
+  <div class="coluna" style="background-color: #3b4f5c;">
     <h2>Vantagens de Ser um Revendedor AVsuperNET</h2>
-    <ul>
-      <li>Servidor próprio no Brasil</li>
-      <li>Painel de gerenciamento web</li>
-      <li>PAINEL ATLAS</li>
-      <li>Testes ilimitados</li>
-      <li>Pagamento e renovação automático</li>
-      <li>Grupo de suporte a revendedores</li>
-      <li>App na Playstore</li>
-      <li>Material de divulgação</li>
-      <li>Compatível com Android</li>
-    </ul>
-  </div>
-  <div class="plano">
+    <p>Servidor próprio no Brasil</p>
+    <p>Painel de gerenciamento web</p>
+    <p>Testes ilimitados</p>
+    <p>Grupo de suporte a revendedores</p>
+    <p>Pagamento e renovação automático</p>
+    <p>App na Playstore</p>
+    <p>Compatível com Android</p>
+    <br>
     <h2>Operadoras Disponíveis</h2>
-    <ul>
-      <li>Vivo Pré</li>
-      <li>Vivo Controle</li>
-      <li>Tim Saldo Válido (Alguns DDD's)</li>
-      <li>Tim Saldo Expirado (Alguns DDD's)</li>
-    </ul>
+    <p>Vivo Pré</p>
+    <p>Vivo Pré</p>
+    <p>Vivo Controle</p>
+    <p>Vivo Pré</p>
+    <p>Tim Saldo Válido (Alguns DDD's)</p>
+    <p>Tim Saldo Expirado (Alguns DDD's)</p>
   </div>
-  <a href="index.html" class="botao botao-voltar">Voltar</a>
-  <a href="https://wa.me/5521965515451?text=Queria%20saber%20mais%20sobre%20planos%20de%20revenda" class="botao" target="_blank">Entre em Contato</a>
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    var video = document.querySelector('video');
-    
-    function openFullscreen(elem) {
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        elem.msRequestFullscreen();
-      }
-    }
+  <a href="https://wa.me/5521965515451?text=estou%20interessado%20sobre%20os%20planos%20de%20revenda" class="botao">Mais informações</a>
+  <footer>
+    <p>© Copyright 2020-2024 AVsuperNET- Todos os direitos reservados. Site desenvolvido por Vanderson</p>
 
-    if (/Android/i.test(navigator.userAgent)) {
-      video.addEventListener('play', () => {
-        openFullscreen(video);
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
       });
     }
-  });
-
-  document.querySelectorAll('.botao').forEach(button => {
-    button.addEventListener('mouseover', () => {
-      button.style.transform = 'scale(1.1)';
-    });
-    button.addEventListener('mouseout', () => {
-      button.style.transform = 'scale(1)';
-    });
-  });
-
-</script>
+  </script>
+</div>
 
 </body>
 </html>
