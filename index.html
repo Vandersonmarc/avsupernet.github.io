@@ -91,7 +91,7 @@
   }
 
   .accordion {
-  background-color: #0047AB;
+  background-color: #3b4f5c;
   color: #ccc;
   cursor: pointer;
   padding: 18px;
@@ -104,12 +104,12 @@
 }
 
 .active, .accordion:hover {
-  background-color: #0047AB;
+  background-color: #3b4f5c;
 }
 
 .panel {
   padding: 0 18px;
-  background-color: white;
+  background-color: 3b4f5c;
   display: none;
   overflow: hidden;
   color: black;
@@ -244,21 +244,38 @@
     <p>© Copyright 2020-2024 AVsuperNET- Todos os direitos reservados. Site desenvolvido por Vanderson</p>
 
   <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
+  document.addEventListener('DOMContentLoaded', (event) => {
+    var video = document.querySelector('video');
+    
+    function openFullscreen(elem) {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    }
 
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-        } else {
-          panel.style.display = "block";
-        }
+    if (/Android/i.test(navigator.userAgent)) {
+      video.addEventListener('play', () => {
+        openFullscreen(video);
       });
     }
-  </script>
+  });
+
+  document.querySelectorAll('.botao').forEach(button => {
+    button.addEventListener('mouseover', () => {
+      button.style.transform = 'scale(1.1)';
+    });
+    button.addEventListener('mouseout', () => {
+      button.style.transform = 'scale(1)';
+    });
+  });
+
+</script>
 </div>
 
 </body>
