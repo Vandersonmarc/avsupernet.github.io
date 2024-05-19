@@ -109,7 +109,7 @@
 
 .panel {
   padding: 0 18px;
-  background-color: 3b4f5c;
+  background-color: #3b4f5c;
   display: none;
   overflow: hidden;
   color: black;
@@ -242,41 +242,119 @@
   <a href="https://wa.me/5521965515451?text=estou%20interessado%20sobre%20os%20planos%20de%20revenda" class="botao">Mais informações</a>
   <footer>
     <p>© Copyright 2020-2024 AVsuperNET- Todos os direitos reservados. Site desenvolvido por Vanderson</p>
-
+</div>
   <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    var video = document.querySelector('video');
-    
-    function openFullscreen(elem) {
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        elem.msRequestFullscreen();
-      }
+  // Função para abrir o vídeo em tela cheia
+  function openFullscreen(elem) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
     }
+  }
 
+  // Evento para abrir vídeos em tela cheia em dispositivos Android
+  document.addEventListener('DOMContentLoaded', () => {
+    var video = document.querySelector('video');
     if (/Android/i.test(navigator.userAgent)) {
       video.addEventListener('play', () => {
         openFullscreen(video);
       });
     }
-  });
 
-  document.querySelectorAll('.botao').forEach(button => {
-    button.addEventListener('mouseover', () => {
-      button.style.transform = 'scale(1.1)';
+    // Efeito de escala nos botões
+    document.querySelectorAll('.botao').forEach(button => {
+      button.addEventListener('mouseover', () => {
+        button.style.transform = 'scale(1.1)';
+      });
+      button.addEventListener('mouseout', () => {
+        button.style.transform = 'scale(1)';
+      });
     });
-    button.addEventListener('mouseout', () => {
-      button.style.transform = 'scale(1)';
+
+    // Funcionalidade do acordeão
+    const accordions = document.querySelectorAll('.accordion');
+    accordions.forEach(acc => {
+      acc.addEventListener('click', () => {
+        acc.classList.toggle('active');
+        const panel = acc.nextElementSibling;
+        if (panel.style.display === 'block') {
+          panel.style.display = 'none';
+        } else {
+          panel.style.display = 'block';
+        }
+      });
+    });
+
+    // Botão de Retorno ao Topo
+    const topButton = document.createElement('button');
+    topButton.id = 'topBtn';
+    topButton.innerText = 'Topo';
+    topButton.style.display = 'none';
+    topButton.style.position = 'fixed';
+    topButton.style.bottom = '20px';
+    topButton.style.right = '30px';
+    topButton.style.padding = '10px';
+    topButton.style.border = 'none';
+    topButton.style.background = '#34495e';
+    topButton.style.color = 'white';
+    topButton.style.cursor = 'pointer';
+    document.body.appendChild(topButton);
+
+    window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topButton.style.display = 'block';
+      } else {
+        topButton.style.display = 'none';
+      }
+    };
+
+    topButton.onclick = function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    };
+
+    // Efeito Fade-in ao entrar na viewport
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
     });
   });
-
 </script>
-</div>
+<style>
+  /* Estilos para o efeito fade-in */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .appear {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+</style>
 
 </body>
 </html>
