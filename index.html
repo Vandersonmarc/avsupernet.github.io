@@ -266,20 +266,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>© Copyright 2020-2024 AVsuperNET- Todos os direitos reservados. Site desenvolvido por Vanderson</p>
 </div>
   <script>
-  // Função para abrir o vídeo em tela cheia
+  const log = require('logToConsole');
+  log('data =', data);
+  data.gtmOnSuccess();
+
   function openFullscreen(elem) {
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    } else if (elem.mozRequestFullScreen) {
       elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    } else if (elem.webkitRequestFullscreen) {
       elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    } else if (elem.msRequestFullscreen) {
       elem.msRequestFullscreen();
     }
   }
 
-  // Evento para abrir vídeos em tela cheia em dispositivos Android
   document.addEventListener('DOMContentLoaded', () => {
     var video = document.querySelector('video');
     if (/Android/i.test(navigator.userAgent)) {
@@ -288,7 +290,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     }
 
-    // Efeito de escala nos botões
     document.querySelectorAll('.botao').forEach(button => {
       button.addEventListener('mouseover', () => {
         button.style.transform = 'scale(1.1)';
@@ -298,7 +299,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     });
 
-    // Funcionalidade do acordeão
     const accordions = document.querySelectorAll('.accordion');
     accordions.forEach(acc => {
       acc.addEventListener('click', () => {
@@ -312,7 +312,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     });
 
-    // Botão de Retorno ao Topo
     const topButton = document.createElement('button');
     topButton.id = 'topBtn';
     topButton.innerText = 'Topo';
@@ -339,44 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     };
-
-    // Efeito Fade-in ao entrar na viewport
-    const faders = document.querySelectorAll('.fade-in');
-
-    const appearOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -100px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        } else {
-          entry.target.classList.add('appear');
-          appearOnScroll.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
   });
 </script>
-<style>
-  /* Estilos para o efeito fade-in */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-
-  .appear {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-</style>
-
 </body>
 </html>
