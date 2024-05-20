@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <!-- Google Tag Manager -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -13,98 +13,99 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>AVsuperNET - Internet Ilimitada VPN</title>
 <style>
   body {
-  background: linear-gradient(135deg, #0a0f0d 0%, #2c3e50 100%);
-  color: #f5f6fa;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  padding: 1rem; 
-  margin: 0; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
-  height: 100%;
-  min-height: 100vh; 
-}
+    background: linear-gradient(135deg, #0a0f0d 0%, #2c3e50 100%);
+    color: #f5f6fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 1rem; 
+    margin: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 100%;
+    min-height: 100vh; 
+  }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.header {
-  padding: 2rem 0;
-}
+  .header {
+    padding: 2rem 0;
+  }
 
-.botao {
-  background-color: #2c3e50; 
-  color: #ecf0f1;
-  padding: 15px 30px;
-  text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  margin: 20px 0;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.3s;
-}
+  .botao {
+    background-color: #34495e; 
+    color: #ecf0f1;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 20px 0;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
 
-.botao:hover {
-  background-color: #415b76;
-  transform: scale(1.05);
-}
+  .botao:hover {
+    background-color: #4a69bd;
+    transform: scale(1.05);
+  }
 
-.coluna {
-  flex: 1;
-  padding: 1rem;
-  margin: 0.5rem;
-  background-color: #2c3e50;
-  color: #ecf0f1;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  .coluna {
+    flex: 1;
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: #34495e;
+    color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-.iframe-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%;
-}
+  .iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
 
-.iframe-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+  .iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
 
-table {
-  margin: 2rem auto;
-  border-collapse: collapse;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  table {
+    margin: 2rem auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-th, td {
-  padding: 15px;
-  border: 1px solid #7f8c8d;
-  text-align: center;
-  background-color: #2c3e50;
-  color: #ecf0f1;
-}
+  th, td {
+    padding: 15px;
+    border: 1px solid #7f8c8d;
+    text-align: center;
+    background-color: #34495e;
+    color: #ecf0f1;
+  }
 
-.accordion {
-  background-color: #34495e;
-  color: #ecf0f1;
+  .accordion {
+  background-color: #3b4f5c;
+  color: #ccc;
   cursor: pointer;
   padding: 18px;
   width: 100%;
+  border: 2px solid black; /* Adiciona borda preta */
+  border-radius: 10px; /* Arredonda os cantos da borda */
   border: none;
-  border-radius: 10px;
   text-align: left;
   outline: none;
   font-size: 15px;
@@ -112,39 +113,38 @@ th, td {
 }
 
 .active, .accordion:hover {
-  background-color: #2d3e4f;
+  background-color: #3b4f5c;
 }
 
 .panel {
   padding: 0 18px;
-  background-color: #34495e;
+  background-color: #3b4f5c;
   display: none;
   overflow: hidden;
-  color: #ecf0f1;
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
+  color: black;
   }
 
-  .coluna {
-    margin: 0.5rem 0;
-  }
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
 
-  table {
-    width: 100%;
-    box-shadow: none;
+    .coluna {
+      margin: 0.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      box-shadow: none;
+    }
   }
-}
 </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP7DZK9X"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
 <div class="conteudo">
   <div class="coluna" style="background-color: #3b4f5c;">
     <h2>O que é Internet Móvel Ilimitada AVsuperNET?</h2>
@@ -168,44 +168,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2>Navegação ilimitada</h2>
     <p>Explore a internet sem limites! Com nossa oferta de navegação ilimitada, você pode aproveitar a web ao máximo, sem se preocupar com cortes de serviço ou reduções de velocidade.</p>
   </div>
-  <div class="coluna">
-  <div class="coluna">
-  <button class="accordion">1. Posso utilizar o mesmo plano em vários aparelhos?</button>
+  <div class="coluna" style="background-color: #3b4f5c; border: 2px solid black; border-radius: 10px;">
+  <button class="accordion botao">1. Posso utilizar o mesmo plano em vários aparelhos?</button>
   <div class="panel">
     <p>Não, todos os planos são individuais e não é possível compartilhar suas credenciais para outras pessoas.</p>
   </div>
 </div>
 
-<div class="coluna">
-  <button class="accordion">2. Qual a diferença entre a AVsuperNET e as operadoras tradicionais?</button>
+<div class="coluna" style="background-color: #3b4f5c; border: 2px solid black; border-radius: 10px;">
+  <button class="accordion botao">2. Qual a diferença entre a AVsuperNET e as operadoras tradicionais?</button>
   <div class="panel">
     <p>As operadoras normalmente cobram por mega usado. A AVsuperNET é diferente, oferecemos um aplicativo para você utilizar internet ilimitada todo o mês por um valor fixo acessível a todos.</p>
   </div>
 </div>
 
-<div class="coluna">
-  <button class="accordion">3. Posso rotear minha internet para outras pessoas?</button>
+<div class="coluna" style="background-color: #3b4f5c; border: 2px solid black; border-radius: 10px;">
+  <button class="accordion botao">3. Posso rotear minha internet para outras pessoas?</button>
   <div class="panel">
     <p>Não, pois o sistema é projetado apenas para o aparelho que conecta através do usuário e senha.</p>
   </div>
 </div>
 
-<div class="coluna">
-  <button class="accordion">4. Quais são os meios de pagamentos aceitos?</button>
+<div class="coluna" style="background-color: #3b4f5c; border: 2px solid black; border-radius: 10px;">
+  <button class="accordion botao">4. Quais são os meios de pagamentos aceitos?</button>
   <div class="panel">
     <p>Atualmente aceitamos somente pagamentos via pix.</p>
   </div>
 </div>
 
-<div class="coluna">
-  <button class="accordion">5. Como faço para solicitar suporte técnico para o meu plano?</button>
+<div class="coluna" style="background-color: #3b4f5c; border: 2px solid black; border-radius: 10px;">
+  <button class="accordion botao">5. Como faço para solicitar suporte técnico para o meu plano?</button>
   <div class="panel">
     <p>Você pode obter atendimento através do WhatsApp. Os links de acesso estão no rodapé do nosso site.</p>
   </div>
 </div>
 
-<div class="coluna">
-  <button class="accordion">6. Possui plano fidelidade? Posso cancelar quando desejar?</button>
+<div class="coluna" style="background-color: #3b4f5c; border: 2px solid black; border-radius: 10px;">
+  <button class="accordion botao">6. Possui plano fidelidade? Posso cancelar quando desejar?</button>
   <div class="panel">
     <p>Sim, você pode cancelar quando desejar. Nosso plano fidelidade oferece vantagens adicionais, mas não impõe restrições de cancelamento.</p>
   </div>
@@ -228,7 +227,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>Disponível até para 5 pessoas</p>
   </div>
   
-  <button class="accordion">Tabela de Preços para Revendedores</button>
+  <button class="accordion botao">Tabela de Preços para Revendedores</button>
   <div class="panel">
     <table>
       <tr><th>Créditos</th><th>Preço</th></tr>
@@ -267,22 +266,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>© Copyright 2020-2024 AVsuperNET- Todos os direitos reservados. Site desenvolvido por Vanderson</p>
 </div>
   <script>
-  const log = require('logToConsole');
-  log('data =', data);
-  data.gtmOnSuccess();
-
+  // Função para abrir o vídeo em tela cheia
   function openFullscreen(elem) {
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
       elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
       elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
       elem.msRequestFullscreen();
     }
   }
 
+  // Evento para abrir vídeos em tela cheia em dispositivos Android
   document.addEventListener('DOMContentLoaded', () => {
     var video = document.querySelector('video');
     if (/Android/i.test(navigator.userAgent)) {
@@ -291,6 +288,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     }
 
+    // Efeito de escala nos botões
     document.querySelectorAll('.botao').forEach(button => {
       button.addEventListener('mouseover', () => {
         button.style.transform = 'scale(1.1)';
@@ -300,6 +298,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     });
 
+    // Funcionalidade do acordeão
     const accordions = document.querySelectorAll('.accordion');
     accordions.forEach(acc => {
       acc.addEventListener('click', () => {
@@ -313,6 +312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     });
 
+    // Botão de Retorno ao Topo
     const topButton = document.createElement('button');
     topButton.id = 'topBtn';
     topButton.innerText = 'Topo';
@@ -339,7 +339,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     };
+
+    // Efeito Fade-in ao entrar na viewport
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
   });
 </script>
+<style>
+  /* Estilos para o efeito fade-in */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .appear {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+</style>
+
 </body>
 </html>
