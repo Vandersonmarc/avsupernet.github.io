@@ -1,16 +1,29 @@
+/* Estilos para o efeito fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.appear {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* Restante do seu CSS (mantido igual) */
 body {
   background: linear-gradient(135deg, #0a0f0d 0%, #2c3e50 100%);
   color: #f5f6fa;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  padding: 1rem; 
-  margin: 0; 
+  padding: 1rem;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   height: 100%;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
 .container {
@@ -23,15 +36,15 @@ body {
 }
 
 .btn-custom {
-  background-color: #00008B; 
+  background-color: #00008B;
   color: #ecf0f1;
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   text-decoration: none;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   display: inline-block;
   margin: 20px 0;
   font-weight: bold;
-  transition: background-color .3s, transform .3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-custom:hover {
@@ -42,8 +55,8 @@ body {
 .card-custom {
   background-color: #34495e;
   color: #ecf0f1;
-  border-radius: .25rem;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   margin-bottom: 1rem;
   padding: 1rem;
 }
@@ -70,7 +83,7 @@ table {
 }
 
 th, td {
-  padding: .75rem;
+  padding: 0.75rem;
   border: 1px solid #dee2e6;
   text-align: center;
 }
@@ -79,13 +92,13 @@ th, td {
   background-color: #00008B;
   color: #ccc;
   cursor: pointer;
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   width: 100%;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   text-align: left;
   outline: none;
   font-size: 1rem;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .accordion:hover, .accordion:focus {
@@ -102,7 +115,7 @@ th, td {
 
 @media (max-width: 768px) {
   .card-custom {
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
 
   table {
