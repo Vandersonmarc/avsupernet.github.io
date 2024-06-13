@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Rápido: VPN Vivo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="ic_launcher.png" alt="Logo da Vivo" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#inicio">Início <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="apnDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            APN
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="apnDropdown">
+                            <a class="dropdown-item" href="#protocolo">Protocolo da APN</a>
+                            <a class="dropdown-item" href="#dominio">Editar Domínio da APN</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#banda">Banda de Dados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#planos">Planos Sugeridos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#conclusao">Conclusão</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-5">
+        <h1 id="inicio" class="text-center">Tutorial Rápido: VPN Vivo</h1>
+        <p class="text-center">Você é usuário da Vivo e sua VPN conecta, mas não gera dados? Sem problemas! Siga este guia detalhado para solucionar esse problema e ter acesso à internet via VPN sem interrupções.</p>
+
+        <h2 id="apn">1. Acertando as configurações da APN</h2>
+        <p>A APN é como um endereço da internet para seu celular.  Sem a configuração correta, sua VPN não consegue acessar a internet. <br> 
+        **Vamos ajustar as configurações e garantir uma conexão perfeita!**</p>
+        <p><strong>Como encontrar a APN no seu celular:</strong></p>
+        <ol>
+            <li>Abra as configurações do seu celular.</li>
+            <li>Procure por "Redes móveis" ou "Redes celulares".</li>
+            <li>Selecione "Nomes de Ponto de Acesso" (APN).</li> 
+        </ol>
+
+        <h3 id="protocolo">Ajustando o Protocolo da APN</h3>
+        <ol>
+            <li>No menu de edição da APN, encontre as seguintes opções:</li>
+            <ul>
+                <li><strong>"Tipo de autenticação":</strong> Selecione <strong>"PAP ou CHAP"</strong> (se não houver, tente <strong>"CHAP"</strong>).</li>
+                <li><strong>"Tipo APN":</strong> Selecione <strong>"ipv4"</strong>.</li> 
+            </ul>
+            <li>Depois de editar, reinicie o celular para que as configurações sejam aplicadas.</li>
+        </ol>
+
+        <h3 id="dominio">Editando o Domínio da APN</h3>
+        <p>O domínio da APN indica qual site específico seu celular deve usar para acessar a internet. Para editar o domínio:</p>
+        <ol>
+            <li>Vá até a edição da APN (veja como encontrar a APN acima).</li>
+            <li>Procure o campo "Nome APN".</li>
+            <li>O domínio padrão é "zap.vivo.com.br". Experimente as seguintes alternativas, uma por vez:</li>
+            <ul>
+                <li>recarga-api.vivo.com.br</li>
+                <li>api.vivo.com.br</li>
+                <li>recarga.vivo.com.br</li>
+                <li>dns.vivo.com.br</li>
+                <li>4field.vivo.com.br</li>
+                <li>assine.vivo.com.br</li> 
+            </ul>
+            <li>Reinicie o seu celular após cada alteração para ver se a VPN funciona.</li>
+        </ol>
+
+        <h2 id="banda">2. Verificando a Banda de Dados do Celular</h2>
+        <p>Em alguns casos, o 4G da Vivo pode ter problemas. Para mudar a banda do seu celular e garantir a melhor conexão:</p>
+        <ol>
+            <li>Vá em "Configurações".</li>
+            <li>Procure por "Redes Móveis" ou "Redes Celulares".</li>
+            <li>Selecione "Seleção de Banda" ou "Modos de rede".</li>
+            <li>Experimente escolher "H+", "3G" ou "LTE" (dependendo das opções disponíveis no seu celular).</li>
+        </ol>
+
+        <h2 id="planos">3. Ajustando seu Plano da Vivo</h2>
+        <p>Alguns planos Vivo podem ter restrições para VPNs. Descubra os planos que oferecem um bom desempenho com VPNs:</p>
+        <ul>
+            <li><strong>Vivo Pré Turbo 30 dias:</strong> Por R$ 20,00 por mês, costuma funcionar para a maioria dos usuários após uma recarga mínima de R$ 20,00 a cada 30 dias.</li> 
+            <li><strong>Vivo Easy Prime:</strong>  Por R$ 33,00 por mês, garante bom desempenho com VPN para quem paga os R$ 33,00 todo mês e mantém o saldo ativo.</li>
+            <li><strong>Vivo Controle:</strong>  Um plano fixo para ter uma internet mais estável e sem preocupações com VPNs.</li> 
+            <li><strong>Por que fazer um plano e manter a internet ilimitada?</strong> Um plano de operadoras comuns hoje você não consegue assistir videos filmes e usar o mês inteiro, com a AVsuperNET você consegue gastar menos e ter o mês inteiro, mesmo que gaste 20 reais no turbo mais 20 e 15 reais com a AVsuperNET vc terá uma internet ilimitada com um gasto de 35 reais mensal que se fosse com plano de operadora nem gastando 80 reais iria suprir seu uso de dados.</li> 
+        </ul>
+
+        <h2 id="conclusao">4. Conclusão:</h2>
+        <p>Com base nas soluções testadas, essas são as melhores opções para usar a internet da Vivo sem dor de cabeça.  
+        Ajustando as configurações de APN ou alternando entre os planos sugeridos, você poderá desfrutar de uma conexão estável e eficiente.  
+        Mantenha essas configurações em mente para garantir que sua experiência online seja a melhor possível.</p>
+
+        <h2 id="contato">5. Entre em Contato:</h2>
+        <p>Para outras dicas, suporte e informações sobre nossos serviços, acesse nosso site: <a href="https://www.avsuper.com.br" target="_blank">www.avsuper.com.br</a> ou  <a href="https://www.avsuper.com.br/tv" target="_blank">www.avsuper.com.br/tv</a>.</p>
+
+    </main>
+    <footer class="footer mt-5">
+        <p class="text-center">© 2023 AVSuper. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
