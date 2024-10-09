@@ -6,12 +6,22 @@
     <title>AVsuperNET - Download do Aplicativo</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css">
+    <style>
+        .video-wrapper {
+            max-width: 800px; /* Ajusta a largura do vídeo */
+            margin: auto; /* Centraliza o vídeo */
+        }
+        .message {
+            color: red;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
     <section class="header4 cid-u96DOSMnlL" id="header04-20">
         <div class="container text-center">
-            <div class="video-wrapper" style="padding-bottom: 86%; display: flex; justify-content: center; align-items: center; position: relative;">
+            <div class="video-wrapper">
                 <video id="meuVideo" controls>
                     <source src="assets/tuto.mp4" type="video/mp4">
                     Seu navegador não suporta vídeos.
@@ -21,7 +31,8 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a id="downloadButton" href="assets/avsuper.apk" class="btn btn-lg btn-primary display-4" style="display: none;" download>Baixar o Aplicativo</a>
+                <button id="downloadButton" class="btn btn-lg btn-primary display-4" style="display: inline;" disabled>Baixar o Aplicativo</button>
+                <div class="message" id="message">Assista ao vídeo antes de baixar!</div>
             </div>
         </div>
     </section>
@@ -47,9 +58,19 @@
     <script>
         const video = document.getElementById('meuVideo');
         const downloadButton = document.getElementById('downloadButton');
+        const message = document.getElementById('message');
+
+        downloadButton.onclick = function() {
+            if (downloadButton.disabled) {
+                message.style.display = 'block'; // Mostra a mensagem se o botão estiver desabilitado
+            } else {
+                window.location.href = 'assets/avsuper.apk'; // Redireciona para download
+            }
+        };
 
         video.onended = function() {
-            downloadButton.style.display = 'block';
+            downloadButton.disabled = false; // Habilita o botão de download
+            message.style.display = 'none'; // Esconde a mensagem
         };
     </script>
 
