@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVsuperNET - Download do Aplicativo</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css">
+</head>
+<body>
+
+    <section class="header4 cid-u96DOSMnlL" id="header04-20">
+        <div class="container text-center">
+            <div class="video-wrapper" style="padding-bottom: 86%; display: flex; justify-content: center; align-items: center; position: relative;">
+                <video id="meuVideo" controls>
+                    <source src="assets/tuto.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
+                <div style="position: absolute; top: 0; width: 100%; text-align: center; color: white; background: rgba(0, 0, 0, 0.5); padding: 10px;">
+                    Instalando o aplicativo pela primeira vez.
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a id="downloadButton" href="assets/avsuper.apk" class="btn btn-lg btn-primary display-4" style="display: none;" download>Baixar o Aplicativo</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer2 cid-u9hXGIWwD5" id="footer02-34">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg col-sm-8">
+                    <div class="text-wrapper">
+                        <p class="mbr-text align-left mbr-fonts-style display-7">
+                            Ao utilizar nosso aplicativo você concorda com todos os termos de uso e política de privacidade.
+                            © Copyright 2020-2024 AVsuperNET - Todos os direitos reservados.
+                            <a href="https://docs.avsuper.com.br/termos-de-uso/termos-de-uso-do-aplicativo" class="text-primary">Termos de uso</a> |
+                            <a href="https://docs.avsuper.com.br/termos-de-uso/politica-de-privacidade" class="text-primary">Política de privacidade</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const video = document.getElementById('meuVideo');
+        const downloadButton = document.getElementById('downloadButton');
+
+        video.onended = function() {
+            downloadButton.style.display = 'block';
+        };
+    </script>
+
+</body>
+</html>
