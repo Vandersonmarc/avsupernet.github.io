@@ -30,19 +30,8 @@
 
     <style>
         .text-white { color: #f0f0f0; }
-        .footer-text {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            color: white;
-            text-align: center;
-        }
-        .text-box {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .mbr-black { color: black; }
+        .text-black { color: #000; }
+        .bg-light { background-color: rgba(255, 255, 255, 0.9); }
     </style>
 </head>
 <body>
@@ -61,39 +50,27 @@
             <a class="btn btn-primary display-4" href="assets/avsuper.apk" id="downloadApp"><span class="icon54-v1-google-play mbr-iconfont mbr-iconfont-btn" style="font-size: 16px;"></span>Baixar Aplicativo</a>
             <a class="btn btn-white-outline display-4" href="assets/avsuper.apk" id="downloadFile"><span class="icon54-v1-download-file mbr-iconfont mbr-iconfont-btn" style="font-size: 16px; color: rgb(255, 255, 255);"></span>Baixar arquivo APK</a>
         </div>
+
+        <div class="bg-light">
+            <div class="text-box">
+                <h4 class="icon-title text-black display-5"><strong>Instalando aplicativo</strong></h4>
+                <h5 class="icon-text text-black display-7">Baixe o aplicativo através de um dos links de download fornecido no site ou pesquise por AVsuperNET.</h5>
+            </div>
+            <div class="text-box">
+                <h4 class="icon-title text-black display-5"><strong>Insira suas credenciais</strong></h4>
+                <h5 class="icon-text text-black display-7">Selecione a opção da sua operadora desejada e em seguida insira as credenciais fornecidas por um de nossos revendedores autorizados.</h5>
+            </div>
+            <div class="text-box">
+                <h4 class="icon-title text-black display-5"><strong>Conectando-se</strong></h4>
+                <h5 class="icon-text text-black display-7">Após realizar todos os passos acima, clique em conectar. Pronto, você está conectado e apto a navegar de forma ilimitada 24 horas por dia.</h5>
+            </div>
+        </div>
     </section>
 
     <section data-bs-version="5.1" class="carousel slide testimonials-slider testimonials2 cleanm4_testimonials2 cid-u95ECCdm0n" data-interval="false" data-bs-interval="false" id="testimonials2-1o">
         <div class="col-lg col-sm-8">
-            <div class="text-wrapper footer-text">
-                <div class="text-box">
-                    <h4 class="icon-title mbr-black mbr-fonts-style display-5"><strong>Instalando aplicativo</strong></h4>
-                    <h5 class="icon-text mbr-black mbr-fonts-style display-7">Baixe o aplicativo através de um dos links de download fornecido no site ou pesquise por AVsuperNET.</h5>
-                </div>
-                <div class="item features-without-image">
-                    <div class="item-wrapper mbr-flex">
-                        <div class="icon-box">
-                            <span class="mbr-iconfont icon54-v2-user-password"></span>
-                        </div>
-                        <div class="text-box">
-                            <h4 class="icon-title mbr-black mbr-fonts-style display-5"><strong>Insira suas credenciais</strong></h4>
-                            <h5 class="icon-text mbr-black mbr-fonts-style display-7">Selecione a opção da sua operadora desejada e em seguida insira as credenciais fornecidas por um de nossos revendedores autorizados.</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="item features-without-image">
-                    <div class="item-wrapper mbr-flex">
-                        <div class="icon-box">
-                            <span class="mbr-iconfont icon54-v1-mobile-network"></span>
-                        </div>
-                        <div class="text-box">
-                            <h4 class="icon-title mbr-black mbr-fonts-style display-5">
-                                <strong>Conectando-se</strong>
-                            </h4>
-                            <h5 class="icon-text mbr-black mbr-fonts-style display-7">Após realizar todos os passos acima, clique em conectar. Pronto, você está conectado e apto a navegar de forma ilimitada 24 horas por dia.</h5>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-wrapper">
+                <p class="mbr-text align-left mbr-fonts-style display-7">Ao utilizar nosso aplicativo você concorda com todos os termos de uso e política de privacidade. Nós podemos atualizar nossos termos sem aviso prévio. Assim, recomendamos que você revise esta página periodicamente para quaisquer alterações.<br><br>© Copyright 2020-2024 avsupernet- Todos os direitos reservados. Site desenvolvido por VandersonMarc <a href="#" class="text-primary">😋 </a>&nbsp;<a href="https://docs.avsuper.com.br/termos-de-uso/termos-de-uso-do-aplicativo" class="text-primary">Termos de uso</a>&nbsp; |&nbsp; <a href="https://docs.avsuper.com.br/termos-de-uso/politica-de-privacidade" class="text-primary">Política de privacidade</a>.<br></p>
             </div>
         </div>
     </section>
@@ -122,11 +99,15 @@
             button.disabled = false;
             button.style.pointerEvents = 'auto'; // Reativa eventos de ponteiro
         });
-        alert('Você deve assistir ao vídeo completo para baixar o aplicativo.');
     });
 
-    video.addEventListener('play', function() {
-        alert('Por favor, assista ao vídeo antes de fazer o download.');
+    downloadButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            if (!video.paused) {
+                event.preventDefault(); // Impede o download se o vídeo não foi assistido
+                alert('Por favor, assista ao vídeo completo antes de fazer o download.');
+            }
+        });
     });
     </script>
 </body>
