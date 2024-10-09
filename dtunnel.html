@@ -32,6 +32,12 @@
         .text-white { color: #f0f0f0; }
         .text-black { color: #000; }
         .bg-light { background-color: rgba(255, 255, 255, 0.9); }
+        .bg-dark-blue {
+            background-color: #003366; /* Dark blue color */
+            color: white; /* Ensures text is white */
+            padding: 20px; /* Adds padding for better spacing */
+            border-radius: 8px; /* Optional: rounds corners */
+        }
     </style>
 </head>
 <body>
@@ -51,18 +57,18 @@
             <a class="btn btn-white-outline display-4" href="assets/avsuper.apk" id="downloadFile"><span class="icon54-v1-download-file mbr-iconfont mbr-iconfont-btn" style="font-size: 16px; color: rgb(255, 255, 255);"></span>Baixar arquivo APK</a>
         </div>
 
-        <div class="bg-light">
-            <div class="text-box">
-                <h4 class="icon-title text-black display-5"><strong>Instalando aplicativo</strong></h4>
-                <h5 class="icon-text text-black display-7">Baixe o aplicativo através de um dos links de download fornecido no site ou pesquise por AVsuperNET.</h5>
+        <div class="bg-dark-blue p-4">
+            <div class="text-box mb-4">
+                <h4 class="icon-title text-white display-5"><strong>Instalando aplicativo</strong></h4>
+                <h5 class="icon-text text-white display-7">Baixe o aplicativo através de um dos links de download fornecido no site ou pesquise por AVsuperNET.</h5>
             </div>
-            <div class="text-box">
-                <h4 class="icon-title text-black display-5"><strong>Insira suas credenciais</strong></h4>
-                <h5 class="icon-text text-black display-7">Selecione a opção da sua operadora desejada e em seguida insira as credenciais fornecidas por um de nossos revendedores autorizados.</h5>
+            <div class="text-box mb-4">
+                <h4 class="icon-title text-white display-5"><strong>Insira suas credenciais</strong></h4>
+                <h5 class="icon-text text-white display-7">Selecione a opção da sua operadora desejada e em seguida insira as credenciais fornecidas por um de nossos revendedores autorizados.</h5>
             </div>
-            <div class="text-box">
-                <h4 class="icon-title text-black display-5"><strong>Conectando-se</strong></h4>
-                <h5 class="icon-text text-black display-7">Após realizar todos os passos acima, clique em conectar. Pronto, você está conectado e apto a navegar de forma ilimitada 24 horas por dia.</h5>
+            <div class="text-box mb-4">
+                <h4 class="icon-title text-white display-5"><strong>Conectando-se</strong></h4>
+                <h5 class="icon-text text-white display-7">Após realizar todos os passos acima, clique em conectar. Pronto, você está conectado e apto a navegar de forma ilimitada 24 horas por dia.</h5>
             </div>
         </div>
     </section>
@@ -87,6 +93,7 @@
     <script>
     const video = document.getElementById('meuVideo');
     const downloadButtons = document.querySelectorAll('#downloadApp, #downloadFile');
+    let videoWatched = false;
 
     // Desabilita os botões de download inicialmente
     downloadButtons.forEach(button => {
@@ -95,6 +102,7 @@
     });
 
     video.addEventListener('ended', function() {
+        videoWatched = true; // Marca que o vídeo foi assistido
         downloadButtons.forEach(button => {
             button.disabled = false;
             button.style.pointerEvents = 'auto'; // Reativa eventos de ponteiro
@@ -103,9 +111,9 @@
 
     downloadButtons.forEach(button => {
         button.addEventListener('click', function(event) {
-            if (!video.paused) {
+            if (!videoWatched) {
                 event.preventDefault(); // Impede o download se o vídeo não foi assistido
-                alert('Por favor, assista ao vídeo completo antes de fazer o download.');
+                                alert('Por favor, assista ao vídeo completo antes de fazer o download.');
             }
         });
     });
