@@ -33,47 +33,71 @@
         .text-black { color: #000; }
         .bg-light { background-color: rgba(255, 255, 255, 0.9); }
         .bg-dark-blue {
-            background-color: #003366; /* Dark blue color */
-            color: white; /* Ensures text is white */
-            padding: 20px; /* Adds padding for better spacing */
-            border-radius: 8px; /* Optional: rounds corners */
+            background-color: #003366; /* Cor azul escuro */
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
         .neon-text {
-    color: #ff69b4; /* Rosa neon */
-    text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4; /* Efeito neon */
-}
+            color: #ff69b4; /* Rosa neon */
+            text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4;
+        }
+        .video-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            max-width: 100%;
+            padding-bottom: 56.25%; /* Mantém o aspecto de vídeo em widescreen */
+        }
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        @media (max-width: 768px) {
+            .text-box {
+                padding: 10px;
+            }
+            .mbr-section-btn {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
 
     <section data-bs-version="5.1" class="header4 cid-u96DOSMnlL" id="header04-20">
-        <div class="video-wrapper" style="padding-bottom: 86%; display: flex; justify-content: center; align-items: center; position: relative;">
+        <div class="video-wrapper">
             <video id="meuVideo" controls>
                 <source src="assets/tuto.mp4" type="video/mp4">
                 Seu navegador não suporta vídeos.
             </video>
             <div style="position: absolute; top: 0; width: 100%; text-align: center; color: white; background: rgba(0, 0, 0, 0.5); padding: 10px;">
-                Mostrando o que fazer na primeira vez no aplicativo.
+                Veja como configurar seu aplicativo de forma fácil e rápida!
             </div>
         </div>
-        <div class="mbr-section-btn">
-            <a class="btn btn-primary display-4" href="https://painel.avsuper.com.br/app/avsuper.apk" id="downloadApp"><span class="icon54-v1-google-play mbr-iconfont mbr-iconfont-btn" style="font-size: 16px;"></span>Baixar Aplicativo</a>
+        <div class="mbr-section-btn mt-4 d-flex justify-content-center">
+            <a class="btn btn-primary display-4 me-2" href="https://painel.avsuper.com.br/app/avsuper.apk" id="downloadApp"><span class="icon54-v1-google-play mbr-iconfont mbr-iconfont-btn" style="font-size: 16px;"></span>Baixar Aplicativo</a>
             <a class="btn btn-white-outline display-4" href="https://painel.avsuper.com.br/app/avsuper.apk" id="downloadFile"><span class="icon54-v1-download-file mbr-iconfont mbr-iconfont-btn" style="font-size: 16px; color: rgb(255, 255, 255);"></span>Baixar arquivo APK</a>
         </div>
 
-        <div class="bg-dark-blue p-4 text-center">
-    <div class="text-box mb-4">
-        <h1 class="icon-title neon-text display-5"><strong>🔥ATENÇÃO🔥</strong></h1>
-        <h3 class="icon-text neon-text display-7">O link para baixar o aplicativo só funciona após assistir todo o vídeo.</h3>
-    </div>
-</div>
+        <div class="bg-dark-blue p-4 text-center mt-4">
             <div class="text-box mb-4">
-                <h4 class="icon-title text-white display-5"><strong>Insira suas credenciais</strong></h4>
-                <h5 class="icon-text text-white display-7">Selecione a opção da sua operadora desejada e em seguida insira as credenciais fornecidas por um de nossos revendedores autorizados.</h5>
+                <h1 class="icon-title neon-text display-5"><strong>🔥DICA IMPORTANTE🔥</strong></h1>
+                <h3 class="icon-text neon-text display-7">Assista ao vídeo acima para aprender a configurar e aproveite o download do aplicativo.</h3>
             </div>
-            <div class="text-box mb-4">
-                <h4 class="icon-title text-white display-5"><strong>Conectando-se</strong></h4>
-                <h5 class="icon-text text-white display-7">Após realizar todos os passos acima, clique em conectar. Pronto, você está conectado e apto a navegar de forma ilimitada 24 horas por dia.</h5>
-            </div>
+        </div>
+        
+        <div class="text-box mb-4">
+            <h4 class="icon-title text-white display-5"><strong>Insira suas credenciais</strong></h4>
+            <h5 class="icon-text text-white display-7">Selecione a operadora e insira as credenciais fornecidas por um de nossos revendedores autorizados.</h5>
+        </div>
+        <div class="text-box mb-4">
+            <h4 class="icon-title text-white display-5"><strong>Conectando-se</strong></h4>
+            <h5 class="icon-text text-white display-7">Após inserir as credenciais, clique em "conectar" para navegar de forma ilimitada 24 horas por dia.</h5>
         </div>
     </section>
 
@@ -85,34 +109,5 @@
     <script src="assets/dropdown/js/navbar-dropdown.js"></script>
     <script src="assets/dropdown/js/script.js"></script>
     <script src="assets/dropdown/js/sw.js"></script>
-
-    <script>
-    const video = document.getElementById('meuVideo');
-    const downloadButtons = document.querySelectorAll('#downloadApp, #downloadFile');
-    let videoWatched = false;
-
-    // Desabilita os botões de download inicialmente
-    downloadButtons.forEach(button => {
-        button.disabled = true;
-        button.style.pointerEvents = 'none'; // Opcional: para tornar visualmente aparente
-    });
-
-    video.addEventListener('ended', function() {
-        videoWatched = true; // Marca que o vídeo foi assistido
-        downloadButtons.forEach(button => {
-            button.disabled = false;
-            button.style.pointerEvents = 'auto'; // Reativa eventos de ponteiro
-        });
-    });
-
-    downloadButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            if (!videoWatched) {
-                event.preventDefault(); // Impede o download se o vídeo não foi assistido
-                alert('Por favor, assista ao vídeo completo antes de fazer o download.');
-            }
-        });
-    });
-    </script>
 </body>
 </html>
