@@ -1,33 +1,16 @@
 {
-    "Version": 6.7.2,
-    "PainelConecta5G": false,
-    "ReleaseNotes": false,
-    "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
-    "Sms": "https://bitbin.it/VaRrkdks/raw/",
-    "logoonline": "",
-    "fundoonline": "https://i.ibb.co/0YSpH25/IMG-20240313-WA0075.jpg",
-    "fundoDoLogOnline": false,
-    "EmailFeedback": "",
-    "UrlContato": "https://painel.avsuper.com.br/renovar.php",
-    "UrlTermos": "https://bitbin.it/q47yiciT/raw/",
-    "CheckUser": "true",
-    "ModderLinkWhatsapp": false,
-    "ModderLinkTelegram": false,
-    "ModderCorCaixaServ": false,
-    "ModderCorCaixaPay": false,
-    "ModderCorCaixaCentral": "transparent",
-    "ModderCorCaixaConexao": false,
-    "ModderCorCaixaUsuario": false,
-    "ModderCorCaixaSenha": false,
-    "ModderCorBotaoIniciar": false,
-    "ModderCorBotaoLog": false,
-    "ModderCorBotaoConfig": false,
-    "Udp": [
-        {
-            "Porta": "7200;7300;7400;7500;7600"
-        }
-    ],
-    "Servers": [
+  "Version": "1",
+  "ReleaseNotes": "",
+  "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
+  "CheckUser": "true",
+  "BackgroundLink": "https://i.ibb.co/0YSpH25/IMG-20240313-WA0075.jpg",
+  "LogoLink": "",
+  "UdpPort": "7300;7500;7600;7200;7400",
+  "Sms": "https://bitbin.it/Ec4p7Tlf/raw/",
+  "EmailFeedback": "vandersonmarc24@gmail.com",
+  "UrlContato": "https://t.me/avsupernet",
+  "UrlTermos": "https://kiritosshxd.github.io/Conecta4g_site/termos.html",
+  "Servers": [
         {
             "Name": "ATUALIZAÇÃO 6.7.2",
             "TYPE": "premium",
