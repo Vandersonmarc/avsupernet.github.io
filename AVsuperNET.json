@@ -1,0 +1,302 @@
+{
+    "Version": 6.7.2,
+    "PainelConecta5G": false,
+    "ReleaseNotes": false,
+    "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
+    "Sms": "https://bitbin.it/VaRrkdks/raw/",
+    "logoonline": "",
+    "fundoonline": "https://i.ibb.co/0YSpH25/IMG-20240313-WA0075.jpg",
+    "fundoDoLogOnline": false,
+    "EmailFeedback": "",
+    "UrlContato": "https://painel.avsuper.com.br/renovar.php",
+    "UrlTermos": "https://bitbin.it/q47yiciT/raw/",
+    "CheckUser": "true",
+    "ModderLinkWhatsapp": false,
+    "ModderLinkTelegram": false,
+    "ModderCorCaixaServ": false,
+    "ModderCorCaixaPay": false,
+    "ModderCorCaixaCentral": "transparent",
+    "ModderCorCaixaConexao": false,
+    "ModderCorCaixaUsuario": false,
+    "ModderCorCaixaSenha": false,
+    "ModderCorBotaoIniciar": false,
+    "ModderCorBotaoLog": false,
+    "ModderCorBotaoConfig": false,
+    "Udp": [
+        {
+            "Porta": "7200;7300;7400;7500;7600"
+        }
+    ],
+    "Servers": [
+        {
+            "Name": "ATUALIZAÇÃO 6.7.2",
+            "TYPE": "premium",
+            "FLAG": "br.png",
+            "ServerIP": "b.avclaro.com.br",
+            "CheckUser": "https://painel.avsuper.com.br/checkuser/conecta4g.php",
+            "ServerPort": "22",
+            "SSLPort": "443",
+            "USER": "",
+            "PASS": ""
+        }
+    ],
+    "Networks": [
+        {
+            "Name": "⚠️ SELECIONAR SUA OPERADORA ⚠️",
+            "FLAG": "vivo",
+            "Payload": "[delay_split][rotate=NOTIFY;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;MERGE;ORDERPATCH;PATCH;GET;SEARCH;CONNECT] /[rotate=cdnjs.cloudflare.com;aceitedigital.vivo.com.br;api.vivo.com.br;gateway.ipfs.cloudflare.com;analytics.google.com;www.c6bank.app;www.c6bank.com.br] HTTP/1.0[crlf]Host: [rotate=[app_host];global-4-lvs-colossus-10.opera-mini.net][crlf]Upgrade: Websocket[crlf]Proxy-Connection: Keep-Alive; Upgrade[crlf]Keep-Alive: timeout=5, max=1000[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf] [crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "b.avclaro.com.br#13.227.97.116#13.227.97.28#conversions.appsflyer.com#99.84.31.8#99.84.31.114#oi-recarga.oston.io",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "🟣VIVO SECURITY PRÉ🟣 [01]",
+      "FLAG": "vivo",
+            "Payload": "[delay_split][lf]ACL http://mercadolivre.com.br HTTP/2[crlf]Host: http://mercadolivre.com.br[crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "209.14.2.36#b.avclaro.com.br",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+         },
+         {
+              "Name": "🟣VIVO SECURITY PRÉ🟣 [02]",
+            "FLAG": "vivo",
+            "Payload": "[delay_split]ACL /Set-Cookie: sessionID=fbafa6258966f49f252b404ab9e5c219; path=/admin; domain=revive.vivointernetgratis.com.br; secure; HttpOnly; SameSite=strict HTTP/1.1][lf]",
+            "SNI": "[app_host]",
+            "TlsIP": "209.14.2.36#b.avclaro.com.br",
+            "ProxyIP": "209.14.2.36#b.avclaro.com.br",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+         },
+         {
+             "Name": "🟣VIVO SECURITY PRÉ🟣 [03]",
+            "FLAG": "vivo",
+            "Payload": "[delay_split][lf]
+PUT / HTTP/1.1[crlf]
+Host: mercadolivre.com.br[crlf]
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3[crlf]
+Accept-Encoding: gzip, deflate, br[crlf]
+Connection: keep-alive[crlf]
+Follow-Redirect: true[crlf]
+[crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "209.14.2.36#b.avclaro.com.br",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+         },
+         {
+             "Name": "🟣VIVO SECURITY PRÉ🟣 [04]",
+            "FLAG": "vivo",
+            "Payload": "[delay_split][lf]PATCH http://portal.vivo.com.br HTTP/1.1[crlf]Host: http://portal.vivo.com.br[crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "209.14.2.36#b.avclaro.com.br",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+         },
+         {
+             "Name": "🟣VIVO SECURITY PRÉ🟣 [05]",
+            "FLAG": "vivo",
+            "Payload": "[delay_split]ACL /Set-Cookie: sessionID=fbafa6258966f49f252b404ab9e5c219; path=/admin; domain=revive.vivointernetgratis.com.br; secure; HttpOnly; SameSite=strict HTTP/1.1][lf]",
+            "SNI": "[app_host]",
+            "TlsIP": "209.14.2.36#b.avclaro.com.br",
+            "ProxyIP": "209.14.2.36#b.avclaro.com.br",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+         },
+        {
+            "Name": "🟣 VIVO EXPIRADO [01] 🟣",
+            "FLAG": "vivo",
+            "Payload": "GET / HTTP/1.1[crlf]Host: b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
+            "SNI": "b.avclaro.com.br",
+            "TlsIP": "104.26.12.205",
+            "ProxyIP": "104.26.12.205#172.67.74.152#64:ff9b::ac43:4a98#64:ff9b::681a:ccd",
+            "ProxyPort": "443",
+            "Info": "Tlsws"
+        },
+        {
+            "Name": "🟣 VIVO EXPIRADO [02] 🟣",
+            "FLAG": "vivo",
+            "Payload": "GET / HTTP/1.1[crlf]Host:b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "104.26.12.205#172.67.74.152#64:ff9b::ac43:4a98#64:ff9b::681a:ccd#209.14.2.36#b.avclaro.com.br",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+         {
+         "Name": "🟣VIVO EASY / CONTROLE [01]🟣",
+      "FLAG": "vivo",
+      "Payload": "GET / HTTP/1.1[crlf]Host: b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
+      "SNI": "",
+      "TlsIP": "",
+      "ProxyIP": "104.18.6.80#104.17.64.225#104.19.240.25#104.18.27.160#104.16.239.166#104.18.28.181#104.16.237.16#104.18.33.113#141.193.213.11#141.193.213.10#141.193.213.11#104.18.18.210#104.18.19.210#104.18.22.136#104.18.23.136#104.17.70.206#104.17.71.206#104.17.72.206#104.17.73.206#104.17.74.206#104.26.4.32#104.26.5.32#104.18.6.41#104.18.7.41#104.18.6.80#104.18.7.80#162.159.138.6#162.159.128.7#legado.vivo.com.br#assine.vivo.com.br#vivo360.vivo.com.br",
+      "ProxyPort": "80",
+      "Info": "Proxy"
+    },
+    {
+      "Name": "🟣VIVO EASY / CONTROLE - [02]🟣",
+      "FLAG": "vivo",
+      "Payload": "GET / HTTP/1.1[crlf]Host: b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
+      "SNI": "",
+      "TlsIP": "",
+      "ProxyIP": "104.18.7.80#b.avclaro.com.br#104.19.241.93#172.64.150.8#104.18.6.41#104.16.51.111#104.16.53.111#www.c6bank.app",
+      "ProxyPort": "80",
+      "Info": "Proxy"
+    },
+        {
+            "Name": "🔵 TIM ABAIXO 👇",
+            "FLAG": "tim",
+            "Payload": "CONNECT / HTTP/1.9[crlf]host: timofertas.com[crlf][crlf][split][crlf]OPTIONS- // HTTP/1.9[crlf]host: b.avclaro.com.br[crlf]Expect: 200-continue[crlf]Proxy-Connection: Keep-Alive[crlf]Keep-Alive: timeout=5, max=1000[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf]Sec WebSocketExtensions: superspeed[crlf]Last-Modified: Fri, 17 March 2022 04:32:39 GMT[crlf]Server: Qnax[crlf]User-Agent: Mozilla/5.0 (Linux; Android 4.4.2); Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Mobile Safari/537.36 OPR/20.0.1396.72047[crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "timfla.islandfree.online#stage.timofertas.com#104.21.2.132#timofertas.com#172.67.129.62",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM VÁLIDO ☆01☆",
+            "FLAG": "tim",
+            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "104.19.241.93#104.19.239.25#172.64.154.143#172.67.188.168#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113#13.227.126.58#13.227.97.49#13.227.97.116#13.227.97.28#13.227.97.69#3.163.10.121#3.163.10.54#3.163.10.104#3.163.10.112#99.84.31.8#99.84.31.97#18.67.129.10#18.67.129.119#18.67.129.103#18.67.129.91#52.85.213.121#108.139.113.89#108.139.113.89",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM TODOS OS DDDs ☆02☆",
+            "FLAG": "tim",
+            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "SNI": "",
+            "TlsIP": "substack.com#fee.org#tender.cash",
+            "ProxyIP": "172.64.154.143#172.67.188.168#104.19.241.93#104.19.239.25#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM VÁLIDO ☆03☆",
+            "FLAG": "tim",
+            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br;launches.appsflyer.com][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "172.64.154.143#172.67.188.168#104.19.241.93#104.19.239.25#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113#13.227.97.49#13.227.97.116#13.227.97.28#13.227.97.69#99.84.31.80#13.227.126.91#52.85.213.121#13.227.126.58",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM VÁLIDO ☆04☆",
+            "FLAG": "tim",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: [rotate=tim.com.br;timpospromo.com.br;launches.appsflyer.com][crlf] [crlf]PATCH /id3 HTTP/1.1[crlf]Host: [rotate=a.cdnplan.online;a.cdnsale.xyz;a.cdndeals.online;a.cdndesigns.online;a.cdndoor.online][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "www.newsroom-deezer.com#www.deezer-blog.com#www.deezer-brandpartnerships.com#141.193.213.11#141.193.213.10#104.19.241.93#104.18.28.182#104.19.239.25#104.18.33.113#172.64.154.143#104.18.99.70#104.16.53.111#172.67.188.168#104.17.64.225#104.19.241.93#13.227.126.58#13.227.97.49#13.227.97.116#13.227.97.28#13.227.97.69#3.163.10.121#3.163.10.54#3.163.10.104#3.163.10.112#99.84.31.8#99.84.31.97#18.67.129.10#18.67.129.119#18.67.129.103#18.67.129.91#52.85.213.121#108.139.113.89#108.139.113.89",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM DDD 61,21,62,31 ☆05☆",
+            "FLAG": "tim",
+            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "SNI": "",
+            "TlsIP": "substack.com#fee.org#tender.cash",
+            "ProxyIP": "172.64.154.143#172.67.188.168#104.19.241.93#104.19.239.25#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM VÁLIDO ☆06☆",
+            "FLAG": "tim",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: [rotate=tim.com.br;timpospromo.com.br;launches.appsflyer.com][crlf] [crlf]PATCH /id3 HTTP/1.1[crlf]Host: [rotate=a.cdnplan.online;a.cdnsale.xyz;a.cdndeals.online;a.cdndesigns.online;a.cdndoor.online][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "104.19.241.93#104.19.239.25#172.64.154.143#172.67.188.168#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113",
+            "ProxyIP": "104.19.241.93#104.19.239.25#172.64.154.143#172.67.188.168#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.1132.67.188.168#104.17.64.225",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM VÁLIDO ☆07☆",
+            "FLAG": "tim",
+            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "SNI": "",
+            "TlsIP": "162.159.153.238",
+            "ProxyIP": "172.64.154.143#172.67.188.168#104.19.241.93#104.19.239.25#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM EXPIRADO ☆01☆",
+            "FLAG": "tim",
+            "Payload": "HTTP/1.1 200[crlf]Host: vimeo.com[crlf][crlf][netData][crlf]@mip [crlf][crlf]http://uber.com/ HTTP/1.1 200[crlf]mip[crlf][crlf] [crlf][crlf]http://udemy.com/ HTTP/1.1 200[crlf]Host@mip[crlf][crlf] [crlf][crlf] http://aliyuncs.com/ HTTP/1.1 200[crlf]Host fastly.net/[crlf][crlf][netData][crlf] [crlf][crlf] http://pornhub.com/ HTTP/1.1[crlf] [crlf][crlf][netData][crlf] [crlf][crlf] http://google.com/ HTTP/1.1[cr][lf] [crlf][crlf][netData][cr][lf] [crlf][crlf]CONNECT mip:22@http://youtube.com/ HTTP/1.1[crlf] [crlf][crlf][netData][crlf] [crlf]#HTTP/1.1[lf]HTTP/ [lf]Host: [rotate=yhjq23.360.com.fail;alt4.aspmx.l.google.com;www.xhtsw.163.com.fail;www.storm.canny.io;www.reimaginetomorrow-qa.disney.com;www.minecraft.msgfocus.com;www.netflixawards.com;x115gzbrpk.execute-api.us-east-1.amazonaws.com;google.traiteurjongen.com;aspmx.l.google.com.4xfun.com;aspmx.l.google.com.469.it. 20secondenhandenwassen.nl;aspmx.l.google.com.469.it;alt2.aspmx.l.google.com.0088.tv;alt1.aspmx.l.google.com.123sexshop.be;alt2.aspmx.l.google.com.sac-surveyors.org;alt2.aspmx.l.google.com.meta-meta.com;slcch03bl9.execute-api.us-east-1.amazonaws.com][lf]@",
+            "SNI": "",
+            "TlsIP": "209.14.2.36",
+            "ProxyIP": "209.14.2.36",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM EXPIRADO ♧02♧",
+            "FLAG": "tim",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: [rotate=tim.com.br;timpospromo.com.br;launches.appsflyer.com][crlf] [crlf]PATCH /id3 HTTP/1.1[crlf]Host: [rotate=a.cdnplan.online;a.cdnsale.xyz;a.cdndeals.online;a.cdndesigns.online;a.cdndoor.online][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
+            "SNI": "b.avclaro.com.br",
+            "TlsIP": "",
+            "ProxyIP": "checkout.timlive.tim.com.br#d2lw319xdy6x9h.cloudfront.net#d3awytnmmfk53d.cloudfront.net#launches.appsflyer.com#13.33.123.128#13.33.123.29#13.33.123.107#13.33.123.19#18.67.145.96#18.64.207.89#13.227.126.58#13.227.126.58#18.67.129.17#c6bank.onelink.me#99.84.31.110#99.84.31.38#99.84.31.63#99.84.31.9#13.248.245.213#54.231.225.121#65.9.95.105#18.66.147.27#108.158.172.101#108.158.172.59#108.158.172.82#108.158.172.10#99.84.37.44#13.226.22.87#108.158.172.101#108.158.172.59#108.158.172.82#108.158.172.10#99.84.37.44#13.226.22.87#13.227.126.39#13.227.126.40#13.227.126.91#13.227.126.39#13.227.126.40#13.227.126.91#13.227.97.69#13.227.97.28#13.227.97.116#13.227.97.49#13.33.123.128#13.33.123.29#13.33.123.107#13.33.123.19#18.67.145.96#18.64.207.89#13.227.126.58#13.227.126.58#108.139.113.89#130.176.11.146#205.251.249.0#70.132.10.90#54.192.0.3#15.158.7.76#143.204.0.3#frontend-tim-recarga-client.m4u.com.br#52.85.213.77#52.85.213.112#52.85.213.121#52.85.213.74#52.67.198.135#cc-brand.plat-m4u.io#108.139.113.45#dex.descomplica.com.br#13.33.123.107#18.67.129.91#18.67.129.103#18.67.129.119#18.67.129.10#oi-recarga.oston.io#www.timlive.tim.com.br#timlive.tim.com.br#13.227.126.39#13.227.126.40#13.227.126.91#99.84.31.114#99.84.31.97#99.84.31.8#99.84.31.80#io.descomplica.com.br#3.163.10.29#3.163.10.81#3.163.10.19#3.163.10.100#conversions.appsflyer.com#3.163.10.112#3.163.10.104#3.163.10.54#3.163.10.121#13.227.97.69#13.227.97.28#13.227.97.116#13.227.97.49",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM EXPIRADO ♧03♧",
+            "FLAG": "tim",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: b.avclaro.com.br[crlf]X-Forward-Host: b.avclaro.com.br[crlf]wss://[crlf]Connection: upgrade[crlf]upgrade: websocket[realData][crlf][crlf]",
+            "SNI": "b.avclaro.com.br",
+            "TlsIP": "",
+            "ProxyIP": "209.14.2.36",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "TIM EXPIRADO ♧04♧",
+            "FLAG": "tim",
+            "Payload": "HTTP/1.1 200[crlf]Host: vimeo.com[crlf][crlf][netData][crlf]@mip [crlf][crlf]http://uber.com/ HTTP/1.1 200[crlf]mip[crlf][crlf] [crlf][crlf]http://udemy.com/ HTTP/1.1 200[crlf]Host@mip[crlf][crlf] [crlf][crlf] http://aliyuncs.com/ HTTP/1.1 200[crlf]Host fastly.net/[crlf][crlf][netData][crlf] [crlf][crlf] http://pornhub.com/ HTTP/1.1[crlf] [crlf][crlf][netData][crlf] [crlf][crlf] http://google.com/ HTTP/1.1[cr][lf] [crlf][crlf][netData][cr][lf] [crlf][crlf]CONNECT mip:22@http://youtube.com/ HTTP/1.1[crlf] [crlf][crlf][netData][crlf] [crlf]#HTTP/1.1[lf]HTTP/ [lf]Host: [rotate=yhjq23.360.com.fail;alt4.aspmx.l.google.com;www.xhtsw.163.com.fail;www.storm.canny.io;www.reimaginetomorrow-qa.disney.com;www.minecraft.msgfocus.com;www.netflixawards.com;x115gzbrpk.execute-api.us-east-1.amazonaws.com;google.traiteurjongen.com;aspmx.l.google.com.4xfun.com;aspmx.l.google.com.469.it. 20secondenhandenwassen.nl;aspmx.l.google.com.469.it;alt2.aspmx.l.google.com.0088.tv;alt1.aspmx.l.google.com.123sexshop.be;alt2.aspmx.l.google.com.sac-surveyors.org;alt2.aspmx.l.google.com.meta-meta.com;slcch03bl9.execute-api.us-east-1.amazonaws.com][lf]@",
+            "SNI": "b.avclaro.com.br",
+            "TlsIP": "",
+            "ProxyIP": "209.14.2.36",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "🔴 CLARO ABAIXO 👇",
+            "FLAG": "claro",
+            "Payload": "HEAD / HTTP/1.1[crlf]Host:outlook.giphy.com[crlf][crlf][split]GET /id3 HTTP/1.1[crlf]Host: [rotate=a.cdnplan.online;a.cdnsale.xyz;a.cdndeals.online;a.cdndesigns.online;a.cdndoor.online][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "outlook.giphy.com",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "🔴 Claro ON PRÉ [01]",
+            "FLAG": "claro",
+            "Payload": "HEAD / HTTP/1.1[crlf]Host:outlook.giphy.com[crlf][crlf][split]GET /id3 HTTP/1.1[crlf]Host: [rotate=a.cdnplan.online;a.cdnsale.xyz;a.cdndeals.online;a.cdndesigns.online;a.cdndoor.online][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "outlook.giphy.com",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        },
+        {
+            "Name": "🔴 Claro ON PRÉ [01]",
+            "FLAG": "claro",
+            "Payload": "HEAD / HTTP/1.1[crlf]Host:outlook.giphy.com[crlf][crlf][split]GET /id3 HTTP/1.1[crlf]Host: [rotate=a.cdnplan.online;a.cdnsale.xyz;a.cdndeals.online;a.cdndesigns.online;a.cdndoor.online][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "outlook.giphy.com",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+        }
+    ]
+}
