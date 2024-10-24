@@ -1,5 +1,5 @@
 {
-    "Version": 1.0.1,
+    "Version": 1.0.2,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.0.1",
+            "Name": "ATUALIZAÇÃO 1.0.2",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "b.avclaro.com.br",
@@ -161,20 +161,20 @@ Follow-Redirect: true[crlf]
         {
             "Name": "TIM VÁLIDO ☆01☆",
             "FLAG": "tim",
-            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "Payload": "GET /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate= apf.maisvantagenstim.com.br;launches.appsflyer.com;checkout.timlive.tim.com.br;timlive.tim.com.br;www.timlive.tim.com.br;www2.timlive.tim.com.br][crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "104.19.241.93#104.19.239.25#172.64.154.143#172.67.188.168#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113#13.227.126.58#13.227.97.49#13.227.97.116#13.227.97.28#13.227.97.69#3.163.10.121#3.163.10.54#3.163.10.104#3.163.10.112#99.84.31.8#99.84.31.97#18.67.129.10#18.67.129.119#18.67.129.103#18.67.129.91#52.85.213.121#108.139.113.89#108.139.113.89",
+            "ProxyIP": "172.66.0.157#162.159.140.159#apf.maisvantagenstim.com.br#104.19.241.93#104.19.239.25#172.64.154.143#172.67.188.168#a.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113#13.227.97.49#13.227.97.116#13.227.97.28#13.227.97.69#99.84.31.80#13.227.126.91#52.85.213.121#13.227.126.58",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
         {
             "Name": "TIM TODOS OS DDDs ☆02☆",
             "FLAG": "tim",
-            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "Payload": "GET /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate= apf.maisvantagenstim.com.br;launches.appsflyer.com;checkout.timlive.tim.com.br;timlive.tim.com.br;www.timlive.tim.com.br;www2.timlive.tim.com.br][crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "substack.com#fee.org#tender.cash",
-            "ProxyIP": "172.64.154.143#172.67.188.168#104.19.241.93#104.19.239.25#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113",
+            "ProxyIP": "172.66.0.157#162.159.140.159#apf.maisvantagenstim.com.br#104.19.241.93#104.19.239.25#172.64.154.143#172.67.188.168#a.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113#13.227.97.49#13.227.97.116#13.227.97.28#13.227.97.69#99.84.31.80#13.227.126.91#52.85.213.121#13.227.126.58",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
