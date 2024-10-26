@@ -1,5 +1,5 @@
 {
-    "Version": 1.0.5,
+    "Version": 1.0.6,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.0.5",
+            "Name": "ATUALIZAÇÃO 1.0.6",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "b.avclaro.com.br",
@@ -74,12 +74,12 @@
          {
              "Name": "🟣VIVO GRINGA🟣 [03]",
             "FLAG": "vivo",
-            "Payload": "PATCH /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: Websocket[crlf][crlf]",
-            "SNI": "",
-            "TlsIP": "",
-            "ProxyIP": "gedoc.vivo.com.br#recarga.vivo.com.br#162.159.135.63#162.159.136.63#gedoc.vivo.com.br#lojaempresas.vivo.com.br#www.vivoemdia.vivo.com.br#cname.vivo.com.br#web.vivo.com.br",
-            "ProxyPort": "80",
-            "Info": "Proxy"
+            "Payload": "GET /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: Websocket[crlf][crlf]",
+      "SNI": "firewallfalcon.canaldotl.573357.xyz",
+      "TlsIP": "gedoc.vivo.com.br",
+      "ProxyIP": "",
+      "ProxyPort": "443",
+      "Info": "Tlsws"
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [04]",
