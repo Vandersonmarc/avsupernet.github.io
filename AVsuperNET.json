@@ -1,5 +1,5 @@
 {
-    "Version": 1.0.2,
+    "Version": 1.0.3,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.0.2",
+            "Name": "ATUALIZAÇÃO 1.0.3",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "b.avclaro.com.br",
@@ -52,12 +52,12 @@
             "Info": "Proxy"
         },
         {
-            "Name": "🟣VIVO SECURITY PRÉ🟣 [01]",
+            "Name": "🟣VIVO GRINGA🟣 [01]",
       "FLAG": "vivo",
-            "Payload": "[delay_split][lf]ACL http://mercadolivre.com.br HTTP/2[crlf]Host: http://mercadolivre.com.br[crlf]",
+            "Payload": "PATCH /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "209.14.2.36#b.avclaro.com.br",
+            "ProxyIP": "gedoc.vivo.com.br#recarga.vivo.com.br#162.159.135.63#162.159.136.63#gedoc.vivo.com.br#lojaempresas.vivo.com.br#www.vivoemdia.vivo.com.br#cname.vivo.com.br#web.vivo.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
@@ -72,21 +72,14 @@
             "Info": "Proxy"
          },
          {
-             "Name": "🟣VIVO SECURITY PRÉ🟣 [03]",
+             "Name": "🟣VIVO GRINGA🟣 [03]",
             "FLAG": "vivo",
-            "Payload": "[delay_split][lf]
-PUT / HTTP/1.1[crlf]
-Host: mercadolivre.com.br[crlf]
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3[crlf]
-Accept-Encoding: gzip, deflate, br[crlf]
-Connection: keep-alive[crlf]
-Follow-Redirect: true[crlf]
-[crlf]",
-            "SNI": "",
+            "Payload": "GET /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: Websocket[crlf][crlf]",
+            "SNI": "firewallfalcon.canaldotl.573357.xyz",
             "TlsIP": "",
-            "ProxyIP": "209.14.2.36#b.avclaro.com.br",
-            "ProxyPort": "80",
-            "Info": "Proxy"
+            "ProxyIP": "gedoc.vivo.com.br#lojaempresas.vivo.com.br#www.vivoemdia.vivo.com.br#cname.vivo.com.br#web.vivo.com.br",
+            "ProxyPort": "443",
+            "Info": "Tlsws"
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [04]",
@@ -181,10 +174,10 @@ Follow-Redirect: true[crlf]
         {
             "Name": "TIM VÁLIDO ☆03☆",
             "FLAG": "tim",
-            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br;launches.appsflyer.com][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "Payload": "PATCH /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "172.64.154.143#172.67.188.168#104.19.241.93#104.19.239.25#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113#13.227.97.49#13.227.97.116#13.227.97.28#13.227.97.69#99.84.31.80#13.227.126.91#52.85.213.121#13.227.126.58",
+            "ProxyIP": "gedoc.vivo.com.br#www.c6bank.com.br#mtls.sandbox.c6bank.com.br#mobile.hom.c6bank.app#app.sandbox.c6bank.com.br#auth.of.c6bank.com.br#ajuda.c6bank.com.br#assets-sf.c6bank.com.br#auth.of.c6bank.com.br#blog.c6bank.com.br#boleto.c6bank.com.br#c6bank.com.br#cdn.c6bank.com.br#cloud.mail.c6bank.com.br#dev-terms.c6bank.com.br#image.mail.c6bank.com.br#investment.c6bank.com.br#terms.c6bank.com.br#www.c6bank.com.br#162.159.152.26#172.64.144.237",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
@@ -201,10 +194,10 @@ Follow-Redirect: true[crlf]
         {
             "Name": "TIM DDD 61,21,62,31 ☆05☆",
             "FLAG": "tim",
-            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "Payload": "PATCH /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
-            "TlsIP": "substack.com#fee.org#tender.cash",
-            "ProxyIP": "172.64.154.143#172.67.188.168#104.19.241.93#104.19.239.25#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113",
+            "TlsIP": "",
+            "ProxyIP": "gedoc.vivo.com.br#www.c6bank.com.br#mtls.sandbox.c6bank.com.br#mobile.hom.c6bank.app#app.sandbox.c6bank.com.br#auth.of.c6bank.com.br#ajuda.c6bank.com.br#assets-sf.c6bank.com.br#auth.of.c6bank.com.br#blog.c6bank.com.br#boleto.c6bank.com.br#c6bank.com.br#cdn.c6bank.com.br#cloud.mail.c6bank.com.br#dev-terms.c6bank.com.br#image.mail.c6bank.com.br#investment.c6bank.com.br#terms.c6bank.com.br#www.c6bank.com.br#162.159.152.26#172.64.144.237",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
@@ -221,10 +214,10 @@ Follow-Redirect: true[crlf]
         {
             "Name": "TIM VÁLIDO ☆07☆",
             "FLAG": "tim",
-            "Payload": "ACL /wss.html HTTP/1.1[lf]Host: [rotate=b.avclaro.com.br][lf]Expect: 100-tmyvpn[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "Payload": "PATCH /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
-            "TlsIP": "162.159.153.238",
-            "ProxyIP": "172.64.154.143#172.67.188.168#104.19.241.93#104.19.239.25#b.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113",
+            "TlsIP": "",
+            "ProxyIP": "gedoc.vivo.com.br#www.c6bank.com.br#mtls.sandbox.c6bank.com.br#mobile.hom.c6bank.app#app.sandbox.c6bank.com.br#auth.of.c6bank.com.br#ajuda.c6bank.com.br#assets-sf.c6bank.com.br#auth.of.c6bank.com.br#blog.c6bank.com.br#boleto.c6bank.com.br#c6bank.com.br#cdn.c6bank.com.br#cloud.mail.c6bank.com.br#dev-terms.c6bank.com.br#image.mail.c6bank.com.br#investment.c6bank.com.br#terms.c6bank.com.br#www.c6bank.com.br#162.159.152.26#172.64.144.237",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
