@@ -1,5 +1,5 @@
 {
-    "Version": 1.0.3,
+    "Version": 1.0.4,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.0.3",
+            "Name": "ATUALIZAÇÃO 1.0.4",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "b.avclaro.com.br",
@@ -76,7 +76,7 @@
             "FLAG": "vivo",
             "Payload": "GET /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "firewallfalcon.canaldotl.573357.xyz",
-            "TlsIP": "",
+            "TlsIP": "gedoc.vivo.com.br#lojaempresas.vivo.com.br#www.vivoemdia.vivo.com.br#cname.vivo.com.br#web.vivo.com.br",
             "ProxyIP": "gedoc.vivo.com.br#lojaempresas.vivo.com.br#www.vivoemdia.vivo.com.br#cname.vivo.com.br#web.vivo.com.br",
             "ProxyPort": "443",
             "Info": "Tlsws"
