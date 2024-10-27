@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Interativo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6ec1e4 0%, #b3e8b1 100%);
+        }
+        .form-container {
+            text-align: left;
+            width: 350px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            background: #f9f9f9;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .button {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .info {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #333;
+        }
+        .apn-button {
+            margin-top: 20px;
+            padding: 12px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .apn-button:hover {
+            background-color: #218838;
+        }
+        .video-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .video-container video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="question" id="question">Qual sua operadora?</div>
+        <button class="button" onclick="selectOperator('VIVO')">VIVO</button>
+        <button class="button" onclick="selectOperator('TIM')">TIM</button>
+        <div class="info" id="info"></div>
+
+        <div class="video-container" id="videoContainer">
+            <video id="video" controls>
+                <source src="" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function selectOperator(operator) {
+            const questionElement = document.getElementById('question');
+            const infoElement = document.getElementById('info');
+            const video = document.getElementById('video');
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.style.display = 'none'; // Esconde o vídeo inicialmente
+
+            if (operator === 'TIM') {
+                questionElement.innerHTML = "Tirando dúvidas de quem tem chip Tim";
+                infoElement.innerHTML = `
+                    <p><strong>Requisito para conexão na TIM:</strong> "saldo na validade"</p>
+                    <p><em>Significado:</em> Seu chip não precisa estar com saldo em reais!</p>
+                    <p>Para a categoria saldo válido, seu chip precisa ter apenas validade de saldo. Por exemplo: ao fazer uma recarga mínima, mesmo que você esgote todo o saldo, ela terá uma validade de expiração independente do valor!</p>
+                    <p>Para manter seu chip nessa categoria, faça uma recarga sempre que o saldo expirar. Caso contrário, seu chip passará para a categoria de "saldo expirado", que funciona em boa parte dos DDDs.</p>
+                    <p><strong>Como verificar se seu chip TIM está válido ou expirado:</strong></p>
+                    <ol>
+                        <li>Ligar para *222# (não funciona em todos os DDDs)</li>
+                        <li>Usar a notificação "fazer login na rede"</li>
+                        <li>Utilizar o app "Meu TIM"</li>
+                    </ol>
+                    <p>Se o status do chip estiver como <strong>ativo</strong>, escolha as opções normais. Se estiver como <strong>expirado</strong>, consulte as opções abaixo para chips TIM expirados.</p>
+                    <button class="apn-button" onclick="showVideo('/assets/dados.mp4')">Configurar APN</button>
+                `;
+            } else if (operator === 'VIVO') {
+                questionElement.innerHTML = "Escolha uma opção da VIVO:";
+                infoElement.innerHTML = `
+                    <button class="button" onclick="showPrePaid()">VIVO PRÉ</button>
+                    <button class="button" onclick="showVideo('/assets/dados.mp4')">VIVO CONTROLE</button>
+                    <button class="button" onclick="showVideo('/assets/dados.mp4')">VIVO EASY</button>
+                `;
+            }
+        }
+
+        function showPrePaid() {
+            const questionElement = document.getElementById('question');
+            const infoElement = document.getElementById('info');
+            infoElement.innerHTML = `
+                <h3>TUTORIAL GERA DADOS NA VIVO COM E SEM LOGIN DE REDE</h3>
+                <p>Resolvi postar este tutorial pra ver se ajuda o pessoal que ainda tem dificuldade em gerar dados na vivo, então vamos lá:</p>
+                <ol>
+                    <li>Primeiramente baixe o apk "VIVO PONTOS" na <a href="https://appvivopontos.com.br/?invitedByCode=E3E363556C" target="_blank">VIVO PONTOS</a>, faça o cadastro, você ganhará 1G de internet, gaste como quiser.</li>
+                    <li>Assista os anúncios por dia para ganhar os pontos necessários para trocar por 50 MB apenas (acumule quantos pontos quiser, mas não é necessário usar todos, use somente os 50 MB para ativar seu acesso ao nosso aplicativo *𝔸𝕍𝕤𝕦𝕡𝕖𝕣ℕ𝔼𝕋*, seja sábio, não seja guloso kk).</li>
+                    <li>Após resgatar os 50 MB, use e gaste para poder usar o aplicativo *𝔸𝕍𝕤𝕦𝕡𝕖𝕣ℕ𝔼𝕋*.</li>
+                </ol>
+                <p><strong>Obs:</strong> Se o cliente apenas pegar 500 pontos ou acumular pontos a hora que ele quiser, a *𝔸𝕍𝕤𝕦𝕡𝕖𝕣ℕ𝔼𝕋* sempre gerará dados como se fosse no saldo válido, mesmo um chip expirado ou sem promoção vai funcionar normal, é importante mantê-lo ciente disso para o bom funcionamento da conexão. Após o período de uso dos MBs acabar é só resgatar mais 50 MB novamente.</p>
+                <p>Dica: após o uso dos 50 MBs não dê modo avião imediatamente, tente conectar, pois estará como se estivesse sem login de rede, caso não conecte aí sim dê o modo avião.</p>
+                <button class="apn-button" onclick="showVideo('/img/pontos.mp4')">Assistir Vídeo</button>
+            `;
+        }
+
+        function showVideo(videoSrc) {
+            const videoContainer = document.getElementById('videoContainer');
+            const video = document.getElementById('video');
+            video.src = videoSrc;
+            videoContainer.style.display = 'block';
+            video.play();
+
+            // Entrar em tela cheia se suportado
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) { // Safari
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { // IE/Edge
+                video.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
