@@ -71,9 +71,8 @@
             "ProxyPort": "80",
             "Info": "Proxy"
          },
-         },
        {
-   "Name": "🟣 VIVO SSL",
+   "Name": "🟣 VIVO SSL [03]",
       "FLAG": "vivo",
       "Payload": "GET /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: Websocket[crlf][crlf]",
       "SNI": "firewallfalcon.canaldotl.573357.xyz",
