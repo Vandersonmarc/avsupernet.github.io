@@ -1,5 +1,5 @@
 {
-    "Version": 1.1.7,
+    "Version": 1.1.8,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.1.7",
+            "Name": "ATUALIZAÇÃO 1.1.8",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br#firewallfalcon.canaldotl.573357.xyz",
@@ -54,7 +54,7 @@
         {
             "Name": "🟣VIVO & TIM🔵",
       "FLAG": "vivo",
-            "Payload": "[rotate=DELETE;PUT;ACL;PATCH] wss://[rotate=firewallfalcon.canaldotl.573357.xyz;timofertas.com;apf.maisvantagenstim.com.br]/cdn-cgi/trace/ HTTP/1.1[crlf]Host: [rotate=api.digital.cname.vivo.com.br;api.digital.cname.vivo.com.br.cdn.cloudflare.net;api.digital.vivo.com.br;app.vivo.com.br;autenticaint.cname.vivo.com.br][crlf][crlf][split][crlf][crlf]CF-RAY- /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf]@avsuper[crlf][crlf]#[rotate=GET;PATCH;CONNECT;PUT;NOTIFY;ACL] / HTTP/1.1[lf]Host: revive.timrecompensas.com.br[crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: vivo.avclaro.com.br[lf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "[rotate=DELETE;PUT;ACL;PATCH] wss://[rotate=firewallfalcon.canaldotl.573357.xyz;timofertas.com;apf.maisvantagenstim.com.br]/cdn-cgi/trace/ HTTP/1.1[crlf]Host: [rotate=api.digital.cname.vivo.com.br;api.digital.cname.vivo.com.br.cdn.cloudflare.net;api.digital.vivo.com.br;app.vivo.com.br;autenticaint.cname.vivo.com.br;revive.timrecompensas.com.br][crlf][crlf][split][crlf][crlf]CF-RAY- /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]Upgrade: websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf]@avsuper[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "apf.maisvantagenstim.com.br#timofertas.com#api.digital.cname.vivo.com.br#api.digital.cname.vivo.com.br.cdn.cloudflare.net#api.digital.vivo.com.br#app.vivo.com.br#autenticaint.cname.vivo.com.br#revive.timrecompensas.com.br#104.18.4.18#104.18.5.18",
