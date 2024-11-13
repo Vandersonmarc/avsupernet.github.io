@@ -1,8 +1,8 @@
 {
-    "Version": 1.2.0,
+    "Version": 1.2.1,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
-    "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
+    "UrlUpdate": "https://www.avsuper.com.br/NET.json",
     "Sms": "https://bitbin.it/VaRrkdks/raw/",
     "logoonline": "",
     "fundoonline": "https://i.ibb.co/6P440hg/aa16436611ebe893b54ef8e2d6bf8040.jpg",
@@ -29,10 +29,10 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.2.0",
+            "Name": "ATUALIZAÇÃO 1.2.1",
             "TYPE": "premium",
             "FLAG": "br.png",
-            "ServerIP": "a.avclaro.com.br#firewallfalcon.canaldotl.573357.xyz",
+            "ServerIP": "a.avclaro.com.br",
             "CheckUser": "https://painel.avsuper.com.br/checkuser/conecta4g.php",
             "ServerPort": "22",
             "SSLPort": "443",
@@ -44,7 +44,7 @@
         {
             "Name": "⚠️ SELECIONAR SUA OPERADORA ⚠️",
             "FLAG": "vivo",
-            "Payload": "[rotate=DELETE;PUT;ACL;PATCH;UNLOCK] wss://[rotate=firewallfalcon.canaldotl.573357.xyz;timofertas.com;apf.maisvantagenstim.com.br]/cdn-cgi/trace/ HTTP/1.1[crlf]Host: [rotate=api.digital.cname.vivo.com.br;api.digital.cname.vivo.com.br.cdn.cloudflare.net;api.digital.vivo.com.br;app.vivo.com.br;autenticaint.cname.vivo.com.br][crlf][crlf][split][crlf][crlf]CF-RAY- /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]X-Status-Id: tunnel[crlf]Upgrade: websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf]@avsuper[crlf][crlf]",
+            "Payload": "[rotate=DELETE;PUT;ACL;PATCH;UNLOCK] wss://[rotate=V25.thur.store;timofertas.com;apf.maisvantagenstim.com.br]/cdn-cgi/trace/ HTTP/1.1[crlf]Host: [rotate=api.digital.cname.vivo.com.br;api.digital.cname.vivo.com.br.cdn.cloudflare.net;api.digital.vivo.com.br;app.vivo.com.br;autenticaint.cname.vivo.com.br][crlf][crlf][split][crlf][crlf]CF-RAY- / HTTP/1.1[crlf]Host: V25.thur.store[crlf]X-Status-Id: tunnel[crlf]Upgrade: websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf]@avsuper[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "apf.maisvantagenstim.com.br#timofertas.com#api.digital.cname.vivo.com.br#api.digital.cname.vivo.com.br.cdn.cloudflare.net#api.digital.vivo.com.br#app.vivo.com.br#autenticaint.cname.vivo.com.br",
@@ -54,7 +54,7 @@
         {
             "Name": "🟣VIVO & TIM🔵",
       "FLAG": "vivo",
-            "Payload": "[rotate=DELETE;PUT;ACL;PATCH] wss://[rotate=firewallfalcon.canaldotl.573357.xyz;timofertas.com;apf.maisvantagenstim.com.br]/cdn-cgi/trace/ HTTP/1.1[crlf]Host: [rotate=api.digital.cname.vivo.com.br;api.digital.cname.vivo.com.br.cdn.cloudflare.net;api.digital.vivo.com.br;app.vivo.com.br;autenticaint.cname.vivo.com.br;revive.timrecompensas.com.br][crlf][crlf][split][crlf][crlf]CF-RAY- /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]X-Status-Id: tunnel[crlf]Upgrade: websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf]@avsuper[crlf][crlf]",
+            "Payload": "[rotate=DELETE;PUT;ACL;PATCH;SEARCH] wss://[rotate=V25.thur.store;timofertas.com;apf.maisvantagenstim.com.br]/cdn-cgi/trace/ HTTP/1.1[crlf]Host: [rotate=api.digital.cname.vivo.com.br;api.digital.cname.vivo.com.br.cdn.cloudflare.net;api.digital.vivo.com.br;app.vivo.com.br;autenticaint.cname.vivo.com.br;revive.timrecompensas.com.br][crlf][crlf][split][crlf][crlf]CF-RAY- / HTTP/1.1[crlf]Host: V25.thur.store[crlf]X-Status-Id: tunnel[crlf]Upgrade: websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf]@avsuper[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "apf.maisvantagenstim.com.br#timofertas.com#api.digital.cname.vivo.com.br#api.digital.cname.vivo.com.br.cdn.cloudflare.net#api.digital.vivo.com.br#app.vivo.com.br#autenticaint.cname.vivo.com.br#revive.timrecompensas.com.br#104.18.4.18#104.18.5.18",
@@ -64,7 +64,7 @@
         {
             "Name": "🟣VIVO GRINGA🟣 [01]",
       "FLAG": "vivo",
-            "Payload": "PATCH / HTTP/1.1[crlf]Host: vivo.com.br[crlf][crlf][split][crlf][crlf]ACL /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]X-Status-Id: tunnel[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: vivo.com.br[crlf][crlf][split][crlf][crlf]ACL / HTTP/1.1[crlf]Host: V25.thur.store[crlf]X-Status-Id: tunnel[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "162.159.136.63#162.159.135.63",
@@ -84,8 +84,8 @@
        {
    "Name": "🟣 VIVO GRINGO SSL [03]",
       "FLAG": "vivo",
-      "Payload": "OPTIONS /avsuper HTTP/1.1[crlf]Host: [rotate=firewallfalcon.canaldotl.573357.xyz][crlf] [crlf]PATCH /avsuper HTTP/1.1[crlf]Host: [rotate=firewallfalcon.canaldotl.573357.xyz][crlf]X-Status-Id: tunnel[crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf][crlf]",
-      "SNI": "firewallfalcon.canaldotl.573357.xyz",
+      "Payload": "OPTIONS / HTTP/1.1[crlf]Host: [rotate=V25.thur.store][crlf] [crlf]PATCH / HTTP/1.1[crlf]Host: [rotate=V25.thur.store][crlf]X-Status-Id: tunnel[crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf][crlf]",
+      "SNI": "V25.thur.store",
       "TlsIP": "162.159.135.63",
       "ProxyIP": "",
       "ProxyPort": "443",
@@ -93,7 +93,7 @@
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [04]",
-            "Payload": "PATCH / HTTP/1.1[crlf]Host: vivo.com.br[crlf][crlf][split][crlf][crlf]ACL /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]X-Status-Id: tunnel[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: vivo.com.br[crlf][crlf][split][crlf][crlf]ACL / HTTP/1.1[crlf]Host: V25.thur.store[crlf]X-Status-Id: tunnel[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "162.159.136.63#162.159.135.63",
@@ -113,20 +113,20 @@
         {
             "Name": "🟣 VIVO EXPIRADO [01] 🟣",
             "FLAG": "vivo",
-            "Payload": "GET / HTTP/1.1[crlf]Host: b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
-            "SNI": "b.avclaro.com.br",
-            "TlsIP": "104.26.12.205",
-            "ProxyIP": "104.26.12.205#172.67.74.152#64:ff9b::ac43:4a98#64:ff9b::681a:ccd",
-            "ProxyPort": "443",
-            "Info": "Tlsws"
+            "Payload": "GET / HTTP/1.1[crlf]Host: [rotate=b.avclaro.com.br;V25.thur.store][crlf]X-Status-Id: tunnel[crlf]Upgrade: websocket[crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "104.26.12.205#172.67.74.152#162.159.135.63#162.159.136.63#b.avclaro.com.br",
+            "ProxyPort": "80",
+            "Info": "Proxy"
         },
         {
             "Name": "🟣 VIVO EXPIRADO [02] 🟣",
             "FLAG": "vivo",
-            "Payload": "GET / HTTP/1.1[crlf]Host:b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
+            "Payload": "GET / HTTP/1.1[crlf]Host: [rotate=b.avclaro.com.br;V25.thur.store][crlf]X-Status-Id: tunnel[crlf]Upgrade: websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "104.26.12.205#172.67.74.152#64:ff9b::ac43:4a98#64:ff9b::681a:ccd#209.14.2.36#b.avclaro.com.br",
+            "ProxyIP": "104.26.12.205#172.67.74.152#162.159.135.63#162.159.136.63#b.avclaro.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
@@ -173,7 +173,7 @@
         {
             "Name": "TIM TODOS OS DDDs ☆02☆",
             "FLAG": "tim",
-            "Payload": "GET /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate= apf.maisvantagenstim.com.br;launches.appsflyer.com;checkout.timlive.tim.com.br;timlive.tim.com.br;www.timlive.tim.com.br;www2.timlive.tim.com.br][crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "GET /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate= apf.maisvantagenstim.com.br;launches.appsflyer.com;checkout.timlive.tim.com.br;timlive.tim.com.br;www.timlive.tim.com.br;www2.timlive.tim.com.br][crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;V25.thur.store][crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "substack.com#fee.org#tender.cash",
             "ProxyIP": "172.66.0.157#162.159.140.159#apf.maisvantagenstim.com.br#104.19.241.93#104.19.239.25#172.64.154.143#172.67.188.168#a.avclaro.com.br#141.193.213.10#104.16.239.166#104.18.33.113#13.227.97.49#13.227.97.116#13.227.97.28#13.227.97.69#99.84.31.80#13.227.126.91#52.85.213.121#13.227.126.58",
@@ -183,7 +183,7 @@
         {
             "Name": "TIM VÁLIDO ☆03☆",
             "FLAG": "tim",
-            "Payload": "PATCH / HTTP/1.1[crlf]Host: [random=breadbox.app;c6bank.zendesk.com;cdn.navdmp.com;mobile.hom.c6bank.app][crlf][crlf][split][crlf][crlf]ACL / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: [random=breadbox.app;c6bank.zendesk.com;cdn.navdmp.com;mobile.hom.c6bank.app][crlf][crlf][split][crlf][crlf]ACL / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;V25.thur.store][crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "172.64.154.143",
@@ -193,7 +193,7 @@
         {
             "Name": "TIM VÁLIDO ☆04☆",
             "FLAG": "tim",
-            "Payload": "PATCH / HTTP/1.1[crlf]Host: [random=breadbox.app;c6bank.zendesk.com;cdn.navdmp.com;mobile.hom.c6bank.app][crlf][crlf][split][crlf][crlf]ACL / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: [random=breadbox.app;c6bank.zendesk.com;cdn.navdmp.com;mobile.hom.c6bank.app][crlf][crlf][split][crlf][crlf]ACL / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;V25.thur.store][crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "172.64.154.143",
@@ -203,7 +203,7 @@
         {
             "Name": "TIM DDD 61,21,62,31 ☆05☆",
             "FLAG": "tim",
-            "Payload": "PATCH /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;V25.thur.store][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "gedoc.vivo.com.br#www.c6bank.com.br#mtls.sandbox.c6bank.com.br#mobile.hom.c6bank.app#app.sandbox.c6bank.com.br#auth.of.c6bank.com.br#ajuda.c6bank.com.br#assets-sf.c6bank.com.br#auth.of.c6bank.com.br#blog.c6bank.com.br#boleto.c6bank.com.br#c6bank.com.br#cdn.c6bank.com.br#cloud.mail.c6bank.com.br#dev-terms.c6bank.com.br#image.mail.c6bank.com.br#investment.c6bank.com.br#terms.c6bank.com.br#www.c6bank.com.br#162.159.152.26#172.64.144.237",
@@ -223,7 +223,7 @@
         {
             "Name": "TIM VÁLIDO ☆07☆",
             "FLAG": "tim",
-            "Payload": "PATCH /avsuper HTTP/1.1[crlf]Host: firewallfalcon.canaldotl.573357.xyz[crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;V25.thur.store][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "gedoc.vivo.com.br#www.c6bank.com.br#mtls.sandbox.c6bank.com.br#mobile.hom.c6bank.app#app.sandbox.c6bank.com.br#auth.of.c6bank.com.br#ajuda.c6bank.com.br#assets-sf.c6bank.com.br#auth.of.c6bank.com.br#blog.c6bank.com.br#boleto.c6bank.com.br#c6bank.com.br#cdn.c6bank.com.br#cloud.mail.c6bank.com.br#dev-terms.c6bank.com.br#image.mail.c6bank.com.br#investment.c6bank.com.br#terms.c6bank.com.br#www.c6bank.com.br#162.159.152.26#172.64.144.237",
@@ -253,7 +253,7 @@
         {
             "Name": "TIM EXPIRADO ♧03♧",
             "FLAG": "tim",
-            "Payload": "PATCH / HTTP/1.1[crlf]Host: b.avclaro.com.br[crlf]X-Forward-Host: b.avclaro.com.br[crlf]wss://[crlf]Connection: upgrade[crlf]upgrade: websocket[realData][crlf][crlf]",
+            "Payload": "PATCH / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;V25.thur.store][crlf]X-Forward-Host: [rotate=a.avclaro.com.br;V25.thur.store][crlf]wss://[crlf]Connection: upgrade[crlf]upgrade: websocket[realData][crlf][crlf]",
             "SNI": "b.avclaro.com.br",
             "TlsIP": "",
             "ProxyIP": "209.14.2.36",
