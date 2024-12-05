@@ -1,5 +1,5 @@
 {
-    "Version": 1.2.6,
+    "Version": 1.2.7,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/NET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.2.6",
+            "Name": "ATUALIZAÇÃO 1.2.7",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -112,22 +112,22 @@
             "Info": "Proxy"
          },
         {
-            "Name": "🟣 VIVO EXPIRADO [01] 🟣",
+            "Name": "🟣 SEM CADASTRO E ATIVO [01] 🟣",
             "FLAG": "vivo",
-            "Payload": "GET / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;v9.toptvnet.shop][crlf]X-Status-Id: tunnel[crlf]Upgrade: websocket[crlf][crlf]",
+            "Payload": "GET- / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "104.26.12.205#172.67.74.152#162.159.135.63#162.159.136.63#a.avclaro.com.br",
+            "ProxyIP": "matrix.to#104.16.51.111#104.16.53.111#gedoc.vivo.com.br#recarga.vivo.com.br#162.159.135.63#162.159.136.63#gedoc.vivo.com.br#lojaempresas.vivo.com.br#www.vivoemdia.vivo.com.br#cname.vivo.com.br#web.vivo.com.br#atendimento.lojadointer.com.br#atendimento.magazineluiza.com.br#mycannabisconversation.com.br#compre.vivo.com.br#snow.vivo.com.br#backoffice-equipamentos01.vivo.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
         {
-            "Name": "🟣 VIVO EXPIRADO [02] 🟣",
+            "Name": "🟣 VIVO EXPIRADO E ATIVO [02] 🟣",
             "FLAG": "vivo",
-            "Payload": "GET / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;v9.toptvnet.shop][crlf]X-Status-Id: tunnel[crlf]Upgrade: websocket[crlf][crlf]",
+            "Payload": "GET- /cdn-cgi/trace HTTP/1.1[lf]Host: timofertas.com[crlf][crlf][split][crlf]ACL / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "104.26.12.205#172.67.74.152#162.159.135.63#162.159.136.63#a.avclaro.com.br",
+            "ProxyIP": "matrix.to#104.16.51.111#104.16.53.111#gedoc.vivo.com.br#recarga.vivo.com.br#162.159.135.63#162.159.136.63#gedoc.vivo.com.br#lojaempresas.vivo.com.br#www.vivoemdia.vivo.com.br#cname.vivo.com.br#web.vivo.com.br#atendimento.lojadointer.com.br#atendimento.magazineluiza.com.br#mycannabisconversation.com.br#compre.vivo.com.br#snow.vivo.com.br#backoffice-equipamentos01.vivo.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
