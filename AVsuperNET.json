@@ -1,5 +1,5 @@
 {
-    "Version": 1.2.7,
+    "Version": 1.2.8,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/NET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.2.7",
+            "Name": "ATUALIZAÇÃO 1.2.8",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -74,10 +74,10 @@
          {
               "Name": "🟣VIVO SECURITY PRÉ🟣 [02]",
             "FLAG": "vivo",
-            "Payload": "[delay_split]ACL /Set-Cookie: sessionID=fbafa6258966f49f252b404ab9e5c219; path=/admin; domain=revive.vivointernetgratis.com.br; secure; HttpOnly; SameSite=strict HTTP/1.1][lf]",
+            "Payload": "[rotate=ACL;GET-;PATCH;PROPATCH;LINK;SEARCH;BASELINE-CONTROL;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: [rotate=a.avclaro.com.br;v9.toptvnet.shop][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
             "SNI": "[app_host]",
             "TlsIP": "209.14.2.36#a.avclaro.com.br",
-            "ProxyIP": "v9.toptvnet.shop#a.avclaro.com.br#138.2.244.76#209.14.2.36#166.0.196.163",
+            "ProxyIP": "1.1.1.1#162.159.140.159#1.1.1.1#vpn.cloudmi.datami.com#v9.toptvnet.shop#a.avclaro.com.br#1.1.1.1#vpn.cloudmi.datami.com#v9.toptvnet.shop#a.avclaro.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
@@ -105,6 +105,16 @@
              "Name": "🟣VIVO SECURITY PRÉ🟣 [05]",
             "FLAG": "vivo",
             "Payload": "[delay_split]ACL AtlasN42/ HTTP/1.1[crlf]Host: analytics.google.com[crlf]Upgrade: websocket[crlf][crlf]\\n",
+            "SNI": "[app_host]",
+            "TlsIP": "209.14.2.36#a.avclaro.com.br",
+            "ProxyIP": "v9.toptvnet.shop#a.avclaro.com.br#138.2.244.76#209.14.2.36#166.0.196.163",
+            "ProxyPort": "80",
+            "Info": "Proxy"
+         },
+         {
+              "Name": "🟣VIVO SECURITY PRÉ🟣 [06]",
+            "FLAG": "vivo",
+            "Payload": "[delay_split]ACL /Set-Cookie: sessionID=fbafa6258966f49f252b404ab9e5c219; path=/admin; domain=revive.vivointernetgratis.com.br; secure; HttpOnly; SameSite=strict HTTP/1.1][lf]",
             "SNI": "[app_host]",
             "TlsIP": "209.14.2.36#a.avclaro.com.br",
             "ProxyIP": "v9.toptvnet.shop#a.avclaro.com.br#138.2.244.76#209.14.2.36#166.0.196.163",
