@@ -1,5 +1,5 @@
 {
-    "Version": 1.2.5,
+    "Version": 1.2.6,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/NET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.2.5",
+            "Name": "ATUALIZAÇÃO 1.2.6",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -44,30 +44,30 @@
         {
             "Name": "⚠️ SELECIONAR SUA OPERADORA ⚠️",
             "FLAG": "vivo",
-            "Payload": "[rotate=DELETE;PUT;ACL;PATCH;UNLOCK] wss://[rotate=v9.toptvnet.shop;timofertas.com;apf.maisvantagenstim.com.br]/cdn-cgi/trace/ HTTP/1.1[crlf]Host: [rotate=api.digital.cname.vivo.com.br;api.digital.cname.vivo.com.br.cdn.cloudflare.net;api.digital.vivo.com.br;app.vivo.com.br;autenticaint.cname.vivo.com.br][crlf][crlf][split][crlf][crlf]CF-RAY- / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]X-Status-Id: tunnel[crlf]Upgrade: websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf]@avsuper[crlf][crlf]",
+            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Connection: Keep-Alive[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "apf.maisvantagenstim.com.br#timofertas.com#api.digital.cname.vivo.com.br#api.digital.cname.vivo.com.br.cdn.cloudflare.net#api.digital.vivo.com.br#app.vivo.com.br#autenticaint.cname.vivo.com.br",
+            "ProxyIP": "104.18.5.18#revive.timrecompensas.com.br#vs.timrecompensas.com.br#portal.timrecompensas.com.br#v9.toptvnet.shop#104.18.37.248#172.64.150.8",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
         {
             "Name": "🟣VIVO",
       "FLAG": "vivo",
-            "Payload": "[delay_split]ACL / HTTP/1.1 [lf]Host: [rotate=download.cdn.viber.com;zoom .zynga.com;www.ebuddy.com;games.iqiyi.com;www.espn.com;wd.adcolony.com;www.s.ssacdn.com;www.youtube.com;www.au.download.windowsupdate .com;edge1-moblive.yuppcdn.net;get.espn.com;spiegel.de;shacar.lecloud.com;www.bradesco.com.br;ftp.br.debian.org:edge1-moblive.yuppcdn.net ;cnn.com;www.sina.com;mtalk.google.com;www.zoiper.com;www.skype.com;www.viddler.com][crlf]@sucodavpn[crlf]",
+            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Connection: Keep-Alive[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "v9.toptvnet.shop#a.avclaro.com.br#138.2.244.76#209.14.2.36#166.0.196.163",
+            "ProxyIP": "104.18.5.18#revive.timrecompensas.com.br#vs.timrecompensas.com.br#portal.timrecompensas.com.br#v9.toptvnet.shop#104.18.37.248#172.64.150.8",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
         {
             "Name": "🟣VIVO GRINGA🟣 [01]",
       "FLAG": "vivo",
-            "Payload": "[split][lf]ACL / HTTP/1.1[crlf]Host: vigia.vivo.com.br[crlf]Upgrade: Upgrade[crlf]Connection: Upgrade[crlf][crlf]",
+            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Connection: Keep-Alive[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "v9.toptvnet.shop#a.avclaro.com.br#138.2.244.76#209.14.2.36#166.0.196.163",
+            "ProxyIP": "104.18.5.18#revive.timrecompensas.com.br#vs.timrecompensas.com.br#portal.timrecompensas.com.br#v9.toptvnet.shop#104.18.37.248#172.64.150.8",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
@@ -84,19 +84,20 @@
        {
    "Name": "🟣 VIVO PROXY [03]",
       "FLAG": "vivo",
-            "Payload": "[delay_split]ACL / HTTP/1.1[crlf]Host: [rotate=104.18.6.80;104.18.7.80;162.159.138.6;162.159.128.7;104.17.70.206;104.17.71.206;104.17.72.206;104.17.73.206;104.17.74.206;172.64.144.109;104.18.43.147;104.18.7.41][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf][crlf]#HTTP/1.1 [lf]CONNECT HTTP/1.1[lf][lf]",
-            "SNI": "[app_host]",
-            "TlsIP": "209.14.2.36#a.avclaro.com.br",
-            "ProxyIP": "v9.toptvnet.shop#a.avclaro.com.br#138.2.244.76#209.14.2.36#166.0.196.163",
+            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Connection: Keep-Alive[crlf][crlf]",
+            "SNI": "",
+            "TlsIP": "",
+            "ProxyIP": "104.18.5.18#revive.timrecompensas.com.br#vs.timrecompensas.com.br#portal.timrecompensas.com.br#v9.toptvnet.shop#104.18.37.248#172.64.150.8",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [04]",
-            "Payload": "[delay_split]ACL AtlasN42/ HTTP/1.1[crlf]Host: analytics.google.com[crlf]Upgrade: websocket[crlf][crlf]\\n",
+            "FLAG": "vivo",
+            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Connection: Keep-Alive[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "v9.toptvnet.shop#a.avclaro.com.br#138.2.244.76#209.14.2.36#166.0.196.163",
+            "ProxyIP": "104.18.5.18#revive.timrecompensas.com.br#vs.timrecompensas.com.br#portal.timrecompensas.com.br#v9.toptvnet.shop#104.18.37.248#172.64.150.8",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
