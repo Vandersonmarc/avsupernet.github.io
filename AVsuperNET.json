@@ -77,7 +77,7 @@
             "Payload": "[rotate=ACL;GET-;PATCH;PROPATCH;LINK;SEARCH;BASELINE-CONTROL;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: [rotate=a.avclaro.com.br;v9.toptvnet.shop][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
             "SNI": "[app_host]",
             "TlsIP": "209.14.2.36#a.avclaro.com.br",
-            "ProxyIP": "1.1.1.1#162.159.140.159#1.1.1.1#vpn.cloudmi.datami.com#v9.toptvnet.shop#a.avclaro.com.br#1.1.1.1#vpn.cloudmi.datami.com#v9.toptvnet.shop#a.avclaro.com.br",
+            "ProxyIP": "matrix.to#104.16.51.111#104.16.53.111#162.159.140.159#1.1.1.1#vpn.cloudmi.datami.com#v9.toptvnet.shop#a.avclaro.com.br#1.1.1.1#vpn.cloudmi.datami.com#v9.toptvnet.shop#a.avclaro.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
