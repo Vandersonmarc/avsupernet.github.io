@@ -214,10 +214,10 @@
         {
             "Name": "TIM DDD 61,21,62,31 ☆05☆",
             "FLAG": "tim",
-            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;v9.toptvnet.shop][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "[rotate=PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: [rotate=a.avclaro.com.br;v9.toptvnet.shop][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "mtls.sandbox.c6bank.com.br#mobile.hom.c6bank.app#app.sandbox.c6bank.com.br#auth.of.c6bank.com.br#ajuda.c6bank.com.br#assets-sf.c6bank.com.br#auth.of.c6bank.com.br#blog.c6bank.com.br#boleto.c6bank.com.br#c6bank.com.br#cdn.c6bank.com.br#cloud.mail.c6bank.com.br#dev-terms.c6bank.com.br#image.mail.c6bank.com.br#investment.c6bank.com.br#terms.c6bank.com.br#www.c6bank.com.br#162.159.152.26#172.64.144.237",
+            "ProxyIP": "app.sandbox.c6bank.com.br#auth.of.c6bank.com.br#ajuda.c6bank.com.br#assets-sf.c6bank.com.br#auth.of.c6bank.com.br#blog.c6bank.com.br#boleto.c6bank.com.br#c6bank.com.br#cdn.c6bank.com.br#cloud.mail.c6bank.com.br#dev-terms.c6bank.com.br#image.mail.c6bank.com.br#investment.c6bank.com.br#terms.c6bank.com.br#www.c6bank.com.br#162.159.152.26#172.64.144.237",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
