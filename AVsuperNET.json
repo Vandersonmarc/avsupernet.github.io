@@ -1,5 +1,5 @@
 {
-    "Version": 1.3.6,
+    "Version": 1.3.7,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,10 +29,10 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.3.6",
+            "Name": "ATUALIZAÇÃO 1.3.7",
             "TYPE": "premium",
             "FLAG": "br.png",
-            "ServerIP": "v9.toptvnet.shop",
+            "ServerIP": "av.toptvnet.shop",
             "CheckUser": "https://painel.avsuper.com.br/checkuser/conecta4g.php",
             "ServerPort": "22",
             "SSLPort": "443",
@@ -84,20 +84,20 @@
        {
    "Name": "🟣 VIVO PROXY [03]",
       "FLAG": "vivo",
-            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Connection: Keep-Alive[crlf][crlf]",
+            "Payload": "[rotate=ACL;PATCH;GET;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Connection: Keep-Alive[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "v9.toptvnet.shop#v9.toptvnet.shop#188.114.99.229#104.18.37.248#104.26.12.205#172.64.150.8#matrix.to#104.16.51.111#188.114.98.229#104.16.53.111#songbird.cardinalcommerce.com#104.26.13.205#172.67.74.152#v9.toptvnet.shop",
+            "ProxyIP": "104.18.5.18#revive.timrecompensas.com.br#v9.toptvnet.shop#188.114.99.229#104.18.37.248#104.26.12.205#172.64.150.8#matrix.to#104.16.51.111#188.114.98.229#104.16.53.111#songbird.cardinalcommerce.com#104.26.13.205#172.67.74.152#vs.timrecompensas.com.br#portal.timrecompensas.com.br#v9.toptvnet.shop#104.18.37.248#172.64.150.8",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [04]",
             "FLAG": "vivo",
-            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Connection: Keep-Alive[crlf][crlf]",
+            "Payload": "[rotate=ACL;PATCH;GET;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] / HTTP/1.1[crlf]Host: v9.toptvnet.shop[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]Connection: Keep-Alive[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "v9.toptvnet.shop#v9.toptvnet.shop#188.114.99.229#104.18.37.248#104.26.12.205#172.64.150.8#matrix.to#104.16.51.111#188.114.98.229#104.16.53.111#songbird.cardinalcommerce.com#104.26.13.205#172.67.74.152#v9.toptvnet.shop",
+            "ProxyIP": "104.18.5.18#revive.timrecompensas.com.br#v9.toptvnet.shop#188.114.99.229#104.18.37.248#104.26.12.205#172.64.150.8#matrix.to#104.16.51.111#188.114.98.229#104.16.53.111#songbird.cardinalcommerce.com#104.26.13.205#172.67.74.152#vs.timrecompensas.com.br#portal.timrecompensas.com.br#v9.toptvnet.shop#104.18.37.248#172.64.150.8",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
@@ -164,50 +164,50 @@
         {
             "Name": "🔵 TIM ABAIXO 👇",
             "FLAG": "tim",
-            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.9[crlf]host: timofertas.com[crlf][crlf][split][crlf]OPTIONS- // HTTP/1.9[crlf]host: v9.toptvnet.shop[crlf]Expect: 200-continue[crlf]Proxy-Connection: Keep-Alive[crlf]Keep-Alive: timeout=5, max=1000[crlf]Connection: Upgrade[crlf]Upgrade: websocket[crlf]Sec WebSocketExtensions: superspeed[crlf]Last-Modified: Fri, 17 March 2022 04:32:39 GMT[crlf]Server: Qnax[crlf]User-Agent: Mozilla/5.0 (Linux; Android 4.4.2); Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Mobile Safari/537.36 OPR/20.0.1396.72047[crlf][crlf]",
+            "Payload": "[split][rotate=GET;ACL;PATCH;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=vs.timrecompensas.com.br;mtls.sandbox.c6bank.com.br;dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com;www.maisvantagenstim.com.br;revive.timrecompensas.com.br;songbird.cardinalcommerce.com;plus.google.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: [rotate=v9.toptvnet.shop;a.avclaro.com.br][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "timfla.islandfree.online#stage.timofertas.com#104.21.2.132#timofertas.com#172.67.129.62",
+            "ProxyIP": "vs.timrecompensas.com.br#172.64.154.143#162.159.140.159#1.1.1.1#v9.toptvnet.shop#104.18.5.18#198.217.251.251#172.66.0.157#v9.toptvnet.shop#104.18.4.18#198.217.251.250#portal.timrecompensas.com.br#revive.timrecompensas.com.br#mtls.sandbox.c6bank.com.br#v9.toptvnet.shop",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
         {
             "Name": "TIM VÁLIDO ☆01☆",
             "FLAG": "tim",
-            "Payload": "[rotate=ACL;PATCH;GET;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com;www.maisvantagenstim.com.br;revive.timrecompensas.com.br;songbird.cardinalcommerce.com;plus.google.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: v9.toptvnet.shop[crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
+            "Payload": "[split][rotate=GET;ACL;PATCH;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=vs.timrecompensas.com.br;mtls.sandbox.c6bank.com.br;dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com;www.maisvantagenstim.com.br;revive.timrecompensas.com.br;songbird.cardinalcommerce.com;plus.google.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: [rotate=v9.toptvnet.shop;a.avclaro.com.br][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "162.159.140.159#1.1.1.1#v9.toptvnet.shop#104.18.5.18#198.217.251.251#172.66.0.157#v9.toptvnet.shop#104.18.4.18#198.217.251.250",
+            "ProxyIP": "vs.timrecompensas.com.br#172.64.154.143#162.159.140.159#1.1.1.1#v9.toptvnet.shop#104.18.5.18#198.217.251.251#172.66.0.157#v9.toptvnet.shop#104.18.4.18#198.217.251.250#portal.timrecompensas.com.br#revive.timrecompensas.com.br#mtls.sandbox.c6bank.com.br#v9.toptvnet.shop",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
         {
             "Name": "TIM TODOS OS DDDs ☆02☆",
             "FLAG": "tim",
-            "Payload": "[rotate=ACL;PATCH;GET;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com;www.maisvantagenstim.com.br;revive.timrecompensas.com.br;songbird.cardinalcommerce.com;plus.google.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: v9.toptvnet.shop[crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
+            "Payload": "[split][rotate=GET;ACL;PATCH;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=vs.timrecompensas.com.br;mtls.sandbox.c6bank.com.br;dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com;www.maisvantagenstim.com.br;revive.timrecompensas.com.br;songbird.cardinalcommerce.com;plus.google.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: [rotate=v9.toptvnet.shop;a.avclaro.com.br][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "162.159.140.159#1.1.1.1#v9.toptvnet.shop#104.18.5.18#198.217.251.251#172.66.0.157#v9.toptvnet.shop#104.18.4.18#198.217.251.250",
+            "ProxyIP": "vs.timrecompensas.com.br#172.64.154.143#162.159.140.159#1.1.1.1#v9.toptvnet.shop#104.18.5.18#198.217.251.251#172.66.0.157#v9.toptvnet.shop#104.18.4.18#198.217.251.250#portal.timrecompensas.com.br#revive.timrecompensas.com.br#mtls.sandbox.c6bank.com.br#v9.toptvnet.shop",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
         {
             "Name": "TIM VÁLIDO ☆03☆",
             "FLAG": "tim",
-            "Payload": "[rotate=ACL;PATCH;GET;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com;www.maisvantagenstim.com.br;revive.timrecompensas.com.br;songbird.cardinalcommerce.com;plus.google.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: v9.toptvnet.shop[crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
+            "Payload": "ACL / HTTP/1.1[crlf]Host: [random=breadbox.app;c6bank.zendesk.com;cdn.navdmp.com;mobile.hom.c6bank.app;mtls.sandbox.c6bank.com.br][crlf][crlf][split][crlf][crlf]ACL / HTTP/1.1[crlf]Host: av.toptvnet.shop[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "162.159.140.159#1.1.1.1#v9.toptvnet.shop#104.18.5.18#198.217.251.251#172.66.0.157#v9.toptvnet.shop#104.18.4.18#198.217.251.250",
+            "ProxyIP": "mtls.sandbox.c6bank.com.br#vs.timrecompensas.com.br#timofertas.com#apf.maisvantagenstim.com.br#172.66.0.157#162.159.140.159#104.18.28.182#104.16.51.111#104.19.240.25#104.18.29.182#104.16.53.111#104.19.239.25#104.19.242.25#104.19.241.93#104.18.26.160#104.17.64.225#104.18.99.70#104.16.239.166#104.19.239.25#104.18.28.182#104.16.241.93#104.16.239.166#141.193.213.20#141.193.213.21#www.beha-amprobe.com#mtls.sandbox.c6bank.com.br#172.67.1.225#trustpilot.com#tinyurl.com#104.16.18.94#unpkg.com#104.16.51.111#104.19.240.93#172.64.154.143#104.16.51.100",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
         {
             "Name": "TIM VÁLIDO ☆04☆",
             "FLAG": "tim",
-            "Payload": "[rotate=ACL;PATCH;GET;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com;www.maisvantagenstim.com.br;revive.timrecompensas.com.br;songbird.cardinalcommerce.com;plus.google.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: v9.toptvnet.shop[crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
+            "Payload": "[split]HEAD / HTTP/1.1[crlf]Host: [rotate=vs.timrecompensas.com.br;portal.timrecompensas.com.br;revive.timrecompensas.com.br][crlf]Expect: 100-continue[crlf][crlf][split][crlf][crlf]PUT- // HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Expect: 100-continue[crlf]Upgrade: websocket[crlf]User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "substack.com#fee.org#tender.cash#162.159.140.159#1.1.1.1#v9.toptvnet.shop#104.18.5.18#198.217.251.251#172.66.0.157#v9.toptvnet.shop#104.18.4.18#198.217.251.250",
+            "ProxyIP": "104.18.5.18#revive.timrecompensas.com.br#stage.timofertas.com#c6bank.nextos.com#timofertas.com.cdn.cloudflare.net#stage.timofertas.com#c6bank.nextos.com#timofertas.com.cdn.cloudflare.net",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
@@ -218,26 +218,6 @@
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "app.sandbox.c6bank.com.br#auth.of.c6bank.com.br#ajuda.c6bank.com.br#assets-sf.c6bank.com.br#auth.of.c6bank.com.br#blog.c6bank.com.br#boleto.c6bank.com.br#c6bank.com.br#cdn.c6bank.com.br#cloud.mail.c6bank.com.br#dev-terms.c6bank.com.br#image.mail.c6bank.com.br#investment.c6bank.com.br#terms.c6bank.com.br#www.c6bank.com.br#162.159.152.26#172.64.144.237",
-            "ProxyPort": "80",
-            "Info": "Proxy"
-        },
-        {
-            "Name": "TIM VÁLIDO ☆06☆",
-            "FLAG": "tim",
-            "Payload": "[rotate=ACL;PATCH;GET;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com;www.maisvantagenstim.com.br;revive.timrecompensas.com.br;songbird.cardinalcommerce.com;plus.google.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: v9.toptvnet.shop[crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
-            "SNI": "",
-            "TlsIP": "162.159.140.159#1.1.1.1#v9.toptvnet.shop#104.18.5.18#198.217.251.251#172.66.0.157#v9.toptvnet.shop#104.18.4.18#198.217.251.250#substack.com#fee.org#tender.cash",
-            "ProxyIP": "104.19.241.93#104.19.239.25#172.64.154.143#172.67.188.168#v9.toptvnet.shop#141.193.213.10#104.16.239.166#104.18.33.1132.67.188.168#104.17.64.225",
-            "ProxyPort": "80",
-            "Info": "Proxy"
-        },
-        {
-            "Name": "TIM VÁLIDO ☆07☆",
-            "FLAG": "tim",
-            "Payload": "[rotate=BASELINE-CONTROL;PROPATCH;PATCH;ACL;GET;LINK;SEARCH] / HTTP/1.1[crlf]Host: [rotate=v9.toptvnet.shop;v9.toptvnet.shop][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[crlf][crlf]",
-            "SNI": "",
-            "TlsIP": "",
-            "ProxyIP": "mtls.sandbox.c6bank.com.br#mobile.hom.c6bank.app#app.sandbox.c6bank.com.br#auth.of.c6bank.com.br#ajuda.c6bank.com.br#assets-sf.c6bank.com.br#auth.of.c6bank.com.br#blog.c6bank.com.br#boleto.c6bank.com.br#c6bank.com.br#cdn.c6bank.com.br#cloud.mail.c6bank.com.br#dev-terms.c6bank.com.br#image.mail.c6bank.com.br#investment.c6bank.com.br#terms.c6bank.com.br#www.c6bank.com.br#162.159.152.26#172.64.144.237",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
@@ -278,36 +258,6 @@
             "SNI": "v9.toptvnet.shop",
             "TlsIP": "",
             "ProxyIP": "v9.toptvnet.shop",
-            "ProxyPort": "80",
-            "Info": "Proxy"
-        },
-        {
-            "Name": "🔴 CLARO ABAIXO 👇",
-            "FLAG": "claro",
-            "Payload": "HEAD / HTTP/1.1[crlf]Host:outlook.giphy.com[crlf][crlf][split]GET /id3 HTTP/1.1[crlf]Host: [rotate=a.cdnplan.online;a.cdnsale.xyz;a.cdndeals.online;a.cdndesigns.online;a.cdndoor.online][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
-            "SNI": "",
-            "TlsIP": "",
-            "ProxyIP": "outlook.giphy.com",
-            "ProxyPort": "80",
-            "Info": "Proxy"
-        },
-        {
-            "Name": "🔴 Claro ON PRÉ [01]",
-            "FLAG": "claro",
-            "Payload": "HEAD / HTTP/1.1[crlf]Host:outlook.giphy.com[crlf][crlf][split]GET /id3 HTTP/1.1[crlf]Host: [rotate=a.cdnplan.online;a.cdnsale.xyz;a.cdndeals.online;a.cdndesigns.online;a.cdndoor.online][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
-            "SNI": "",
-            "TlsIP": "",
-            "ProxyIP": "outlook.giphy.com",
-            "ProxyPort": "80",
-            "Info": "Proxy"
-        },
-        {
-            "Name": "🔴 Claro ON PRÉ [01]",
-            "FLAG": "claro",
-            "Payload": "HEAD / HTTP/1.1[crlf]Host:outlook.giphy.com[crlf][crlf][split]GET /id3 HTTP/1.1[crlf]Host: [rotate=a.cdnplan.online;a.cdnsale.xyz;a.cdndeals.online;a.cdndesigns.online;a.cdndoor.online][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
-            "SNI": "",
-            "TlsIP": "",
-            "ProxyIP": "outlook.giphy.com",
             "ProxyPort": "80",
             "Info": "Proxy"
         }
