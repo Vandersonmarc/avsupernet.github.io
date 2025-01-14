@@ -1,5 +1,5 @@
 {
-    "Version": 1.4.0,
+    "Version": 1.4.1,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,10 +29,10 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.4.0",
+            "Name": "ATUALIZAÇÃO 1.4.1",
             "TYPE": "premium",
             "FLAG": "br.png",
-            "ServerIP": "av.toptvnet.shop",
+            "ServerIP": "vanderson-centraldacdn-80007320997.us-south1.run.app",
             "CheckUser": "https://painel.avsuper.com.br/checkuser/conecta4g.php",
             "ServerPort": "22",
             "SSLPort": "443",
