@@ -1,5 +1,5 @@
 {
-    "Version": 1.3.9,
+    "Version": 1.4.0,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.3.9",
+            "Name": "ATUALIZAÇÃO 1.4.0",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "av.toptvnet.shop",
@@ -43,7 +43,7 @@
     "Networks": [
         {
             "Name": "⚠️ SELECIONAR SUA OPERADORA ⚠️",
-            "FLAG": "tim",
+            "FLAG": "vivo",
             "Payload": "GET / HTTP/1.1
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
@@ -56,7 +56,7 @@ Upgrade: Websocket[crlf][crlf]",
         },
         {
             "Name": "🟣VIVO",
-      "FLAG": "tim",
+      "FLAG": "vivo",
             "Payload": "GET / HTTP/1.1
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
@@ -69,7 +69,7 @@ Upgrade: Websocket[crlf][crlf]",
          },
         {
             "Name": "🟣VIVO GRINGA🟣 [01]",
-      "FLAG": "tim",
+      "FLAG": "vivo",
             "Payload": "GET / HTTP/1.1
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
@@ -82,7 +82,7 @@ Upgrade: Websocket[crlf][crlf]",
          },
          {
               "Name": "🟣VIVO SECURITY PRÉ🟣 [02]",
-            "FLAG": "tim",
+            "FLAG": "vivo",
             "Payload": "GET / HTTP/1.1
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
@@ -95,7 +95,7 @@ Upgrade: Websocket[crlf][crlf]",
          },
        {
    "Name": "🟣 VIVO PROXY [03]",
-      "FLAG": "tim",
+      "FLAG": "vivo",
             "Payload": "GET / HTTP/1.1
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
@@ -108,7 +108,7 @@ Upgrade: Websocket[crlf][crlf]",
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [04]",
-            "FLAG": "tim",
+            "FLAG": "vivo",
             "Payload": "GET / HTTP/1.1
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
@@ -121,7 +121,7 @@ Upgrade: Websocket[crlf][crlf]",
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [05]",
-            "FLAG": "tim",
+            "FLAG": "vivo",
             "Payload": "GET / HTTP/1.1
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
