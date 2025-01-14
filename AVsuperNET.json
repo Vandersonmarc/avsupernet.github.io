@@ -1,5 +1,5 @@
 {
-    "Version": 1.3.7,
+    "Version": 1.3.8,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.3.7",
+            "Name": "ATUALIZAÇÃO 1.3.8",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "av.toptvnet.shop",
@@ -234,32 +234,41 @@
         {
             "Name": "TIM EXPIRADO ♧02♧",
             "FLAG": "tim",
-            "Payload": "[split][rotate=ACL;PATCH;SEARCH;NOTIFY] HTTP/1.1Host: plus.google.com[crlf]http/1.1 PATCH HTTP/1.1Host: plus.google.com[crlf]X-Status-Id: tunnel[crlf][crlf]",
-            "SNI": "v9.toptvnet.shop",
-            "TlsIP": "",
-            "ProxyIP": "v9.toptvnet.shop",
-            "ProxyPort": "80",
-            "Info": "Proxy"
+            "Payload": "GET / HTTP/1.1
+Host: vanderson-centraldacdn-80007320997.us-south1.run.app
+Connection: Upgrade
+Upgrade: Websocket[crlf][crlf]",
+            "SNI": "pubsub.googleapis.com",
+            "TlsIP": "pubsub.googleapis.com",
+            "ProxyIP": "pubsub.googleapis.com",
+            "ProxyPort": "443",
+            "Info": "Tlws"
         },
         {
             "Name": "TIM EXPIRADO ♧03♧",
             "FLAG": "tim",
-            "Payload": "[split][rotate=ACL;PATCH;SEARCH;NOTIFY] HTTP/1.1Host: plus.google.com[crlf]http/1.1 PATCH HTTP/1.1Host: plus.google.com[crlf]X-Status-Id: tunnel[crlf][crlf]",
-            "SNI": "v9.toptvnet.shop",
-            "TlsIP": "",
-            "ProxyIP": "v9.toptvnet.shop",
-            "ProxyPort": "80",
-            "Info": "Proxy"
+            "Payload": "GET / HTTP/1.1
+Host: vanderson-centraldacdn-80007320997.us-south1.run.app
+Connection: Upgrade
+Upgrade: Websocket[crlf][crlf]",
+            "SNI": "images.google.com.br",
+            "TlsIP": "images.google.com.br",
+            "ProxyIP": "images.google.com.br",
+            "ProxyPort": "443",
+            "Info": "Tlws"
         },
         {
             "Name": "TIM EXPIRADO ♧04♧",
             "FLAG": "tim",
-            "Payload": "[split][rotate=ACL;PATCH;SEARCH;NOTIFY] HTTP/1.1Host: plus.google.com[crlf]http/1.1 PATCH HTTP/1.1Host: plus.google.com[crlf]X-Status-Id: tunnel[crlf][crlf]",
-            "SNI": "v9.toptvnet.shop",
-            "TlsIP": "",
-            "ProxyIP": "v9.toptvnet.shop",
-            "ProxyPort": "80",
-            "Info": "Proxy"
+            "Payload": "GET / HTTP/1.1
+Host: vanderson-centraldacdn-80007320997.us-south1.run.app
+Connection: Upgrade
+Upgrade: Websocket[crlf][crlf]",
+            "SNI": "lh3.google.com.br",
+            "TlsIP": "lh3.google.com.br",
+            "ProxyIP": "lh3.google.com.br",
+            "ProxyPort": "443",
+            "Info": "Tlws"
         }
     ]
 }
