@@ -1,5 +1,5 @@
 {
-    "Version": 1.4.2,
+    "Version": 1.4.3,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.4.2",
+            "Name": "ATUALIZAÇÃO 1.4.3",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "vanderson-centraldacdn-80007320997.us-south1.run.app",
@@ -48,9 +48,9 @@
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
 Upgrade: Websocket[crlf][crlf]",
-            "SNI": "images.google.com.br",
-            "TlsIP": "images.google.com.br",
-            "ProxyIP": "images.google.com.br",
+            "SNI": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
+            "TlsIP": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
+            "ProxyIP": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
             "ProxyPort": "443",
             "Info": "Tlsws"
         },
@@ -61,9 +61,9 @@ Upgrade: Websocket[crlf][crlf]",
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
 Upgrade: Websocket[crlf][crlf]",
-            "SNI": "images.google.com.br",
-            "TlsIP": "images.google.com.br",
-            "ProxyIP": "images.google.com.br",
+            "SNI": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
+            "TlsIP": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
+            "ProxyIP": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
             "ProxyPort": "443",
             "Info": "Tlsws"
          },
@@ -74,9 +74,9 @@ Upgrade: Websocket[crlf][crlf]",
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
 Upgrade: Websocket[crlf][crlf]",
-            "SNI": "lh3.google.com.br",
-            "TlsIP": "lh3.google.com.br",
-            "ProxyIP": "lh3.google.com.br",
+            "SNI": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
+            "TlsIP": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
+            "ProxyIP": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
             "ProxyPort": "443",
             "Info": "Tlsws"
          },
@@ -87,22 +87,21 @@ Upgrade: Websocket[crlf][crlf]",
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
 Upgrade: Websocket[crlf][crlf]",
-            "SNI": "lh3.google.com.br",
-            "TlsIP": "lh3.google.com.br",
-            "ProxyIP": "lh3.google.com.br",
+            "SNI": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
+            "TlsIP": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
+            "ProxyIP": "chromewebstore.google.com#cloud.google.com#cloud.withgoogle.com#colab.research.google.com#console.cloud.google.com#console.firebase.google.com#developers.google.com#lh3.google.com.br#images.google.com.br#youtube.com#www.ads.google.com",
             "ProxyPort": "443",
             "Info": "Tlsws"
          },
        {
    "Name": "🟣 VIVO PROXY [03]",
-      "FLAG": "vivo",
-            "Payload": "GET / HTTP/1.1
+      "Payload": "GET / HTTP/1.1
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
 Upgrade: Websocket[crlf][crlf]",
-            "SNI": "www.ads.google.com",
-            "TlsIP": "www.ads.google.com",
-            "ProxyIP": "www.ads.google.com",
+            "SNI": "chromewebstore.google.com",
+            "TlsIP": "chromewebstore.google.com",
+            "ProxyIP": "chromewebstore.google.com",
             "ProxyPort": "443",
             "Info": "Tlsws"
          },
@@ -113,9 +112,9 @@ Upgrade: Websocket[crlf][crlf]",
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
 Upgrade: Websocket[crlf][crlf]",
-            "SNI": "youtube.com",
-            "TlsIP": "youtube.com",
-            "ProxyIP": "youtube.com",
+            "SNI": "lh3.google.com.br",
+            "TlsIP": "lh3.google.com.br",
+            "ProxyIP": "lh3.google.com.br",
             "ProxyPort": "443",
             "Info": "Tlsws"
          },
@@ -126,9 +125,9 @@ Upgrade: Websocket[crlf][crlf]",
 Host: vanderson-centraldacdn-80007320997.us-south1.run.app
 Connection: Upgrade
 Upgrade: Websocket[crlf][crlf]",
-            "SNI": "youtube.com",
-            "TlsIP": "youtube.com",
-            "ProxyIP": "youtube.com",
+            "SNI": "lh3.google.com.br",
+            "TlsIP": "lh3.google.com.br",
+            "ProxyIP": "lh3.google.com.br",
             "ProxyPort": "443",
             "Info": "Tlsws"
          },
