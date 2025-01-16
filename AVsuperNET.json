@@ -1,5 +1,5 @@
 {
-    "Version": 1.4.1,
+    "Version": 1.4.2,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.4.1",
+            "Name": "ATUALIZAÇÃO 1.4.2",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "vanderson-centraldacdn-80007320997.us-south1.run.app",
@@ -52,7 +52,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "images.google.com.br",
             "ProxyIP": "images.google.com.br",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
         },
         {
             "Name": "🟣VIVO",
@@ -65,7 +65,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "images.google.com.br",
             "ProxyIP": "images.google.com.br",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
          },
         {
             "Name": "🟣VIVO GRINGA🟣 [01]",
@@ -78,7 +78,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "lh3.google.com.br",
             "ProxyIP": "lh3.google.com.br",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
          },
          {
               "Name": "🟣VIVO SECURITY PRÉ🟣 [02]",
@@ -91,7 +91,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "lh3.google.com.br",
             "ProxyIP": "lh3.google.com.br",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
          },
        {
    "Name": "🟣 VIVO PROXY [03]",
@@ -104,7 +104,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "www.ads.google.com",
             "ProxyIP": "www.ads.google.com",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [04]",
@@ -117,7 +117,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "youtube.com",
             "ProxyIP": "youtube.com",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [05]",
@@ -130,7 +130,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "youtube.com",
             "ProxyIP": "youtube.com",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
          },
          {
               "Name": "🟣VIVO SECURITY PRÉ🟣 [06]",
@@ -203,7 +203,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "pubsub.googleapis.com",
             "ProxyIP": "pubsub.googleapis.com",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
         },
         {
             "Name": "TIM TODOS OS DDDs ☆02☆",
@@ -216,7 +216,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "pubsub.googleapis.com",
             "ProxyIP": "pubsub.googleapis.com",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
         },
         {
             "Name": "TIM VÁLIDO ☆03☆",
@@ -229,7 +229,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "pubsub.googleapis.com",
             "ProxyIP": "pubsub.googleapis.com",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
         },
         {
             "Name": "TIM VÁLIDO ☆04☆",
@@ -272,7 +272,7 @@ Upgrade: Websocket[crlf][crlf]",
             "TlsIP": "pubsub.googleapis.com",
             "ProxyIP": "pubsub.googleapis.com",
             "ProxyPort": "443",
-            "Info": "Tlws"
+            "Info": "Tlsws"
         }
     ]
 }
