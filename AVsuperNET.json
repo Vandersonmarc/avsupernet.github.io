@@ -1,5 +1,5 @@
 {
-    "Version": 1.4.5,
+    "Version": 1.4.6,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.4.5",
+            "Name": "ATUALIZAÇÃO 1.4.6",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -86,7 +86,7 @@
             "Payload": "ACL / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf]Connection: Upgrade[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "0000:0000:0000:0000:0000:ffff:a600:c4a3#166.0.196.163#0000:0000:0000:0000:0000:ffff:b9c2:cdae#185.194.205.174#v9.toptvnet.shop#v9.toptvnet.shop#a.avclaro.com.br#loja.vivo.com.br,
+            "ProxyIP": "0000:0000:0000:0000:0000:ffff:a600:c4a3#166.0.196.163#0000:0000:0000:0000:0000:ffff:b9c2:cdae#185.194.205.174#v9.toptvnet.shop#v9.toptvnet.shop#a.avclaro.com.br#loja.vivo.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
