@@ -1,5 +1,5 @@
 {
-    "Version": 1.4.6,
+    "Version": 1.4.7,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.4.6",
+            "Name": "ATUALIZAÇÃO 1.4.7",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -137,6 +137,16 @@
       "SNI": "",
       "TlsIP": "",
       "ProxyIP": "104.18.7.80#b.avclaro.com.br#104.19.241.93#172.64.150.8#104.18.6.41#104.16.51.111#104.16.53.111#www.c6bank.app",
+      "ProxyPort": "80",
+      "Info": "Proxy"
+    },
+    {
+      "Name": "🟣VIVO CONTROLE - [03]🟣",
+      "FLAG": "vivo",
+      "Payload": "ACL / HTTP/1.1[crlf]Host: a.avclaro.com.br [crlf]Upgrade: Websocket[crlf][crlf]",
+      "SNI": "",
+      "TlsIP": "",
+      "ProxyIP": "100.xxx.xxx.xxx#www.appstore.vivo.com.br#carrinho-pos-familia.vivo.com.br#sgrs.vivo.com.br#widgetpe.redesegura.vivo.com.br#meuvivofixoapp.vivo.com.br",
       "ProxyPort": "80",
       "Info": "Proxy"
     },
