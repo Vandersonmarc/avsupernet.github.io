@@ -1,47 +1,54 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <meta name="description" content="Internet móvel ilimitada com AVsuperNET. Conecte-se sem limites. Baixe o aplicativo agora!">
-    <title>AVsuperNET - Internet Móvel Ilimitada</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="assets/images/rounded-in-photoretrica-128x128-128x128.png" type="image/x-icon">
+    <meta name="description" content="Conectando pessoas O melhor provedor de internet móvel do Brasil. Internet Móvel sem se preocupar com a franquia de dados.">
+    <title>AVsuperNET Conexões - Internet móvel ilimitada</title>
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+    <link rel="stylesheet" href="assets/Material-Design-Icons/css/material.css">
+    <link rel="stylesheet" href="assets/FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/icon54/style.css">
+    <link rel="stylesheet" href="assets/simple-line-icons/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/icon54-v2/style.css">
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+    <link rel="stylesheet" href="assets/icon54-v3/style.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/smart-cart/minicart-theme.css">
+    <link rel="stylesheet" href="assets/popup-overlay-plugin/style.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=Kgk0Ap">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional_v%3DKgk0Ap.css" type="text/css">
+    <meta name="monetag" content="6d48f4f183cfa39c6e9275960dcdde8c">
+
     <style>
-        /* Estilo do topo (Hero) */
-        .hero {
-            background: linear-gradient(to right, #003366, #00509d);
+        .text-white { color: #f0f0f0; }
+        .text-black { color: #000; }
+        .bg-light { background-color: rgba(255, 255, 255, 0.9); }
+        .bg-dark-blue {
+            background-color: #003366; /* Cor azul escuro */
             color: white;
-            padding: 50px 20px;
-            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
         }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        .neon-text {
+            color: #ff69b4; /* Rosa neon */
+            text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4;
         }
-        .hero p {
-            font-size: 1.2rem;
-        }
-        /* Botões de Download */
-        .download-section .btn {
-            border-radius: 30px;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-        }
-        /* Ícones da seção de Benefícios */
-        .features i {
-            color: #ff69b4;
-        }
-        /* Vídeo de configuração */
         .video-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
             max-width: 100%;
-            padding-bottom: 56.25%;
-            background: black;
-            margin-bottom: 40px;
+            padding-bottom: 56.25%; /* Mantém o aspecto de vídeo em widescreen */
         }
         video {
             position: absolute;
@@ -50,71 +57,57 @@
             top: 0;
             left: 0;
         }
+        @media (max-width: 768px) {
+            .text-box {
+                padding: 10px;
+            }
+            .mbr-section-btn {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
 
-<!-- Hero Section -->
-<section class="hero">
-    <h1>Conecte-se com o AVsuperNET</h1>
-    <p class="lead">Internet móvel ilimitada e rápida para o Brasil inteiro. Sem limites de franquia, sempre disponível para você!</p>
-</section>
-
-<!-- Vídeo de Configuração -->
-<section class="video-wrapper">
-    <video controls>
-        <source src="assets/avsuper.mp4" type="video/mp4">
-        Seu navegador não suporta vídeos.
-    </video>
-    <div style="position: absolute; top: 0; width: 100%; text-align: center; color: white; background: rgba(0, 0, 0, 0.5); padding: 10px;">
-        Veja como configurar seu aplicativo de forma fácil e rápida!
-    </div>
-</section>
-
-<!-- Download Section -->
-<div class="download-section text-center py-5 bg-light">
-    <h2>Baixe agora o app AVsuperNET</h2>
-    <p>Internet móvel ilimitada e fácil de configurar. Baixe o aplicativo e conecte-se já!</p>
-    <div class="d-flex justify-content-center mt-4">
-        <a class="btn btn-primary btn-lg mx-2" href="https://play.google.com/store/apps/details?id=com.avsuper.av.pro">
-            <i class="fa fa-google-play"></i> Baixar na Play Store
-        </a>
-        <a class="btn btn-secondary btn-lg mx-2" href="https://play.google.com/store/apps/details?id=com.avsuper.av.pro">
-            <i class="fa fa-download"></i> Baixar arquivo APK
-        </a>
-    </div>
-    <p class="text-muted mt-3">Disponível para Android.</p>
-</div>
-
-<!-- Features Section -->
-<section class="features bg-dark text-white py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Por que escolher o AVsuperNET?</h2>
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <i class="fa fa-signal fa-3x mb-3"></i>
-                <h5>Conexão Ilimitada</h5>
-                <p>Navegue sem se preocupar com franquias de dados. Internet sempre disponível!</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <i class="fa fa-lock fa-3x mb-3"></i>
-                <h5>Seguro e Confiável</h5>
-                <p>Seu tráfego de dados protegido com criptografia de ponta a ponta.</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <i class="fa fa-rocket fa-3x mb-3"></i>
-                <h5>Velocidade Máxima</h5>
-                <p>Aproveite o melhor da internet móvel com máxima performance.</p>
+    <section data-bs-version="5.1" class="header4 cid-u96DOSMnlL" id="header04-20">
+        <div class="video-wrapper">
+            <video id="meuVideo" controls>
+                <source src="assets/avsuper.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <div style="position: absolute; top: 0; width: 100%; text-align: center; color: white; background: rgba(0, 0, 0, 0.5); padding: 10px;">
+                Veja como configurar seu aplicativo de forma fácil e rápida!
             </div>
         </div>
-    </div>
-</section>
+        <div class="mbr-section-btn mt-4 d-flex justify-content-center">
+            <a class="btn btn-primary display-4 me-2" href="https://play.google.com/store/apps/details?id=com.avsuper.av.pro" id="downloadApp"><span class="icon54-v1-google-play mbr-iconfont mbr-iconfont-btn" style="font-size: 16px;"></span>Baixar na Playstore</a>
+            <a class="btn btn-white-outline display-4" href="https://play.google.com/store/apps/details?id=com.avsuper.av.pro" id="downloadFile"><span class="icon54-v1-download-file mbr-iconfont mbr-iconfont-btn" style="font-size: 16px; color: rgb(255, 255, 255);"></span>Baixar arquivo APK</a>
+        </div>
 
-<!-- Footer -->
-<footer class="text-center py-3 bg-light">
-    <p class="mb-0">© 2025 AVsuperNET. Todos os direitos reservados.</p>
-</footer>
+        <div class="bg-dark-blue p-4 text-center mt-4">
+            <div class="text-box mb-4">
+                <h1 class="icon-title neon-text display-5"><strong>🔥DICA IMPORTANTE🔥</strong></h1>
+                <h3 class="icon-text neon-text display-7">Assista ao vídeo acima para aprender a configurar e aproveite o download do aplicativo.</h3>
+            </div>
+        </div>
+        
+        <div class="text-box mb-4">
+            <h4 class="icon-title text-white display-5"><strong>Insira suas credenciais</strong></h4>
+            <h5 class="icon-text text-white display-7">Selecione a operadora e insira as credenciais fornecidas por um de nossos revendedores autorizados.</h5>
+        </div>
+        <div class="text-box mb-4">
+            <h4 class="icon-title text-white display-5"><strong>Conectando-se</strong></h4>
+            <h5 class="icon-text text-white display-7">Após inserir as credenciais, clique em "conectar" para navegar de forma ilimitada 24 horas por dia.</h5>
+        </div>
+    </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="assets/ytplayer/index.js"></script>
+    <script src="assets/smart-cart/minicart.js"></script>
+    <script src="assets/smart-cart/minicart-customizer.js"></script>
+    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+    <script src="assets/dropdown/js/script.js"></script>
+    <script src="assets/dropdown/js/sw.js"></script>
 </body>
 </html>
