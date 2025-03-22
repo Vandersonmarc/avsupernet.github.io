@@ -1,5 +1,5 @@
 {
-    "Version": 1.4.9,
+    "Version": 1.5.0,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,10 +29,10 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.4.8",
+            "Name": "ATUALIZAÇÃO 1.5.0",
             "TYPE": "premium",
             "FLAG": "br.png",
-            "ServerIP": "a.avclaro.com.br",
+            "ServerIP": "temporariogcloud5-344587878630.us-central1.run.app",
             "CheckUser": "https://painel.avsuper.com.br/checkuser/conecta4g.php",
             "ServerPort": "22",
             "SSLPort": "443",
@@ -103,10 +103,13 @@
         {
             "Name": "🟣 VIVO EXPIRADO [01] 🟣",
             "FLAG": "vivo",
-            "Payload": "GET / HTTP/1.1[crlf]Host: b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
-            "SNI": "b.avclaro.com.br",
-            "TlsIP": "104.26.12.205",
-            "ProxyIP": "104.26.12.205#172.67.74.152#64:ff9b::ac43:4a98#64:ff9b::681a:ccd",
+            "Payload": "GET /app109 HTTP/1.1
+Host: temporariogcloud5-344587878630.us-central1.run.app
+Connection: Upgrade
+Upgrade: Websocket\n\n",
+            "SNI": "pubsub.googleapis.com",
+            "TlsIP": "pubsub.googleapis.com",
+            "ProxyIP": "pubsub.googleapis.com",
             "ProxyPort": "443",
             "Info": "Tlsws"
         },
@@ -159,7 +162,7 @@ Connection: Upgrade
 Upgrade: Websocket\n\n",
             "SNI": "pubsub.googleapis.com",
             "TlsIP": "pubsub.googleapis.com",
-            "ProxyIP": "pubsub.googleapis.com",
+            "ProxyIP": "",
             "ProxyPort": "443",
             "Info": "Tlsws"
         },
