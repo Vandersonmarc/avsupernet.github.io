@@ -1,5 +1,5 @@
 {
-    "Version": 1.5.2,
+    "Version": 1.5.3,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.5.2",
+            "Name": "ATUALIZAÇÃO 1.5.3",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "temporariogcloud5-344587878630.us-central1.run.app",
@@ -52,15 +52,25 @@
             "Info": "Proxy"
         },
         {
-            "Name": "🟣VIVO GRINGA🟣 [01]",
-      "FLAG": "vivo",
-            "Payload": "GET / HTTP/1.1[crlf]Host: [random=v9.toptvnet.shop;v9.toptvnet.shop;a.avclaro.com.br][crlf]Upgrade: Websocket[crlf][crlf]",
-            "SNI": "",
-            "TlsIP": "",
-            "ProxyIP": "0000:0000:0000:0000:0000:ffff:a600:c4a3#166.0.196.163#0000:0000:0000:0000:0000:ffff:b9c2:cdae#185.194.205.174#v9.toptvnet.shop#v9.toptvnet.shop#brasil-vivo-tim.wagnerapolloxd#a.avclaro.com.br#gedoc.vivo.com.br#loja.vivo.com.br",
-            "ProxyPort": "80",
-            "Info": "Proxy"
-         },
+            "Name": "VIVO GCLOUD [01]",
+    "FLAG": "vivo",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "SNI": "mx2.appex.ovh#ftp.photos.app.goo.gl#vfurrrfc2sle5eo7iks2bmk9e5jmd2l9.a.blogger.gmodules.com#gadgetsheet.com#rs-in-f149.1e100.net#lax17s55-in-f2.1e100.net#qx7bu.app.goo.gl#lj-in-f155.1e100.net#optimize.withgoogle.com#domains.google.com#partnersevents.withgoogle.com#ord37s18-in-f14.1e100.net#k6u9j.app.goo.gl#abt72.app.goo.gl#meebominibar.com#k8992.app.goo.gl#o-o.preferred.softbankbb-hnd1.v14.lscache7.c.youtube.com#thrivewithadwords.withgoogle.com#cse.google.com.by#widеvinetechnologies.org#maps-c.app.goo.gl#iot.google.com",
+    "TlsIP": "mx2.appex.ovh#ftp.photos.app.goo.gl#vfurrrfc2sle5eo7iks2bmk9e5jmd2l9.a.blogger.gmodules.com#gadgetsheet.com#rs-in-f149.1e100.net#lax17s55-in-f2.1e100.net#qx7bu.app.goo.gl#lj-in-f155.1e100.net#optimize.withgoogle.com#domains.google.com#partnersevents.withgoogle.com#ord37s18-in-f14.1e100.net#k6u9j.app.goo.gl#abt72.app.goo.gl#meebominibar.com#k8992.app.goo.gl#o-o.preferred.softbankbb-hnd1.v14.lscache7.c.youtube.com#thrivewithadwords.withgoogle.com#cse.google.com.by#widеvinetechnologies.org#maps-c.app.goo.gl#iot.google.com",
+    "ProxyIP": "mx2.appex.ovh#ftp.photos.app.goo.gl#vfurrrfc2sle5eo7iks2bmk9e5jmd2l9.a.blogger.gmodules.com#gadgetsheet.com#rs-in-f149.1e100.net#lax17s55-in-f2.1e100.net#qx7bu.app.goo.gl#lj-in-f155.1e100.net#optimize.withgoogle.com#domains.google.com#partnersevents.withgoogle.com#ord37s18-in-f14.1e100.net#k6u9j.app.goo.gl#abt72.app.goo.gl#meebominibar.com#k8992.app.goo.gl#o-o.preferred.softbankbb-hnd1.v14.lscache7.c.youtube.com#thrivewithadwords.withgoogle.com#cse.google.com.by#widеvinetechnologies.org#maps-c.app.goo.gl#iot.google.com",
+    "ProxyPort": "443",
+    "Info": "Tlsws"
+        },
+        {
+            "Name": "VIVO GCLOUD [02]",
+    "FLAG": "vivo",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "SNI": "youtube.com#lh3.google.com.br#r7xzj.app.goo.gl#gru09s19-in-f98.1e100.net#digitalewerkplaatsvoorstudenten.withgoogle.com#java-iphone.com#media.ampproject.org#zcj75.app.goo.gl#db.withgoogle.com#cse.google.tk#fra02s19-in-f2.1e100.net#se8g4.app.goo.gl#9im6jjs425770o267f7u4gprd0l4tbn2.a.blogger.gmodules.com#5481512.fls.doubleclick.net#bumptop.ca#get.google.com#wxnm4j.app.goo.gl#aa4ev.app.goo.gl#acse.google.com.pa#afonts.google.com#a-o.o.preferred.mena-bah1.v20.lscache6.c.youtube.com#a-get.duo.google.com#a-thinkwithgoogle.fr#a-ck3q5.app.goo.gl#a-lhr25s26-in-f2.1e100.net#a-apx6u.app.goo.gl#a-n5sbc.app.goo.gl#a-o.o.preferred.sn-o097zne7.v24.lscache3.c.android.clients.google.com#a-byq6z.app.goo.gl#a-khms.l.google.com#a-thousandgoing.com#a-music2015.withgoogle.com#a-mad41s11-in-f6.1e100.net#a-experiments.withgoogle.com#a-ampcid.google.com.tw#a-test.withgoogle.com#a-xpa.app.goo.gl#a-xaqg2.app.goo.gl#a-rio07s07-in-f8.1e100.net#a-lga34s39-in-f6.1e100.net#a-qne8y.app.goo.gl#a-rio07s03-in-f6.1e100.net#a-ec44m.app.goo.gl#a-zrkndnzp7k.com#a-yaxf6.app.goo.gl#a-dn66q.app.goo.gl#a-notablewomen.withgoogle.com#a-static.withyoutube.com#a-v3.lscache3.c.bigcache.googleapis.com",
+    "TlsIP": "youtube.com#lh3.google.com.br#r7xzj.app.goo.gl#gru09s19-in-f98.1e100.net#digitalewerkplaatsvoorstudenten.withgoogle.com#java-iphone.com#media.ampproject.org#zcj75.app.goo.gl#db.withgoogle.com#cse.google.tk#fra02s19-in-f2.1e100.net#se8g4.app.goo.gl#9im6jjs425770o267f7u4gprd0l4tbn2.a.blogger.gmodules.com#5481512.fls.doubleclick.net#bumptop.ca#get.google.com#wxnm4j.app.goo.gl#aa4ev.app.goo.gl#acse.google.com.pa#afonts.google.com#a-o.o.preferred.mena-bah1.v20.lscache6.c.youtube.com#a-get.duo.google.com#a-thinkwithgoogle.fr#a-ck3q5.app.goo.gl#a-lhr25s26-in-f2.1e100.net#a-apx6u.app.goo.gl#a-n5sbc.app.goo.gl#a-o.o.preferred.sn-o097zne7.v24.lscache3.c.android.clients.google.com#a-byq6z.app.goo.gl#a-khms.l.google.com#a-thousandgoing.com#a-music2015.withgoogle.com#a-mad41s11-in-f6.1e100.net#a-experiments.withgoogle.com#a-ampcid.google.com.tw#a-test.withgoogle.com#a-xpa.app.goo.gl#a-xaqg2.app.goo.gl#a-rio07s07-in-f8.1e100.net#a-lga34s39-in-f6.1e100.net#a-qne8y.app.goo.gl#a-rio07s03-in-f6.1e100.net#a-ec44m.app.goo.gl#a-zrkndnzp7k.com#a-yaxf6.app.goo.gl#a-dn66q.app.goo.gl#a-notablewomen.withgoogle.com#a-static.withyoutube.com#a-v3.lscache3.c.bigcache.googleapis.com",
+    "ProxyIP": "youtube.com#lh3.google.com.br#r7xzj.app.goo.gl#gru09s19-in-f98.1e100.net#digitalewerkplaatsvoorstudenten.withgoogle.com#java-iphone.com#media.ampproject.org#zcj75.app.goo.gl#db.withgoogle.com#cse.google.tk#fra02s19-in-f2.1e100.net#se8g4.app.goo.gl#9im6jjs425770o267f7u4gprd0l4tbn2.a.blogger.gmodules.com#5481512.fls.doubleclick.net#bumptop.ca#get.google.com#wxnm4j.app.goo.gl#aa4ev.app.goo.gl#acse.google.com.pa#afonts.google.com#a-o.o.preferred.mena-bah1.v20.lscache6.c.youtube.com#a-get.duo.google.com#a-thinkwithgoogle.fr#a-ck3q5.app.goo.gl#a-lhr25s26-in-f2.1e100.net#a-apx6u.app.goo.gl#a-n5sbc.app.goo.gl#a-o.o.preferred.sn-o097zne7.v24.lscache3.c.android.clients.google.com#a-byq6z.app.goo.gl#a-khms.l.google.com#a-thousandgoing.com#a-music2015.withgoogle.com#a-mad41s11-in-f6.1e100.net#a-experiments.withgoogle.com#a-ampcid.google.com.tw#a-test.withgoogle.com#a-xpa.app.goo.gl#a-xaqg2.app.goo.gl#a-rio07s07-in-f8.1e100.net#a-lga34s39-in-f6.1e100.net#a-qne8y.app.goo.gl#a-rio07s03-in-f6.1e100.net#a-ec44m.app.goo.gl#a-zrkndnzp7k.com#a-yaxf6.app.goo.gl#a-dn66q.app.goo.gl#a-notablewomen.withgoogle.com#a-static.withyoutube.com#a-v3.lscache3.c.bigcache.googleapis.com",
+    "ProxyPort": "443",
+    "Info": "Tlsws"
+        },
          {
               "Name": "🟣VIVO SECURITY PRÉ🟣 [02]",
             "FLAG": "vivo",
@@ -83,15 +93,6 @@
          },
          {
              "Name": "🟣VIVO SECURITY PRÉ🟣 [04]",
-            "Payload": "ACL / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf]Connection: Upgrade[crlf][crlf]",
-            "SNI": "",
-            "TlsIP": "",
-            "ProxyIP": "0000:0000:0000:0000:0000:ffff:a600:c4a3#166.0.196.163#0000:0000:0000:0000:0000:ffff:b9c2:cdae#185.194.205.174#v9.toptvnet.shop#v9.toptvnet.shop#a.avclaro.com.br#loja.vivo.com.br",
-            "ProxyPort": "80",
-            "Info": "Proxy"
-         },
-         {
-             "Name": "🟣VIVO SECURITY PRÉ🟣 [05]",
             "FLAG": "vivo",
             "Payload": "[delay_split]ACL /Set-Cookie: sessionID=fbafa6258966f49f252b404ab9e5c219; path=/admin; domain=revive.vivointernetgratis.com.br; secure; HttpOnly; SameSite=strict HTTP/1.1][lf]",
             "SNI": "[app_host]",
@@ -101,17 +102,7 @@
             "Info": "Proxy"
          },
         {
-    "Name": "PAY GCLOUD VIVO",
-    "FLAG": "vivo",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
-    "SNI": "pubsub.googleapis.com",
-    "TlsIP": "pubsub.googleapis.com",
-    "ProxyIP": "pubsub.googleapis.com",
-    "ProxyPort": "443",
-    "Info": "Tlsws"
-},
-        {
-            "Name": "🟣 VIVO EXPIRADO [02] 🟣",
+            "Name": "🟣 VIVO EXPIRADO [01] 🟣",
             "FLAG": "vivo",
             "Payload": "GET / HTTP/1.1[crlf]Host:b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
             "SNI": "",
@@ -151,8 +142,8 @@
       "Info": "Proxy"
     },
         {
-            "Name": "PAY GCLOUD VIVO",
-    "FLAG": "vivo",
+            "Name": "TIM GCLOUD [01]",
+    "FLAG": "tim",
     "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "pubsub.googleapis.com",
     "TlsIP": "pubsub.googleapis.com",
@@ -161,14 +152,24 @@
     "Info": "Tlsws"
         },
         {
-            "Name": "TIM VÁLIDO ☆01☆",
-            "FLAG": "tim",
-            "Payload": "DELETE /cdn-cgi/trace/ HTTP/1.1[crlf]Host: vs.timrecompensas.com.br[crlf][crlf][split]DELETE- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
-            "SNI": "",
-            "TlsIP": "",
-            "ProxyIP": "vs.timrecompensas.com.br#apf.maisvantagenstim.com.br",
-            "ProxyPort": "80",
-            "Info": "Proxy"
+            "Name": "TIM GCLOUD [02]",
+    "FLAG": "tim",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "SNI": "pubsub.googleapis.com",
+    "TlsIP": "pubsub.googleapis.com",
+    "ProxyIP": "pubsub.googleapis.com",
+    "ProxyPort": "443",
+    "Info": "Tlsws"
+        },
+        {
+            "Name": "TIM GCLOUD [03]",
+    "FLAG": "tim",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "SNI": "pubsub.googleapis.com",
+    "TlsIP": "pubsub.googleapis.com",
+    "ProxyIP": "pubsub.googleapis.com",
+    "ProxyPort": "443",
+    "Info": "Tlsws"
         },
         {
             "Name": "TIM TODOS OS DDDs ☆02☆",
