@@ -1,5 +1,5 @@
 {
-    "Version": 1.5.3,
+    "Version": 1.5.4,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.5.3",
+            "Name": "ATUALIZAÇÃO 1.5.4",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "temporariogcloud5-344587878630.us-central1.run.app",
@@ -55,9 +55,9 @@
             "Name": "VIVO GCLOUD [01]",
     "FLAG": "vivo",
     "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
-    "SNI": "mx2.appex.ovh#ftp.photos.app.goo.gl#vfurrrfc2sle5eo7iks2bmk9e5jmd2l9.a.blogger.gmodules.com#gadgetsheet.com#rs-in-f149.1e100.net#lax17s55-in-f2.1e100.net#qx7bu.app.goo.gl#lj-in-f155.1e100.net#optimize.withgoogle.com#domains.google.com#partnersevents.withgoogle.com#ord37s18-in-f14.1e100.net#k6u9j.app.goo.gl#abt72.app.goo.gl#meebominibar.com#k8992.app.goo.gl#o-o.preferred.softbankbb-hnd1.v14.lscache7.c.youtube.com#thrivewithadwords.withgoogle.com#cse.google.com.by#widеvinetechnologies.org#maps-c.app.goo.gl#iot.google.com",
-    "TlsIP": "mx2.appex.ovh#ftp.photos.app.goo.gl#vfurrrfc2sle5eo7iks2bmk9e5jmd2l9.a.blogger.gmodules.com#gadgetsheet.com#rs-in-f149.1e100.net#lax17s55-in-f2.1e100.net#qx7bu.app.goo.gl#lj-in-f155.1e100.net#optimize.withgoogle.com#domains.google.com#partnersevents.withgoogle.com#ord37s18-in-f14.1e100.net#k6u9j.app.goo.gl#abt72.app.goo.gl#meebominibar.com#k8992.app.goo.gl#o-o.preferred.softbankbb-hnd1.v14.lscache7.c.youtube.com#thrivewithadwords.withgoogle.com#cse.google.com.by#widеvinetechnologies.org#maps-c.app.goo.gl#iot.google.com",
-    "ProxyIP": "mx2.appex.ovh#ftp.photos.app.goo.gl#vfurrrfc2sle5eo7iks2bmk9e5jmd2l9.a.blogger.gmodules.com#gadgetsheet.com#rs-in-f149.1e100.net#lax17s55-in-f2.1e100.net#qx7bu.app.goo.gl#lj-in-f155.1e100.net#optimize.withgoogle.com#domains.google.com#partnersevents.withgoogle.com#ord37s18-in-f14.1e100.net#k6u9j.app.goo.gl#abt72.app.goo.gl#meebominibar.com#k8992.app.goo.gl#o-o.preferred.softbankbb-hnd1.v14.lscache7.c.youtube.com#thrivewithadwords.withgoogle.com#cse.google.com.by#widеvinetechnologies.org#maps-c.app.goo.gl#iot.google.com",
+    "SNI": "youtube.com",
+    "TlsIP": "youtube.com",
+    "ProxyIP": "youtube.com",
     "ProxyPort": "443",
     "Info": "Tlsws"
         },
@@ -65,9 +65,9 @@
             "Name": "VIVO GCLOUD [02]",
     "FLAG": "vivo",
     "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
-    "SNI": "youtube.com#lh3.google.com.br#r7xzj.app.goo.gl#gru09s19-in-f98.1e100.net#digitalewerkplaatsvoorstudenten.withgoogle.com#java-iphone.com#media.ampproject.org#zcj75.app.goo.gl#db.withgoogle.com#cse.google.tk#fra02s19-in-f2.1e100.net#se8g4.app.goo.gl#9im6jjs425770o267f7u4gprd0l4tbn2.a.blogger.gmodules.com#5481512.fls.doubleclick.net#bumptop.ca#get.google.com#wxnm4j.app.goo.gl#aa4ev.app.goo.gl#acse.google.com.pa#afonts.google.com#a-o.o.preferred.mena-bah1.v20.lscache6.c.youtube.com#a-get.duo.google.com#a-thinkwithgoogle.fr#a-ck3q5.app.goo.gl#a-lhr25s26-in-f2.1e100.net#a-apx6u.app.goo.gl#a-n5sbc.app.goo.gl#a-o.o.preferred.sn-o097zne7.v24.lscache3.c.android.clients.google.com#a-byq6z.app.goo.gl#a-khms.l.google.com#a-thousandgoing.com#a-music2015.withgoogle.com#a-mad41s11-in-f6.1e100.net#a-experiments.withgoogle.com#a-ampcid.google.com.tw#a-test.withgoogle.com#a-xpa.app.goo.gl#a-xaqg2.app.goo.gl#a-rio07s07-in-f8.1e100.net#a-lga34s39-in-f6.1e100.net#a-qne8y.app.goo.gl#a-rio07s03-in-f6.1e100.net#a-ec44m.app.goo.gl#a-zrkndnzp7k.com#a-yaxf6.app.goo.gl#a-dn66q.app.goo.gl#a-notablewomen.withgoogle.com#a-static.withyoutube.com#a-v3.lscache3.c.bigcache.googleapis.com",
-    "TlsIP": "youtube.com#lh3.google.com.br#r7xzj.app.goo.gl#gru09s19-in-f98.1e100.net#digitalewerkplaatsvoorstudenten.withgoogle.com#java-iphone.com#media.ampproject.org#zcj75.app.goo.gl#db.withgoogle.com#cse.google.tk#fra02s19-in-f2.1e100.net#se8g4.app.goo.gl#9im6jjs425770o267f7u4gprd0l4tbn2.a.blogger.gmodules.com#5481512.fls.doubleclick.net#bumptop.ca#get.google.com#wxnm4j.app.goo.gl#aa4ev.app.goo.gl#acse.google.com.pa#afonts.google.com#a-o.o.preferred.mena-bah1.v20.lscache6.c.youtube.com#a-get.duo.google.com#a-thinkwithgoogle.fr#a-ck3q5.app.goo.gl#a-lhr25s26-in-f2.1e100.net#a-apx6u.app.goo.gl#a-n5sbc.app.goo.gl#a-o.o.preferred.sn-o097zne7.v24.lscache3.c.android.clients.google.com#a-byq6z.app.goo.gl#a-khms.l.google.com#a-thousandgoing.com#a-music2015.withgoogle.com#a-mad41s11-in-f6.1e100.net#a-experiments.withgoogle.com#a-ampcid.google.com.tw#a-test.withgoogle.com#a-xpa.app.goo.gl#a-xaqg2.app.goo.gl#a-rio07s07-in-f8.1e100.net#a-lga34s39-in-f6.1e100.net#a-qne8y.app.goo.gl#a-rio07s03-in-f6.1e100.net#a-ec44m.app.goo.gl#a-zrkndnzp7k.com#a-yaxf6.app.goo.gl#a-dn66q.app.goo.gl#a-notablewomen.withgoogle.com#a-static.withyoutube.com#a-v3.lscache3.c.bigcache.googleapis.com",
-    "ProxyIP": "youtube.com#lh3.google.com.br#r7xzj.app.goo.gl#gru09s19-in-f98.1e100.net#digitalewerkplaatsvoorstudenten.withgoogle.com#java-iphone.com#media.ampproject.org#zcj75.app.goo.gl#db.withgoogle.com#cse.google.tk#fra02s19-in-f2.1e100.net#se8g4.app.goo.gl#9im6jjs425770o267f7u4gprd0l4tbn2.a.blogger.gmodules.com#5481512.fls.doubleclick.net#bumptop.ca#get.google.com#wxnm4j.app.goo.gl#aa4ev.app.goo.gl#acse.google.com.pa#afonts.google.com#a-o.o.preferred.mena-bah1.v20.lscache6.c.youtube.com#a-get.duo.google.com#a-thinkwithgoogle.fr#a-ck3q5.app.goo.gl#a-lhr25s26-in-f2.1e100.net#a-apx6u.app.goo.gl#a-n5sbc.app.goo.gl#a-o.o.preferred.sn-o097zne7.v24.lscache3.c.android.clients.google.com#a-byq6z.app.goo.gl#a-khms.l.google.com#a-thousandgoing.com#a-music2015.withgoogle.com#a-mad41s11-in-f6.1e100.net#a-experiments.withgoogle.com#a-ampcid.google.com.tw#a-test.withgoogle.com#a-xpa.app.goo.gl#a-xaqg2.app.goo.gl#a-rio07s07-in-f8.1e100.net#a-lga34s39-in-f6.1e100.net#a-qne8y.app.goo.gl#a-rio07s03-in-f6.1e100.net#a-ec44m.app.goo.gl#a-zrkndnzp7k.com#a-yaxf6.app.goo.gl#a-dn66q.app.goo.gl#a-notablewomen.withgoogle.com#a-static.withyoutube.com#a-v3.lscache3.c.bigcache.googleapis.com",
+    "SNI": "lh3.google.com.br",
+    "TlsIP": "lh3.google.com.br",
+    "ProxyIP": "lh3.google.com.br",
     "ProxyPort": "443",
     "Info": "Tlsws"
         },
