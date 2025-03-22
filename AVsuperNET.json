@@ -1,5 +1,5 @@
 {
-    "Version": 1.5.1,
+    "Version": 1.5.2,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.5.1",
+            "Name": "ATUALIZAÇÃO 1.5.2",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "temporariogcloud5-344587878630.us-central1.run.app",
@@ -103,10 +103,10 @@
         {
     "Name": "PAY GCLOUD VIVO",
     "FLAG": "vivo",
-    "Payload": "GET /app666 HTTP/1.1\r\nHost: modder.gcloud\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
-    "SNI": "lh3.google.com.br",
-    "TlsIP": "lh3.google.com.br",
-    "ProxyIP": "lh3.google.com.br",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "SNI": "pubsub.googleapis.com",
+    "TlsIP": "pubsub.googleapis.com",
+    "ProxyIP": "pubsub.googleapis.com",
     "ProxyPort": "443",
     "Info": "Tlsws"
 },
@@ -151,17 +151,14 @@
       "Info": "Proxy"
     },
         {
-            "Name": "🔵 TIM ABAIXO 👇",
-            "FLAG": "tim",
-            "Payload": "GET /app109 HTTP/1.1
-Host: temporariogcloud5-344587878630.us-central1.run.app
-Connection: Upgrade
-Upgrade: Websocket\n\n",
-            "SNI": "pubsub.googleapis.com",
-            "TlsIP": "pubsub.googleapis.com",
-            "ProxyIP": "",
-            "ProxyPort": "443",
-            "Info": "Tlsws"
+            "Name": "PAY GCLOUD VIVO",
+    "FLAG": "vivo",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: temporariogcloud5-344587878630.us-central1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "SNI": "pubsub.googleapis.com",
+    "TlsIP": "pubsub.googleapis.com",
+    "ProxyIP": "pubsub.googleapis.com",
+    "ProxyPort": "443",
+    "Info": "Tlsws"
         },
         {
             "Name": "TIM VÁLIDO ☆01☆",
