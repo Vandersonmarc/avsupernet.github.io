@@ -1,5 +1,5 @@
 {
-    "Version": 1.5.0,
+    "Version": 1.5.1,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.5.0",
+            "Name": "ATUALIZAÇÃO 1.5.1",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "temporariogcloud5-344587878630.us-central1.run.app",
@@ -101,18 +101,15 @@
             "Info": "Proxy"
          },
         {
-            "Name": "🟣 VIVO EXPIRADO [01] 🟣",
-            "FLAG": "vivo",
-            "Payload": "GET /app109 HTTP/1.1
-Host: temporariogcloud5-344587878630.us-central1.run.app
-Connection: Upgrade
-Upgrade: Websocket\n\n",
-            "SNI": "pubsub.googleapis.com",
-            "TlsIP": "pubsub.googleapis.com",
-            "ProxyIP": "pubsub.googleapis.com",
-            "ProxyPort": "443",
-            "Info": "Tlsws"
-        },
+    "Name": "PAY GCLOUD VIVO",
+    "FLAG": "vivo",
+    "Payload": "GET /app666 HTTP/1.1\r\nHost: modder.gcloud\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "SNI": "lh3.google.com.br",
+    "TlsIP": "lh3.google.com.br",
+    "ProxyIP": "lh3.google.com.br",
+    "ProxyPort": "443",
+    "Info": "Tlsws"
+},
         {
             "Name": "🟣 VIVO EXPIRADO [02] 🟣",
             "FLAG": "vivo",
