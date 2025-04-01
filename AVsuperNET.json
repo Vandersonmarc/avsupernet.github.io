@@ -1,5 +1,5 @@
 {
-    "Version": 1.6.4,
+    "Version": 1.6.5,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,10 +29,10 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.6.4",
+            "Name": "ATUALIZAÇÃO 1.6.5",
             "TYPE": "premium",
             "FLAG": "br.png",
-            "ServerIP": "gp5temp-308745629580.southamerica-east1.run.app",
+            "ServerIP": "ladoetemp-347055540824.southamerica-east1.run.app",
             "CheckUser": "https://painel.avsuper.com.br/checkuser/conecta4g.php",
             "ServerPort": "22",
             "SSLPort": "443",
@@ -44,7 +44,7 @@
         {
             "Name": "⚠️ SELECIONAR SUA OPERADORA ⚠️",
             "FLAG": "vivo",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: gp5temp-308745629580.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: ladoetemp-347055540824.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "youtube.com",
     "TlsIP": "youtube.com",
     "ProxyIP": "youtube.com",
@@ -54,7 +54,7 @@
         {
             "Name": "VIVO GCLOUD [01]",
     "FLAG": "vivo",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: gp5temp-308745629580.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: ladoetemp-347055540824.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "youtube.com",
     "TlsIP": "youtube.com",
     "ProxyIP": "youtube.com",
@@ -64,7 +64,7 @@
         {
             "Name": "VIVO GCLOUD [02]",
     "FLAG": "vivo",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: gp5temp-308745629580.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: ladoetemp-347055540824.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "lh3.google.com.br",
     "TlsIP": "lh3.google.com.br",
     "ProxyIP": "lh3.google.com.br",
@@ -144,7 +144,7 @@
         {
             "Name": "TIM GCLOUD [01]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: gp5temp-308745629580.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: ladoetemp-347055540824.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "pubsub.googleapis.com",
     "TlsIP": "pubsub.googleapis.com",
     "ProxyIP": "pubsub.googleapis.com",
@@ -154,7 +154,7 @@
         {
             "Name": "TIM GCLOUD [02]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: gp5temp-308745629580.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: ladoetemp-347055540824.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "pubsub.googleapis.com",
     "TlsIP": "pubsub.googleapis.com",
     "ProxyIP": "pubsub.googleapis.com",
@@ -164,7 +164,7 @@
         {
             "Name": "TIM GCLOUD [03]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: gp5temp-308745629580.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: ladoetemp-347055540824.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
