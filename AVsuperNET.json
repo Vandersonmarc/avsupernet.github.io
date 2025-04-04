@@ -1,5 +1,5 @@
 {
-    "Version": 1.6.8,
+    "Version": 1.6.9,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.6.8",
+            "Name": "ATUALIZAÇÃO 1.6.9",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -47,7 +47,7 @@
             "Payload": "[split]ACL / HTTP/1.1[crlf] Host: HTTP-DNS:1.1.1.1;1.0.0.1;8.8.8.8 [crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
-            "ProxyIP": "a.avclaro.com.br#::ffff:v9.toptvnet.shop#0000:0000:0000:0000:0000:ffff:a600:c4a3#0000:0000:0000:0000:0000:ffff:a600:c4c6#166.0.196.163#166.0.196.198",
+            "ProxyIP": "a.avclaro.com.br#166.0.196.163#166.0.196.198",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
@@ -57,7 +57,7 @@
     "Payload": "[split]ACL / HTTP/1.1[crlf] Host: HTTP-DNS:1.1.1.1;1.0.0.1;8.8.8.8 [crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
-            "ProxyIP": "a.avclaro.com.br#::ffff:v9.toptvnet.shop#0000:0000:0000:0000:0000:ffff:a600:c4a3#0000:0000:0000:0000:0000:ffff:a600:c4c6#166.0.196.163#166.0.196.198",
+            "ProxyIP": "a.avclaro.com.br#166.0.196.163#166.0.196.198",
             "ProxyPort": "8080",
             "Info": "Proxy"
         },
@@ -67,7 +67,7 @@
     "Payload": "[split]ACL / HTTP/1.1[crlf] Host: HTTP-DNS:1.1.1.1;1.0.0.1;8.8.8.8 [crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
-            "ProxyIP": "a.avclaro.com.br#::ffff:v9.toptvnet.shop#0000:0000:0000:0000:0000:ffff:a600:c4a3#0000:0000:0000:0000:0000:ffff:a600:c4c6#166.0.196.163#166.0.196.198",
+            "ProxyIP": "a.avclaro.com.br#166.0.196.163#166.0.196.198",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
@@ -77,7 +77,7 @@
             "Payload": "[delay_split]ACL /Set-Cookie: sessionID=fbafa6258966f49f252b404ab9e5c219; path=/admin; domain=revive.vivointernetgratis.com.br; secure; HttpOnly; SameSite=strict HTTP/1.1][lf]",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
-            "ProxyIP": "a.avclaro.com.br#::ffff:v9.toptvnet.shop#0000:0000:0000:0000:0000:ffff:a600:c4a3#0000:0000:0000:0000:0000:ffff:a600:c4c6#166.0.196.163#166.0.196.198",
+            "ProxyIP": "a.avclaro.com.br#166.0.196.163#166.0.196.198",
             "ProxyPort": "8080",
             "Info": "Proxy"
          },
@@ -87,7 +87,7 @@
       "Payload": "[split]PATCH HTTP/1.1Host: plus.google.com[lf]h2,http/1.1 PATCH HTTP/1.1Host: plus.google.com[lf][lf]",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
-            "ProxyIP": "a.avclaro.com.br#::ffff:v9.toptvnet.shop#0000:0000:0000:0000:0000:ffff:a600:c4a3#0000:0000:0000:0000:0000:ffff:a600:c4c6#166.0.196.163#166.0.196.198",
+            "ProxyIP": "a.avclaro.com.br#166.0.196.163#166.0.196.198",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
@@ -97,7 +97,7 @@
             "Payload": "[split]GET HTTP/1.1[crlf][crlf]HTTP/2: Ua[crlf]",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
-            "ProxyIP": "a.avclaro.com.br#::ffff:v9.toptvnet.shop#0000:0000:0000:0000:0000:ffff:a600:c4a3#0000:0000:0000:0000:0000:ffff:a600:c4c6#166.0.196.163#166.0.196.198",
+            "ProxyIP": "a.avclaro.com.br#166.0.196.163#166.0.196.198",
             "ProxyPort": "8080",
             "Info": "Proxy"
          },
@@ -144,7 +144,7 @@
         {
             "Name": "TIM GCLOUD [01]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: etemp-789709793944.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: eultimato-48196005703.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "pubsub.googleapis.com",
     "TlsIP": "pubsub.googleapis.com",
     "ProxyIP": "pubsub.googleapis.com",
@@ -154,7 +154,7 @@
         {
             "Name": "TIM GCLOUD [02]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: etemp-789709793944.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: eultimato-48196005703.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "pubsub.googleapis.com",
     "TlsIP": "pubsub.googleapis.com",
     "ProxyIP": "pubsub.googleapis.com",
@@ -164,7 +164,7 @@
         {
             "Name": "TIM GCLOUD [03]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: etemp-789709793944.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: eultimato-48196005703.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
