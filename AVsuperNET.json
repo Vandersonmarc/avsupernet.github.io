@@ -1,5 +1,5 @@
 {
-    "Version": 1.7.4,
+    "Version": 1.7.5,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.7.4",
+            "Name": "ATUALIZAÇÃO 1.7.5",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -124,22 +124,22 @@
         {
             "Name": "TIM PRE TOP🔹️01🔷️ ",
             "FLAG": "tim",
-            "Payload": "[rotate=ACL;PATCH;GET;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[lf]Host: [rotate=dl.maisvantagenstim.com.br;apf.maisvantagenstim.com.br;vpn.cloudmi.datami.com;www.maisvantagenstim.com.br;revive.timrecompensas.com.br;songbird.cardinalcommerce.com][lf][lf][split][lf]GET- / HTTP/1.1[lf]Host: [rotate=mtx.mtxnet3.shop][crlf]X-Status-Id: tunnel[crlf]Upgrade: Websocket[lf][lf]",
+            "Payload": "[rotate=GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;CONNECT;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /app1788175 HTTP/1.1[crlf]Host: tim.com.br[crlf][crlf][split][crlf][crlf]GET- /app1788175 HTTP/1.1[crlf]Host: tim.com.br[lf][lf]GET /app1788175 HTTP/1.1[crlf]Host: br02cdn.hydranett.online[lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googl/ebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
             "SNI": "",
-            "TlsIP": "162.159.140.159#1.1.1.1#meu.mtxnetv2.shop#104.18.5.18#198.217.251.251#172.66.0.157#104.18.4.18#198.217.251.250",
-            "ProxyIP": "162.159.140.159#1.1.1.1#meu.mtxnetv2.shop#104.18.5.18#198.217.251.251#172.66.0.157#104.18.4.18#198.217.251.250",
+            "TlsIP": "",
+            "ProxyIP": "cdn-segment.dzcdn.net#tim-myplan.plat-m4u.io#launches.appsflyer.com#tim-myplan.plat-m4u.io#13.227.126.40#13.227.126.91#99.84.31.8#13.227.126.40#13.227.126.91#99.84.31.8#13.227.126.91#13.227.126.39#99.84.31.114#65.8.178.74#65.8.178.65#65.8.178.51#99.84.31.97#99.84.31.8#99.84.31.80#13.227.126.40#18.64.174.128#premier.sonos.dzcdn.net#13.227.126.91#13.227.126.39#99.84.31.114#65.8.178.74#65.8.178.65#65.8.178.51#99.84.31.97#99.84.31.8#99.84.31.80#13.227.126.40#108.139.113.107#108.139.113.60#108.139.113.110#108.139.113.91#18.64.174.128#mtls.sandbox.c6bank.com.br#172.64.154.143#104.18.33.113",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
         {
             "Name": "TIM PRE TOP🔹️02🔷️",
             "FLAG": "tim",
-            "Payload": "GET /cdn-cgi/trace/ HTTP/1.1[crlf]Host: vpn.cloudmi.datami.com[crlf][crlf][split]GET- / HTTP/1.1[crlf]Host: meu.mtxnetv2.shop[crlf]Upgrade: Websocket[crlf]@JNETVPN[crlf][crlf]",
+            "Payload": "[rotate=GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;CONNECT;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace HTTP/1.1[crlf]Host: [rotate=cdnjs.cloudflare.com;aceitedigital.vivo.com.br;api.vivo.com.br;gateway.ipfs.cloudflare.com;api.timrecompensas.com.br;www.c6bank.com.br;topspeed.c6bank.app][lf][lf][split][lf][lf]GET- / HTTP/1.1[lf]Host: a.avclaro.com.br[lf]Upgrade: Websocket[lf][lf]",
             "SNI": "",
-            "TlsIP": "vpn.cloudmi.datami.com#1.1.1.1",
-            "ProxyIP": "vpn.cloudmi.datami.com#1.1.1.1",
+            "TlsIP": "",
+            "ProxyIP": "216.198.53.1#104.19.240.93#172.64.154.143#216.198.54.1#104.18.4.18#104.18.5.18#vs.timrecompensas.com.br#portal.timrecompensas.com.br#noexempt-api.timrecompensas.com.br#portal.timrecompensas.com.br.cdn.cloudflare.net#vs.timrecompensas.com.br.cdn.cloudflare.net",
             "ProxyPort": "80",
-            "Info": "Direct"
+            "Info": "Proxy"
         },
         {
             "Name": "TIM PRE TOP🔹️03🔷️",
