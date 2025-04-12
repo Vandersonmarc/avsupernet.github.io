@@ -1,5 +1,5 @@
 {
-    "Version": 1.7.8,
+    "Version": 1.7.9,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,10 +29,10 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.7.8",
+            "Name": "ATUALIZAÇÃO 1.7.9",
             "TYPE": "premium",
             "FLAG": "br.png",
-            "ServerIP": "evefkib-897669362227.southamerica-east1.run.app",
+            "ServerIP": "edu6pd2-579267097259.southamerica-east1.run.app",
             "CheckUser": "https://painel.avsuper.com.br/checkuser/conecta4g.php",
             "ServerPort": "22",
             "SSLPort": "443",
@@ -144,7 +144,7 @@
         {
             "Name": "TIM GCLOUD [01]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: evefkib-897669362227.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: edu6pd2-579267097259.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "pubsub.googleapis.com",
     "TlsIP": "pubsub.googleapis.com",
     "ProxyIP": "pubsub.googleapis.com",
@@ -154,7 +154,7 @@
         {
             "Name": "TIM GCLOUD [02]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: evefkib-897669362227.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: edu6pd2-579267097259.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "pubsub.googleapis.com",
     "TlsIP": "pubsub.googleapis.com",
     "ProxyIP": "pubsub.googleapis.com",
@@ -164,7 +164,7 @@
         {
             "Name": "TIM GCLOUD [03]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1\r\nHost: evefkib-897669362227.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: edu6pd2-579267097259.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
@@ -177,7 +177,7 @@
             "Payload": "[rotate=ACL;GET;MOVE;UNLOCK;SUBSCRIBE;PROPFIND;MKCOL;PROPATCH;SEARCH;OPTIONS;NOTIFY] /cdn-cgi/trace HTTP/1.1[crlf]Host: [rotate=apf.maisvantagenstim.com.br;revive.timrecompensas.com.br;vs.timrecompensas.com.br;portal.timrecompensas.com.br;timrecompensas.com.br;api.timrecompensas.com.br][crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: c.avclaro.com.br[crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf][crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "104.18.4.18#104.18.5.18#vs.timrecompensas.com.br#apf.maisvantagenstim.com.br",
+            "ProxyIP": "104.18.4.18#104.18.5.18#vs.timrecompensas.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
