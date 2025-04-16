@@ -1,5 +1,5 @@
 {
-    "Version": 1.8.0,
+    "Version": 1.8.1,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.8.0",
+            "Name": "ATUALIZAÇÃO 1.8.1",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -54,10 +54,7 @@
         {
             "Name": "VIVO GCLOUD [01]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1
-Host: [rotate=ey9gsj1-581834686703.southamerica-east1.run.app;ev5mfn9-664847321997.southamerica-east1.run.app;eh3xud9-613373495263.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app]
-Connection: Upgrade
-Upgrade: Websocket\n\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: [rotate=ey9gsj1-581834686703.southamerica-east1.run.app;ev5mfn9-664847321997.southamerica-east1.run.app;eh3xud9-613373495263.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app]\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
@@ -157,10 +154,7 @@ Upgrade: Websocket\n\n",
         {
             "Name": "TIM GCLOUD [01]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1
-Host: [rotate=ey9gsj1-581834686703.southamerica-east1.run.app;ev5mfn9-664847321997.southamerica-east1.run.app;eh3xud9-613373495263.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app]
-Connection: Upgrade
-Upgrade: Websocket\n\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: [rotate=ey9gsj1-581834686703.southamerica-east1.run.app;ev5mfn9-664847321997.southamerica-east1.run.app;eh3xud9-613373495263.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app]\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "pubsub.googleapis.com",
     "TlsIP": "pubsub.googleapis.com",
     "ProxyIP": "pubsub.googleapis.com",
@@ -170,10 +164,7 @@ Upgrade: Websocket\n\n",
         {
             "Name": "TIM GCLOUD [02]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1
-Host: [rotate=ey9gsj1-581834686703.southamerica-east1.run.app;ev5mfn9-664847321997.southamerica-east1.run.app;eh3xud9-613373495263.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app]
-Connection: Upgrade
-Upgrade: Websocket\n\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: [rotate=ey9gsj1-581834686703.southamerica-east1.run.app;ev5mfn9-664847321997.southamerica-east1.run.app;eh3xud9-613373495263.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app]\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "pubsub.googleapis.com",
     "TlsIP": "pubsub.googleapis.com",
     "ProxyIP": "pubsub.googleapis.com",
@@ -183,10 +174,7 @@ Upgrade: Websocket\n\n",
         {
             "Name": "TIM GCLOUD [03]",
     "FLAG": "tim",
-    "Payload": "GET /app109 HTTP/1.1
-Host: [rotate=ey9gsj1-581834686703.southamerica-east1.run.app;ev5mfn9-664847321997.southamerica-east1.run.app;eh3xud9-613373495263.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app]
-Connection: Upgrade
-Upgrade: Websocket\n\n",
+    "Payload": "GET /app109 HTTP/1.1\r\nHost: [rotate=ey9gsj1-581834686703.southamerica-east1.run.app;ev5mfn9-664847321997.southamerica-east1.run.app;eh3xud9-613373495263.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app;e0zjxja-728165357744.southamerica-east1.run.app]\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
