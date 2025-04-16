@@ -1,5 +1,5 @@
 {
-    "Version": 1.8.4,
+    "Version": 1.8.5,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.8.4",
+            "Name": "ATUALIZAÇÃO 1.8.5",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -244,7 +244,7 @@
         {
             "Name": "TIM EXPIRADO ♧03♧",
             "FLAG": "tim",
-            "Payload": "Payload": "[rotate=GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;CONNECT;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /app1788175 HTTP/1.1[crlf]Host: bounce.mail.planos.tim.com.br[crlf][crlf][split][crlf][crlf]GET- /app1788175 HTTP/1.1[crlf]Host: bounce.mail.planos.tim.com.br[lf][lf]GET /app1788175 HTTP/1.1[crlf]Host: br02cdn.hydranett.online [lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googl/ebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "Payload": "[rotate=GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;CONNECT;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /app1788175 HTTP/1.1[crlf]Host: bounce.mail.planos.tim.com.br[crlf][crlf][split][crlf][crlf]GET- /app1788175 HTTP/1.1[crlf]Host: bounce.mail.planos.tim.com.br[lf][lf]GET /app1788175 HTTP/1.1[crlf]Host: br02cdn.hydranett.online [lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googl/ebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "13.227.126.40#13.227.126.39#tim-myplan.plat-m4u.io#cdn-segment.dzcdn.net#launches.appsflyer.com#13.227.126.91#99.84.31.8#99.84.31.114#65.8.178.74#65.8.178.65#65.8.178.51#99.84.31.97#99.84.31.80#18.64.174.128#premier.sonos.dzcdn.net#99.84.31.114#65.8.178.74#65.8.178.65#65.8.178.51#99.84.31.97#99.84.31.80#108.139.113.107#108.139.113.60#108.139.113.110#108.139.113.91#18.64.174.128#bounce.mail.planos.tim.com.br#108.139.113.82#108.139.113.100#108.139.113.114#108.139.113.127#108.158.137.43#108.158.137.54#108.158.137.96#108.158.137.102#108.139.113.110#99.84.31.80#108.158.137.43#108.139.113.100#108.139.113.110#108.139.113.114#108.139.113.127#108.139.113.60#108.139.95.5#108.158.137.102#bounce.mail.planos.tim.com.br#108.139.113.82#108.139.113.100#108.139.113.114#108.139.113.127#108.158.137.43#108.158.137.54#108.158.137.96#108.158.137.102#108.139.113.110#99.84.31.80#108.158.137.43#108.139.113.100#108.139.113.110#108.139.113.114#108.139.113.127#108.139.113.60#108.139.95.5#108.158.137.102#108.139.113.82",
