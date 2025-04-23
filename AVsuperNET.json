@@ -1,5 +1,5 @@
 {
-    "Version": 1.9.3,
+    "Version": 1.9.4,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.9.3",
+            "Name": "ATUALIZAÇÃO 1.9.4",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -54,7 +54,7 @@
         {
             "Name": "🟣 VIVO GCLOUD [01]",
     "FLAG": "vivo",
-    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-186443763359.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-133891883492.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.zukunftswerkstatt.de",
     "TlsIP": "www.zukunftswerkstatt.de",
     "ProxyIP": "www.zukunftswerkstatt.de",
@@ -64,7 +64,7 @@
         {
             "Name": "🟣 VIVO GCLOUD [02]",
     "FLAG": "vivo",
-    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-186443763359.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-133891883492.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "grow.google",
     "TlsIP": "grow.google",
     "ProxyIP": "grow.google",
@@ -154,7 +154,7 @@
         {
             "Name": "TIM GCLOUD [01]",
     "FLAG": "tim",
-    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-186443763359.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-133891883492.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
@@ -164,7 +164,7 @@
         {
             "Name": "TIM GCLOUD [02]",
     "FLAG": "tim",
-    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-186443763359.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-133891883492.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
@@ -174,7 +174,7 @@
         {
             "Name": "TIM GCLOUD [03]",
     "FLAG": "tim",
-    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-186443763359.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app108 HTTP/1.1\r\nHost: luffynika-133891883492.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
