@@ -1,5 +1,5 @@
 {
-    "Version": 1.9.6,
+    "Version": 1.9.7,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 1.9.6",
+            "Name": "ATUALIZAÇÃO 1.9.7",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
