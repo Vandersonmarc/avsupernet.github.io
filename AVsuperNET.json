@@ -1,5 +1,5 @@
 {
-    "Version": 1.9.9.1,
+    "Version": 1.9.9.2,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 2.0.1",
+            "Name": "ATUALIZAÇÃO 2.0.2",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -76,7 +76,7 @@
     "FLAG": "vivo",
     "Payload": "GET wss://a.avclaro.com.br/ HTTP/1.1\nHost: a.avclaro.com.br \nUpgrade: Websocket\nConnection:Upgrade\nSec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==\nSec-WebSocket-Version: 13\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.94 Safari/537.36[lf][lf]",
     "SNI": "a.avclaro.com.br",
-    "TlsIP": "vivovalorizaempresas.vivo.com.br#portaljud2.vivo.com.br#mapadecobertura.vivo.com.br#gestaocontactcenter.vivo.com.br#162.159.140.159#172.66.0.157#172.67.74.152#104.26.12.205#104.17.72.206#104.17.70.206#104.17.73.206#104.17.71.206#escolas.playwaze.com#ftp.chillwaze.com#bucs.playwaze.com#141.193.213.10#104.17.70.206#188.114.99.229#188.114.98.229#104.26.12.205#104.26.13.205#172.67.74.152#104.26.12.205#172.67.74.152#104.18.5.18#revive.timrecompensas.com.br#stage.timofertas.com#c6bank.nextos.com#timofertas.com.cdn.cloudflare.ne#104.18.4.18",
+    "TlsIP": "a.avclaro.com.br",
     "ProxyIP": "vivovalorizaempresas.vivo.com.br#portaljud2.vivo.com.br#mapadecobertura.vivo.com.br#gestaocontactcenter.vivo.com.br#162.159.140.159#172.66.0.157#172.67.74.152#104.26.12.205#104.17.72.206#104.17.70.206#104.17.73.206#104.17.71.206#escolas.playwaze.com#ftp.chillwaze.com#bucs.playwaze.com#141.193.213.10#104.17.70.206#188.114.99.229#188.114.98.229#104.26.12.205#104.26.13.205#172.67.74.152#104.26.12.205#172.67.74.152#104.18.5.18#revive.timrecompensas.com.br#stage.timofertas.com#c6bank.nextos.com#timofertas.com.cdn.cloudflare.ne#104.18.4.18",
     "ProxyPort": "443",
     "Info": "Tlsws"
