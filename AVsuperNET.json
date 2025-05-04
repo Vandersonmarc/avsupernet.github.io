@@ -1,5 +1,5 @@
 {
-    "Version": 2.1,
+    "Version": 2.2,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 03|05",
+            "Name": "ATUALIZAÇÃO 2.2",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -44,7 +44,7 @@
         {
             "Name": "⚠️ SELECIONAR SUA OPERADORA ⚠️",
             "FLAG": "vivo",
-            "Payload": "[split]ACL / HTTP/1.1[crlf] Host: HTTP-DNS:1.1.1.1;1.0.0.1;8.8.8.8 [crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "[split]ACL / HTTP/1.1\r\n Host: HTTP-DNS:1.1.1.1;1.0.0.1;8.8.8.8 \r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
             "ProxyIP": "a.avclaro.com.br#v9.toptvnet.shop",
@@ -74,7 +74,7 @@
         {
             "Name": "🟣 VIVO TURBO [03]",
     "FLAG": "vivo",
-    "Payload": "GET wss://a.avclaro.com.br/ HTTP/1.1\nHost: a.avclaro.com.br \nUpgrade: Websocket\nConnection:Upgrade\nSec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==\nSec-WebSocket-Version: 13\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.94 Safari/537.36[lf][lf]",
+    "Payload": "GET wss://a.avclaro.com.br/ HTTP/1.1\nHost: a.avclaro.com.br \nUpgrade: Websocket\nConnection:Upgrade\nSec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==\nSec-WebSocket-Version: 13\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.94 Safari/537.36\r\n\r\n",
     "SNI": "a.avclaro.com.br",
     "TlsIP": "a.avclaro.com.br",
     "ProxyIP": "vivovalorizaempresas.vivo.com.br#portaljud2.vivo.com.br#mapadecobertura.vivo.com.br#gestaocontactcenter.vivo.com.br#162.159.140.159#172.66.0.157#172.67.74.152#104.26.12.205#104.17.72.206#104.17.70.206#104.17.73.206#104.17.71.206#escolas.playwaze.com#ftp.chillwaze.com#bucs.playwaze.com#141.193.213.10#104.17.70.206#188.114.99.229#188.114.98.229#104.26.12.205#104.26.13.205#172.67.74.152#104.26.12.205#172.67.74.152#104.18.5.18#revive.timrecompensas.com.br#stage.timofertas.com#c6bank.nextos.com#timofertas.com.cdn.cloudflare.ne#104.18.4.18",
@@ -84,7 +84,7 @@
          {
               "Name": "🟣 VIVO TURBO [04]",
             "FLAG": "vivo",
-            "Payload": "[delay_split]ACL /Set-Cookie: sessionID=fbafa6258966f49f252b404ab9e5c219; path=/admin; domain=revive.vivointernetgratis.com.br; secure; HttpOnly; SameSite=strict HTTP/1.1][lf]",
+            "Payload": "[delay_split]ACL /Set-Cookie: sessionID=fbafa6258966f49f252b404ab9e5c219; path=/admin; domain=revive.vivointernetgratis.com.br; secure; HttpOnly; SameSite=strict HTTP/1.1]\r\n",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
             "ProxyIP": "a.avclaro.com.br#v9.toptvnet.shop",
@@ -94,7 +94,7 @@
        {
    "Name": "🟣 VIVO TURBO [05]",
       "FLAG": "vivo",
-      "Payload": "[split]PATCH HTTP/1.1Host: plus.google.com[lf]h2,http/1.1 PATCH HTTP/1.1Host: plus.google.com[lf][lf]",
+      "Payload": "[split]PATCH HTTP/1.1Host: plus.google.com\r\nh2,http/1.1 PATCH HTTP/1.1Host: plus.google.com\r\n\r\n",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
             "ProxyIP": "a.avclaro.com.br#v9.toptvnet.shop",
@@ -104,7 +104,7 @@
          {
              "Name": "🟣 VIVO TURBO [06]",
             "FLAG": "vivo",
-            "Payload": "[split]GET HTTP/1.1[crlf][crlf]HTTP/2: Ua[crlf]",
+            "Payload": "[split]GET HTTP/1.1\r\n\r\nHTTP/2: Ua\r\n",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
             "ProxyIP": "a.avclaro.com.br#v9.toptvnet.shop",
@@ -114,7 +114,7 @@
         {
             "Name": "🟣 VIVO EXPIRADO [01] 🟣",
             "FLAG": "vivo",
-            "Payload": "GET / HTTP/1.1[crlf]Host:b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
+            "Payload": "GET / HTTP/1.1\r\nHost:b.avclaro.com.br\r\nUpgrade: websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "104.26.12.205#172.67.74.152#64:ff9b::ac43:4a98#64:ff9b::681a:ccd#b.avclaro.com.br",
@@ -124,7 +124,7 @@
          {
          "Name": "🟣VIVO EASY / CONTROLE [01]🟣",
       "FLAG": "vivo",
-      "Payload": "GET / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
+      "Payload": "GET / HTTP/1.1\r\nHost: a.avclaro.com.br\r\nUpgrade: websocket\r\n\r\n",
       "SNI": "",
       "TlsIP": "",
       "ProxyIP": "104.18.6.80#104.17.64.225#104.19.240.25#104.18.27.160#104.16.239.166#104.18.28.181#104.16.237.16#104.18.33.113#141.193.213.11#141.193.213.10#141.193.213.11#104.18.18.210#104.18.19.210#104.18.22.136#104.18.23.136#104.17.70.206#104.17.71.206#104.17.72.206#104.17.73.206#104.17.74.206#104.26.4.32#104.26.5.32#104.18.6.41#104.18.7.41#104.18.6.80#104.18.7.80#162.159.138.6#162.159.128.7#legado.vivo.com.br#assine.vivo.com.br#vivo360.vivo.com.br",
@@ -134,7 +134,7 @@
     {
       "Name": "🟣VIVO EASY / CONTROLE - [02]🟣",
       "FLAG": "vivo",
-      "Payload": "GET / HTTP/1.1[crlf]Host: b.avclaro.com.br[crlf]Upgrade: websocket[crlf][crlf]",
+      "Payload": "GET / HTTP/1.1\r\nHost: b.avclaro.com.br\r\nUpgrade: websocket\r\n\r\n",
       "SNI": "",
       "TlsIP": "",
       "ProxyIP": "104.18.7.80#b.avclaro.com.br#104.19.241.93#172.64.150.8#104.18.6.41#104.16.51.111#104.16.53.111#www.c6bank.app",
@@ -144,7 +144,7 @@
     {
       "Name": "🟣VIVO CONTROLE - [03]🟣",
       "FLAG": "vivo",
-      "Payload": "ACL / HTTP/1.1[lf]Host: [host_port][lf]Upgrade: Websocket Upgrade: [lf][split][lf]",
+      "Payload": "ACL / HTTP/1.1\r\nHost: [host_port]\r\nUpgrade: Websocket Upgrade: \r\n[split]\r\n",
       "SNI": "",
       "TlsIP": "",
       "ProxyIP": "www.appstore.vivo.com.br#carrinho-pos-familia.vivo.com.br#sgrs.vivo.com.br#widgetpe.redesegura.vivo.com.br#meuvivofixoapp.vivo.com.br",
@@ -184,7 +184,7 @@
         {
             "Name": "TIM TODOS OS DDDs ☆04☆",
             "FLAG": "tim",
-            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1[crlf]Host: ayabooks.com.br[crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1\r\nHost: ayabooks.com.br\r\n\r\n[split]\r\nGET- / HTTP/1.1\r\nHost: a.avclaro.com.br\r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "ayabooks.com.br#bancah.com.br#104.18.5.18#portal.timrecompensas.com.br#vs.timrecompensas.com.br#noexempt-api.timrecompensas.com.br#revive.timrecompensas.com.br#support.oodi.iq#helpdesk.verimatrix.com#216.198.53.1#216.198.54.1#141.193.213.10#bio-matrix.net#comcellulardata.ubigi.com#support.deezer.com#bio-matrix.net#ayuda.universalplus.com#ayudaizzi.izzi.mx#ayuda.tigo.com.py#boostbusiness.zendesk.com#b.zendesk.com#www.ultrahaus.com.br#booth.pixiv.help#busuu-live.busuu.com#bold.support#support.giphy.com#104.18.1.64#104.19.240.93#bi.descomplica.com.br",
@@ -194,7 +194,7 @@
         {
             "Name": "TIM VÁLIDO ☆05☆",
             "FLAG": "tim",
-            "Payload": "GET / HTTP/1.1[lf]Host: vs.timrecompensas.com.br[crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: [rotate=v9.toptvnet.shop;a.avclaro.com.br][lf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "GET / HTTP/1.1\r\nHost: vs.timrecompensas.com.br\r\n\r\n[split]\r\nGET- / HTTP/1.1\r\nHost: [rotate=v9.toptvnet.shop;a.avclaro.com.br]\r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "vs.timrecompensas.com.br",
@@ -204,7 +204,7 @@
         {
             "Name": "TIM VÁLIDO ☆06☆",
             "FLAG": "tim",
-            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1[crlf]Host: ayabooks.com.br[crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1\r\nHost: ayabooks.com.br\r\n\r\n[split]\r\nGET- / HTTP/1.1\r\nHost: a.avclaro.com.br\r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "ayabooks.com.br#bancah.com.br#104.18.5.18#portal.timrecompensas.com.br#vs.timrecompensas.com.br#noexempt-api.timrecompensas.com.br#revive.timrecompensas.com.br#support.oodi.iq#helpdesk.verimatrix.com#216.198.53.1#216.198.54.1#141.193.213.10#bio-matrix.net#comcellulardata.ubigi.com#support.deezer.com#bio-matrix.net#ayuda.universalplus.com#ayudaizzi.izzi.mx#ayuda.tigo.com.py#boostbusiness.zendesk.com#b.zendesk.com#www.ultrahaus.com.br#booth.pixiv.help#busuu-live.busuu.com#bold.support#support.giphy.com#104.18.1.64#104.19.240.93#bi.descomplica.com.br",
@@ -214,7 +214,7 @@
         {
             "Name": "TIM DDD 61,21,62,31 ☆07☆",
             "FLAG": "tim",
-            "Payload": "GET /cdn-cgi/trace/ HTTP/1.1[crlf]Host: vs.timrecompensas.com.br[crlf][crlf][split]DELETE- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "GET /cdn-cgi/trace/ HTTP/1.1\r\nHost: vs.timrecompensas.com.br\r\n\r\n[split]DELETE- / HTTP/1.1\r\nHost: a.avclaro.com.br\r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "vs.timrecompensas.com.br#apf.maisvantagenstim.com.br#portal.timrecompensas.com.br#v9.toptvnet.shop#104.18.5.18",
@@ -224,7 +224,7 @@
         {
             "Name": "TIM VELOX ➜ 01",
             "FLAG": "tim",
-            "Payload": "[rotate=GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;CONNECT;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] wss://tim.com.br/ HTTP/1.1[crlf]Host: tim.com.br[crlf][crlf][split][crlf][crlf]GET- / HTTP/1.1[crlf]Host: cloud4.cdnbrasil.site[crlf] [crlf]GET / HTTP/1.1[crlf]Host: cloud4.cdnbrasil.site[crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "[rotate=GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;CONNECT;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] wss://tim.com.br/ HTTP/1.1\r\nHost: tim.com.br\r\n\r\n[split]\r\n\r\nGET- / HTTP/1.1\r\nHost: cloud4.cdnbrasil.site\r\n \r\nGET / HTTP/1.1\r\nHost: cloud4.cdnbrasil.site\r\nConnection: Upgrade\r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "d2oc0ihd6a5bt.cloudfront.net#trocadecartao.timcontrole.m4u.com.br#launches.appsflyer.com#tim.com.br#13.227.97.49#13.227.97.116#13.227.97.28#13.227.97.69#99.84.31.80#13.227.126.91#52.85.213.121#13.227.126.58#mtls.sandbox.c6bank.com.br#172.64.154.143#104.18.33.113",
@@ -234,7 +234,7 @@
         {
             "Name": "TIM VELOX ➜ 02",
             "FLAG": "tim",
-            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1[crlf]Host: ayabooks.com.br[crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1\r\nHost: ayabooks.com.br\r\n\r\n[split]\r\nGET- / HTTP/1.1\r\nHost: a.avclaro.com.br\r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "ayabooks.com.br#bancah.com.br#104.18.5.18#portal.timrecompensas.com.br#vs.timrecompensas.com.br#noexempt-api.timrecompensas.com.br#revive.timrecompensas.com.br#support.oodi.iq#helpdesk.verimatrix.com#216.198.53.1#216.198.54.1#141.193.213.10#bio-matrix.net#comcellulardata.ubigi.com#support.deezer.com#bio-matrix.net#ayuda.universalplus.com#ayudaizzi.izzi.mx#ayuda.tigo.com.py#boostbusiness.zendesk.com#b.zendesk.com#www.ultrahaus.com.br#booth.pixiv.help#busuu-live.busuu.com#bold.support#support.giphy.com#104.18.1.64#104.19.240.93#bi.descomplica.com.br",
@@ -244,7 +244,7 @@
         {
             "Name": "TIM VALIDO ➜ 03",
             "FLAG": "tim",
-            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1[crlf]Host: ayabooks.com.br[crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1\r\nHost: ayabooks.com.br\r\n\r\n[split]\r\nGET- / HTTP/1.1\r\nHost: a.avclaro.com.br\r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "104.18.4.18#ayabooks.com.br#bancah.com.br#104.18.5.18#portal.timrecompensas.com.br#vs.timrecompensas.com.br#noexempt-api.timrecompensas.com.br#revive.timrecompensas.com.br#support.oodi.iq#helpdesk.verimatrix.com#216.198.53.1#216.198.54.1#141.193.213.10#bio-matrix.net#comcellulardata.ubigi.com#support.deezer.com#bio-matrix.net#ayuda.universalplus.com#ayudaizzi.izzi.mx#ayuda.tigo.com.py#boostbusiness.zendesk.com#b.zendesk.com#www.ultrahaus.com.br#booth.pixiv.help#busuu-live.busuu.com#bold.support#support.giphy.com#104.18.1.64#104.19.240.93#bi.descomplica.com.br",
@@ -254,7 +254,7 @@
         {
             "Name": "TIM VALIDO ➜ 04",
             "FLAG": "tim",
-            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1[crlf]Host: ayabooks.com.br[crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "[rotate=CONNECT;GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] /cdn-cgi/trace/ HTTP/1.1\r\nHost: ayabooks.com.br\r\n\r\n[split]\r\nGET- / HTTP/1.1\r\nHost: a.avclaro.com.br\r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "104.18.4.18#ayabooks.com.br#bancah.com.br#104.18.5.18#portal.timrecompensas.com.br#vs.timrecompensas.com.br#noexempt-api.timrecompensas.com.br#revive.timrecompensas.com.br#support.oodi.iq#helpdesk.verimatrix.com#216.198.53.1#216.198.54.1#141.193.213.10#bio-matrix.net#comcellulardata.ubigi.com#support.deezer.com#bio-matrix.net#ayuda.universalplus.com#ayudaizzi.izzi.mx#ayuda.tigo.com.py#boostbusiness.zendesk.com#b.zendesk.com#www.ultrahaus.com.br#booth.pixiv.help#busuu-live.busuu.com#bold.support#support.giphy.com#104.18.1.64#104.19.240.93#bi.descomplica.com.br",
@@ -264,7 +264,7 @@
         {
             "Name": "TIM VALIDO ➜ 05",
             "FLAG": "tim",
-            "Payload": "GET /cdn-cgi/trace/ HTTP/1.1[crlf]Host: [rotate=ayabooks.com.br;bancah.com.br;verisoft.com.br][crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: a.avclaro.com.br[crlf]Upgrade: Websocket[crlf][crlf]",
+            "Payload": "GET /cdn-cgi/trace/ HTTP/1.1\r\nHost: [rotate=ayabooks.com.br;bancah.com.br;verisoft.com.br]\r\n\r\n[split]\r\nGET- / HTTP/1.1\r\nHost: a.avclaro.com.br\r\nUpgrade: Websocket\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "104.18.4.18#ayabooks.com.br#bancah.com.br#104.18.5.18#portal.timrecompensas.com.br#vs.timrecompensas.com.br#noexempt-api.timrecompensas.com.br#revive.timrecompensas.com.br#support.oodi.iq#helpdesk.verimatrix.com#216.198.53.1#216.198.54.1#141.193.213.10#bio-matrix.net#comcellulardata.ubigi.com#support.deezer.com#bio-matrix.net#ayuda.universalplus.com#ayudaizzi.izzi.mx#ayuda.tigo.com.py#boostbusiness.zendesk.com#b.zendesk.com#www.ultrahaus.com.br#booth.pixiv.help#busuu-live.busuu.com#bold.support#support.giphy.com#104.18.1.64#104.19.240.93#bi.descomplica.com.br",
@@ -274,7 +274,7 @@
         {
             "Name": "TIM EXPIRADO ☆01☆",
             "FLAG": "tim",
-            "Payload": "HTTP/ 1[lf]Host: portalrecarga.vivo.com.br;Tim.com.br;xvideos.com;blaze-1.com;glink.net.br-CDN-GEThttp://ACL-CDN-VIVO.COM.BR;GOOGLE.COM\\\\n\\\\n\\\\n \\\\n#HTTP/1.1[lf]HTTP/ [lf]Host: [rotate=yhjq23.360.com.fail;alt4.aspmx.l.google.com;www.xhtsw.163.com.fail;www.storm.canny.io;www.reimaginetomorrow-qa.disney.com;www.minecraft.msgfocus.com;www.netflixawards.com;x115gzbrpk.execute-api.us-east-1.amazonaws.com;google.traiteurjongen.com;aspmx.l.google.com.4xfun.com;aspmx.l.google.com.469.it. 20secondenhandenwassen.nl;aspmx.l.google.com.469.it;alt2.aspmx.l.google.com.0088.tv;alt1.aspmx.l.google.com.123sexshop.be;alt2.aspmx.l.google.com.sac-surveyors.org;alt2.aspmx.l.google.com.meta-meta.com;slcch03bl9.execute-api.us-east-1.amazonaws.com][lf]#HTTP/ 1[lf]HTTP/ [lf]Host: alt4.aspmx.l.google.com[lf][lf] Upgrade[lf][lf]",
+            "Payload": "HTTP/ 1\r\nHost: portalrecarga.vivo.com.br;Tim.com.br;xvideos.com;blaze-1.com;glink.net.br-CDN-GEThttp://ACL-CDN-VIVO.COM.BR;GOOGLE.COM\\\\n\\\\n\\\\n \\\\n#HTTP/1.1\r\nHTTP/ \r\nHost: [rotate=yhjq23.360.com.fail;alt4.aspmx.l.google.com;www.xhtsw.163.com.fail;www.storm.canny.io;www.reimaginetomorrow-qa.disney.com;www.minecraft.msgfocus.com;www.netflixawards.com;x115gzbrpk.execute-api.us-east-1.amazonaws.com;google.traiteurjongen.com;aspmx.l.google.com.4xfun.com;aspmx.l.google.com.469.it. 20secondenhandenwassen.nl;aspmx.l.google.com.469.it;alt2.aspmx.l.google.com.0088.tv;alt1.aspmx.l.google.com.123sexshop.be;alt2.aspmx.l.google.com.sac-surveyors.org;alt2.aspmx.l.google.com.meta-meta.com;slcch03bl9.execute-api.us-east-1.amazonaws.com]\r\n#HTTP/ 1\r\nHTTP/ \r\nHost: alt4.aspmx.l.google.com\r\n\r\n Upgrade\r\n\r\n",
             "SNI": "",
             "TlsIP": "a.avclaro.com.br",
             "ProxyIP": "a.avclaro.com.br",
@@ -284,7 +284,7 @@
         {
             "Name": "TIM EXPIRADO ♧02♧",
             "FLAG": "tim",
-            "Payload": "HTTP/1.1[lf]HTTP/ [lf]Host: [rotate=yhjq23.360.com.fail;alt4.aspmx.l.google.com;www.xhtsw.163.com.fail;www.storm.canny.io;www.reimaginetomorrow-qa.disney.com;www.minecraft.msgfocus.com;www.netflixawards.com;x115gzbrpk.execute-api.us-east-1.amazonaws.com;google.traiteurjongen.com;aspmx.l.google.com.4xfun.com;aspmx.l.google.com.469.it. 20secondenhandenwassen.nl;aspmx.l.google.com.469.it;alt2.aspmx.l.google.com.0088.tv;alt1.aspmx.l.google.com.123sexshop.be;alt2.aspmx.l.google.com.sac-surveyors.org;alt2.aspmx.l.google.com.meta-meta.com;slcch03bl9.execute-api.us-east-1.amazonaws.com][lf]@",
+            "Payload": "HTTP/1.1\r\nHTTP/ \r\nHost: [rotate=yhjq23.360.com.fail;alt4.aspmx.l.google.com;www.xhtsw.163.com.fail;www.storm.canny.io;www.reimaginetomorrow-qa.disney.com;www.minecraft.msgfocus.com;www.netflixawards.com;x115gzbrpk.execute-api.us-east-1.amazonaws.com;google.traiteurjongen.com;aspmx.l.google.com.4xfun.com;aspmx.l.google.com.469.it. 20secondenhandenwassen.nl;aspmx.l.google.com.469.it;alt2.aspmx.l.google.com.0088.tv;alt1.aspmx.l.google.com.123sexshop.be;alt2.aspmx.l.google.com.sac-surveyors.org;alt2.aspmx.l.google.com.meta-meta.com;slcch03bl9.execute-api.us-east-1.amazonaws.com]\r\n@",
             "SNI": "",
             "TlsIP": "a.avclaro.com.br",
             "ProxyIP": "a.avclaro.com.br",
@@ -294,7 +294,7 @@
         {
             "Name": "TIM EXPIRADO ♧03♧",
             "FLAG": "tim",
-            "Payload": "GET /vanderson HTTP/1.1[crlf]Host: bounce.mail.planos.tim.com.br[crlf][crlf][split][crlf][crlf]GET- /vanderson HTTP/1.1[crlf]Host: bounce.mail.planos.tim.com.br[lf][lf]GET /vanderson HTTP/1.1[crlf]Host: [rotate=centraldacdn-6.dns-theromshost.com;d301u3hlm7z1vw.cloudfront.net;centraldacdn-7.dns-theromshost.com;centraldacdn-8.dns-theromshost.com] [lf]Connection: Upgrade[lf]Upgrade: websocket[lf]User-Agent: Googl/ebot/2.1 (+http://www.google.com/bot.html)[lf][lf]",
+            "Payload": "GET /vanderson HTTP/1.1\r\nHost: bounce.mail.planos.tim.com.br\r\n\r\n[split]\r\n\r\nGET- /vanderson HTTP/1.1\r\nHost: bounce.mail.planos.tim.com.br\r\n\r\nGET /vanderson HTTP/1.1\r\nHost: [rotate=centraldacdn-6.dns-theromshost.com;d301u3hlm7z1vw.cloudfront.net;centraldacdn-7.dns-theromshost.com;centraldacdn-8.dns-theromshost.com] \r\nConnection: Upgrade\r\nUpgrade: websocket\r\nUser-Agent: Googl/ebot/2.1 (+http://www.google.com/bot.html)\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "13.227.126.40#13.227.126.39#tim-myplan.plat-m4u.io#cdn-segment.dzcdn.net#launches.appsflyer.com#13.227.126.91#99.84.31.8#99.84.31.114#65.8.178.74#65.8.178.65#65.8.178.51#99.84.31.97#99.84.31.80#18.64.174.128#premier.sonos.dzcdn.net#99.84.31.114#65.8.178.74#65.8.178.65#65.8.178.51#99.84.31.97#99.84.31.80#108.139.113.107#108.139.113.60#108.139.113.110#108.139.113.91#18.64.174.128#bounce.mail.planos.tim.com.br#108.139.113.82#108.139.113.100#108.139.113.114#108.139.113.127#108.158.137.43#108.158.137.54#108.158.137.96#108.158.137.102#108.139.113.110#99.84.31.80#108.158.137.43#108.139.113.100#108.139.113.110#108.139.113.114#108.139.113.127#108.139.113.60#108.139.95.5#108.158.137.102#bounce.mail.planos.tim.com.br#108.139.113.82#108.139.113.100#108.139.113.114#108.139.113.127#108.158.137.43#108.158.137.54#108.158.137.96#108.158.137.102#108.139.113.110#99.84.31.80#108.158.137.43#108.139.113.100#108.139.113.110#108.139.113.114#108.139.113.127#108.139.113.60#108.139.95.5#108.158.137.102#108.139.113.82",
@@ -304,7 +304,7 @@
         {
             "Name": "TIM EXPIRADO ♧04♧",
             "FLAG": "tim",
-            "Payload": "HTTP/1.1 200[crlf]Host: vimeo.com[crlf][crlf][netData][crlf]@mip [crlf][crlf]http://uber.com/ HTTP/1.1 200[crlf]mip[crlf][crlf] [crlf][crlf]http://udemy.com/ HTTP/1.1 200[crlf]Host@mip[crlf][crlf] [crlf][crlf] http://aliyuncs.com/ HTTP/1.1 200[crlf]Host fastly.net/[crlf][crlf][netData][crlf] [crlf][crlf] http://pornhub.com/ HTTP/1.1[crlf] [crlf][crlf][netData][crlf] [crlf][crlf] http://google.com/ HTTP/1.1[cr][lf] [crlf][crlf][netData][cr][lf] [crlf][crlf]CONNECT mip:22@http://youtube.com/ HTTP/1.1[crlf] [crlf][crlf][netData][crlf] [crlf]",
+            "Payload": "HTTP/1.1 200\r\nHost: vimeo.com\r\n\r\n[netData]\r\n@mip \r\n\r\nhttp://uber.com/ HTTP/1.1 200\r\nmip\r\n\r\n \r\n\r\nhttp://udemy.com/ HTTP/1.1 200\r\nHost@mip\r\n\r\n \r\n\r\n http://aliyuncs.com/ HTTP/1.1 200\r\nHost fastly.net/\r\n\r\n[netData]\r\n \r\n\r\n http://pornhub.com/ HTTP/1.1\r\n \r\n\r\n[netData]\r\n \r\n\r\n http://google.com/ HTTP/1.1[cr]\r\n \r\n\r\n[netData][cr]\r\n \r\n\r\nCONNECT mip:22@http://youtube.com/ HTTP/1.1\r\n \r\n\r\n[netData]\r\n \r\n",
             "SNI": "b.avclaro.com.br",
             "TlsIP": "",
             "ProxyIP": "a.avclaro.com.br",
@@ -314,7 +314,7 @@
         {
             "Name": "🔴 CLARO ABAIXO 👇",
             "FLAG": "claro",
-            "Payload": "HEAD / HTTP/1.1[crlf]Host:outlook.giphy.com[crlf][crlf][split]GET /vanderson HTTP/1.1[crlf]Host: [rotate=centraldacdn-6.dns-theromshost.com;d301u3hlm7z1vw.cloudfront.net;centraldacdn-7.dns-theromshost.com;centraldacdn-8.dns-theromshost.com][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
+            "Payload": "HEAD / HTTP/1.1\r\nHost:outlook.giphy.com\r\n\r\n[split]GET /vanderson HTTP/1.1\r\nHost: [rotate=centraldacdn-6.dns-theromshost.com;d301u3hlm7z1vw.cloudfront.net;centraldacdn-7.dns-theromshost.com;centraldacdn-8.dns-theromshost.com]\r\nConnection: Upgrade\r\nUpgrade: Websocket\r\n@avsupernet\r\n\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "outlook.giphy.com",
@@ -324,7 +324,7 @@
         {
             "Name": "🔴 Claro ON PRÉ [01]",
             "FLAG": "claro",
-            "Payload": "HEAD / HTTP/1.1[crlf]Host:outlook.giphy.com[crlf][crlf][split]GET /vanderson HTTP/1.1[crlf]Host: [rotate=centraldacdn-6.dns-theromshost.com;d301u3hlm7z1vw.cloudfront.net;centraldacdn-7.dns-theromshost.com;centraldacdn-8.dns-theromshost.com][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
+            "Payload": "HEAD / HTTP/1.1\r\nHost:outlook.giphy.com\r\n\r\n[split]GET /vanderson HTTP/1.1\r\nHost: [rotate=centraldacdn-6.dns-theromshost.com;d301u3hlm7z1vw.cloudfront.net;centraldacdn-7.dns-theromshost.com;centraldacdn-8.dns-theromshost.com]\r\nConnection: Upgrade\r\nUpgrade: Websocket\r\n@avsupernet\r\n\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "outlook.giphy.com",
@@ -334,7 +334,7 @@
         {
             "Name": "🔴 Claro ON PRÉ [01]",
             "FLAG": "claro",
-            "Payload": "HEAD / HTTP/1.1[crlf]Host:outlook.giphy.com[crlf][crlf][split]GET /vanderson HTTP/1.1[crlf]Host: [rotate=centraldacdn-6.dns-theromshost.com;d301u3hlm7z1vw.cloudfront.net;centraldacdn-7.dns-theromshost.com;centraldacdn-8.dns-theromshost.com][crlf]Connection: Upgrade[crlf]Upgrade: Websocket[crlf]@avsupernet[crlf][crlf][crlf]",
+            "Payload": "HEAD / HTTP/1.1\r\nHost:outlook.giphy.com\r\n\r\n[split]GET /vanderson HTTP/1.1\r\nHost: [rotate=centraldacdn-6.dns-theromshost.com;d301u3hlm7z1vw.cloudfront.net;centraldacdn-7.dns-theromshost.com;centraldacdn-8.dns-theromshost.com]\r\nConnection: Upgrade\r\nUpgrade: Websocket\r\n@avsupernet\r\n\r\n\r\n",
             "SNI": "",
             "TlsIP": "",
             "ProxyIP": "outlook.giphy.com",
