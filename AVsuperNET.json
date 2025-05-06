@@ -1,5 +1,5 @@
 {
-    "Version": 2.2,
+    "Version": 2.3,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 2.2",
+            "Name": "ATUALIZAÇÃO 2.3",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -194,10 +194,10 @@
         {
             "Name": "TIM VÁLIDO ☆05☆",
             "FLAG": "tim",
-            "Payload": "GET / HTTP/1.1\r\nHost: vs.timrecompensas.com.br\r\n\r\n[split]\r\nGET- / HTTP/1.1\r\nHost: [rotate=v9.toptvnet.shop;a.avclaro.com.br]\r\nUpgrade: Websocket\r\n\r\n",
+            "Payload": "[rotate=GET;POST;PUT;HEAD;OPTIONS;PATCH;DELETE;CONNECT;PROPFIND;PROPPATCH;MKCOL;COPY;MOVE;LOCK;UNLOCK;UPDATE;SEARCH] / HTTP/1.1[lf]Host: timrecompensas.com.br[crlf][crlf][split][crlf]GET- / HTTP/1.1[crlf]Host: [rotate=av.toptvnet.shop;a.avclaro.com.br][crlf]Upgrade: Websocket[crlf][crlf]#HTTP/1.1 200 OK [crlf]",
             "SNI": "",
             "TlsIP": "",
-            "ProxyIP": "vs.timrecompensas.com.br",
+            "ProxyIP": "portal.timrecompensas.com.br#104.18.4.18#104.18.5.18",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
