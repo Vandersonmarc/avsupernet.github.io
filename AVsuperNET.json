@@ -1,5 +1,5 @@
 {
-    "Version": 2.6,
+    "Version": 2.7,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 2.6",
+            "Name": "ATUALIZAÇÃO 2.7",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -155,9 +155,9 @@
             "Name": "TIM GCLOUD [01]",
     "FLAG": "tim",
     "Payload": "GET /app108 HTTP/1.1\r\nHost: canetaazul-606179434038.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
-    "SNI": "www.googletagmanager.com",
-    "TlsIP": "www.googletagmanager.com",
-    "ProxyIP": "www.googletagmanager.com",
+    "SNI": "mulherespositivas.com.br",
+    "TlsIP": "mail2.gmodules.com",
+    "ProxyIP": "mail2.gmodules.com",
     "ProxyPort": "443",
     "Info": "Tlsws"
         },
