@@ -1,5 +1,5 @@
 {
-    "Version": 2.9,
+    "Version": 3.0,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 2.9",
+            "Name": "ATUALIZAÇÃO 3.0",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -54,7 +54,7 @@
         {
             "Name": "🟣 VIVO GCLOUD [01]",
     "FLAG": "vivo",
-    "Payload": "GET /app112 HTTP/1.1\r\nHost: [rotate=e-14857056919.southamerica-east1.run.app;e-211452790298.southamerica-east1.run.app]\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app112 HTTP/1.1\r\nHost: e-312982970325.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "grow.google",
     "TlsIP": "grow.google",
     "ProxyIP": "grow.google",
@@ -64,7 +64,7 @@
         {
             "Name": "🟣 VIVO GCLOUD [02]",
     "FLAG": "vivo",
-    "Payload": "GET /app112 HTTP/1.1\r\nHost: [rotate=e-14857056919.southamerica-east1.run.app;e-211452790298.southamerica-east1.run.app]\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app112 HTTP/1.1\r\nHost: e-312982970325.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "grow.google",
     "TlsIP": "grow.google",
     "ProxyIP": "grow.google",
@@ -154,7 +154,7 @@
         {
             "Name": "TIM GCLOUD [01]",
     "FLAG": "tim",
-    "Payload": "GET /app112 HTTP/1.1\r\nHost: [rotate=e-14857056919.southamerica-east1.run.app;e-211452790298.southamerica-east1.run.app]\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app112 HTTP/1.1\r\nHost: e-312982970325.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "mulherespositivas.com.br",
     "TlsIP": "mail2.gmodules.com",
     "ProxyIP": "mail2.gmodules.com",
@@ -164,7 +164,7 @@
         {
             "Name": "TIM GCLOUD [02]",
     "FLAG": "tim",
-    "Payload": "GET /app112 HTTP/1.1\r\nHost: [rotate=e-14857056919.southamerica-east1.run.app;e-211452790298.southamerica-east1.run.app]\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app112 HTTP/1.1\r\nHost: e-312982970325.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
@@ -174,7 +174,7 @@
         {
             "Name": "TIM GCLOUD [03]",
     "FLAG": "tim",
-    "Payload": "GET /app112 HTTP/1.1\r\nHost: [rotate=e-14857056919.southamerica-east1.run.app;e-211452790298.southamerica-east1.run.app]\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
+    "Payload": "GET /app112 HTTP/1.1\r\nHost: e-312982970325.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
     "SNI": "www.googletagmanager.com",
     "TlsIP": "www.googletagmanager.com",
     "ProxyIP": "www.googletagmanager.com",
