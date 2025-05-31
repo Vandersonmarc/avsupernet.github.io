@@ -1,5 +1,5 @@
 {
-    "Version": 3.0,
+    "Version": 3.1,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 3.0",
+            "Name": "ATUALIZAÇÃO 3.1",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -55,9 +55,9 @@
             "Name": "🟣 VIVO GCLOUD [01]",
     "FLAG": "vivo",
     "Payload": "GET /app112 HTTP/1.1\r\nHost: e-312982970325.southamerica-east1.run.app\r\nConnection: Upgrade\r\nUpgrade: Websocket\\n\\n",
-    "SNI": "grow.google",
-    "TlsIP": "grow.google",
-    "ProxyIP": "grow.google",
+    "SNI": "youtube.com",
+    "TlsIP": "youtube.com",
+    "ProxyIP": "youtube.com",
     "ProxyPort": "443",
     "Info": "Tlsws"
         },
@@ -88,26 +88,30 @@
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
             "ProxyIP": "a.avclaro.com.br#v9.toptvnet.shop",
-            "ProxyPort": "8080",
+            "ProxyPort": "80",
             "Info": "Proxy"
          },
        {
    "Name": "🟣 VIVO TURBO [05]",
       "FLAG": "vivo",
-      "Payload": "[split]PATCH HTTP/1.1Host: plus.google.com\r\nh2,http/1.1 PATCH HTTP/1.1Host: plus.google.com\r\n\r\n",
+      "Payload": "PATCH / HTTP/1.1[crlf] 200 Connection established\r\nHost: GET /? HTTP/2.0\r\nHost: youtube.com\r\n200 Connection established\r\nProxy-Connection: close\r\nConnection-Keep-true\r\nControl-Cache: no-cache\r\nContent-Length: 9999999999999999999\r\nUser-Agent: Yes \r\nContent-Encoding: 88888888\r\nContent-Language: 00000000\r\nContent-Length: 55555555\r\nContent-Location:33333333[crlf]Connection: Upgrade
+Upgrade: Websocket
+User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[crlf][crlf]",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
-            "ProxyIP": "a.avclaro.com.br#v9.toptvnet.shop",
+            "ProxyIP": "185.194.205.208#69.166.233.4",
             "ProxyPort": "80",
             "Info": "Proxy"
          },
          {
              "Name": "🟣 VIVO TURBO [06]",
             "FLAG": "vivo",
-            "Payload": "[split]GET HTTP/1.1\r\n\r\nHTTP/2: Ua\r\n",
+            "Payload": "PATCH / HTTP/1.1[crlf] 200 Connection established\r\nHost: GET /? HTTP/2.0\r\nHost: youtube.com\r\n200 Connection established\r\nProxy-Connection: close\r\nConnection-Keep-true\r\nControl-Cache: no-cache\r\nContent-Length: 9999999999999999999\r\nUser-Agent: Yes \r\nContent-Encoding: 88888888\r\nContent-Language: 00000000\r\nContent-Length: 55555555\r\nContent-Location:33333333[crlf]Connection: Upgrade
+Upgrade: Websocket
+User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[crlf][crlf]",
             "SNI": "[app_host]",
             "TlsIP": "b.avclaro.com.br",
-            "ProxyIP": "a.avclaro.com.br#v9.toptvnet.shop",
+            "ProxyIP": "185.194.205.208#v9.69.166.233.4",
             "ProxyPort": "8080",
             "Info": "Proxy"
          },
