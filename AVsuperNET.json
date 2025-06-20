@@ -1,5 +1,5 @@
 {
-    "Version": 3.3,
+    "Version": 3.4,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 3.3",
+            "Name": "ATUALIZAÇÃO 3.4",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -369,10 +369,10 @@ User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[crlf][crlf]",
         {
             "Name": "TIM EXPIRADO ☆00☆",
             "FLAG": "tim",
-            "Payload": "HTTP/ 1\r\nHost: portalrecarga.vivo.com.br;Tim.com.br;xvideos.com;blaze-1.com;glink.net.br-CDN-GEThttp://ACL-CDN-VIVO.COM.BR;GOOGLE.COM\\\\n\\\\n\\\\n \\\\n#HTTP/1.1\r\nHTTP/ \r\nHost: [rotate=yhjq23.360.com.fail;alt4.aspmx.l.google.com;www.xhtsw.163.com.fail;www.storm.canny.io;www.reimaginetomorrow-qa.disney.com;www.minecraft.msgfocus.com;www.netflixawards.com;x115gzbrpk.execute-api.us-east-1.amazonaws.com;google.traiteurjongen.com;aspmx.l.google.com.4xfun.com;aspmx.l.google.com.469.it. 20secondenhandenwassen.nl;aspmx.l.google.com.469.it;alt2.aspmx.l.google.com.0088.tv;alt1.aspmx.l.google.com.123sexshop.be;alt2.aspmx.l.google.com.sac-surveyors.org;alt2.aspmx.l.google.com.meta-meta.com;slcch03bl9.execute-api.us-east-1.amazonaws.com]\r\n#HTTP/ 1\r\nHTTP/ \r\nHost: alt4.aspmx.l.google.com\r\n\r\n Upgrade\r\n\r\n",
+            "Payload": "[delay_split]HTTP/1.1 200 WebSocket[lf]Connection: keep-alive[lf]Pragma: no-cache[lf]User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)[lf]Accept: */*[lf]Accept-Encoding: identity[lf][lf]",
             "SNI": "",
             "TlsIP": "a.avclaro.com.br",
-            "ProxyIP": "a.avclaro.com.br",
+            "ProxyIP": "144.33.23.240#a.avclaro.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
