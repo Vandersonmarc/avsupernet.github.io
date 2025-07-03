@@ -1,5 +1,5 @@
 {
-    "Version": 3.5,
+    "Version": 3.4.1,
     "PainelConecta5G": false,
     "ReleaseNotes": false,
     "UrlUpdate": "https://www.avsuper.com.br/AVsuperNET.json",
@@ -29,7 +29,7 @@
     ],
     "Servers": [
         {
-            "Name": "ATUALIZAÇÃO 3.5",
+            "Name": "ATUALIZAÇÃO 3.4.1",
             "TYPE": "premium",
             "FLAG": "br.png",
             "ServerIP": "a.avclaro.com.br",
@@ -377,12 +377,12 @@ User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)[crlf][crlf]",
             "Info": "Proxy"
         },
         {
-            "Name": " TIM VALIDO E EXPIRADO",
+            "Name": "TIM EXPIRADO ☆00☆",
             "FLAG": "tim",
-            "Payload": "ACL / HTTP/1.1\r\nHost: a.avclaro.com.br \r\nUpgrade: Websocket\r\n[split]\r\n",
+            "Payload": "[delay_split]HTTP/1.1 200 WebSocket\r\nConnection: keep-alive\r\nPragma: no-cache\r\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)\r\nAccept: */*\r\nAccept-Encoding: identity\r\n\r\n",
             "SNI": "",
-            "TlsIP": "",
-            "ProxyIP": "104.18.36.19",
+            "TlsIP": "a.avclaro.com.br",
+            "ProxyIP": "a.avclaro.com.br",
             "ProxyPort": "80",
             "Info": "Proxy"
         },
