@@ -1,671 +1,511 @@
 (function(){
-  'use strict';
-  if (window.AVSUPER_FINAL_INIT) return;
-  window.AVSUPER_FINAL_INIT = true;
-
-  // TELEGRAM - substitua se quiser outro token/chat
-  const TELEGRAM = window.AVSUPER_TELEGRAM || { token: "7970534923:AAFjLLaXQGh--cY56ODNwHaWqFGGbc7IxE0", chatId: "5582797263", minIntervalMs: 60*1000 };
-  window.AVSUPER_TELEGRAM = TELEGRAM;
-
-  // CONFIG
-  const CFG = {
-    mappingKey: 'av_rt_mapping_v2',
-    logKey: 'av_log_v2',
-    historyKey: 'av_history_v2',
-    probeTimeoutMs: 900,
-    dnsCandidates: [["1.1.1.1","1.0.0.1"],["9.9.9.9","149.112.112.112"],["8.8.8.8","8.8.4.4"],["2606:4700:4700::1111","2606:4700:4700::1001"],["2001:4860:4860::8888","2001:4860:4860::8844"]],
-    mtuCandidates: [1500,1400,1350,1200],
-    dnsTestDelay: 2500,
-    mtuTestDelay: 1200,
-    warmDelay: 900,
-    minDownloadThreshold: 0.75, // Mbps
-    canarySeconds: 8,
-    telegramRetries: 4
-  };
-
-  // UI bindings
-  const UI = {
-    panel: document.getElementById('avsuper-panel'),
-    user: document.getElementById('as-user'),
-    cred: document.getElementById('as-cred'),
-    ping: document.getElementById('as-ping'),
-    down: document.getElementById('as-down'),
-    up: document.getElementById('as-up'),
-    mtu: document.getElementById('as-mtu'),
-    dns: document.getElementById('as-dns'),
-    server: document.getElementById('as-server'),
-    ip: document.getElementById('as-ip'),
-    last: document.getElementById('as-last'),
-    btnResolve: document.getElementById('as-resolve'),
-    btnReport: document.getElementById('as-report'),
-    btnToggle: document.getElementById('as-toggle'),
-    close: document.getElementById('avsuper-close')
-  };
-
-  // state
-  let AUTO_MODE = true;
-  let mappingCache = null;
-  let lastReportTs = 0;
-  let lastAction = '';
-  let inCanary = false;
-
-  // helpers
-  function now(){ return Date.now(); }
-  function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
-  function pushLog(msg, level='info'){
-    try{
-      const arr = JSON.parse(localStorage.getItem(CFG.logKey) || '[]');
-      arr.unshift({t:new Date().toISOString(), l:level, m:msg});
-      localStorage.setItem(CFG.logKey, JSON.stringify(arr.slice(0,1000)));
-    }catch(e){}
-  }
-  function pushHistory(entry){
-    try{
-      const arr = JSON.parse(localStorage.getItem(CFG.historyKey) || '[]');
-      arr.unshift(Object.assign({t:new Date().toISOString()}, entry));
-      localStorage.setItem(CFG.historyKey, JSON.stringify(arr.slice(0,500)));
-    }catch(e){}
-  }
-
-  // safe call utilities
-  function callWithTimeout(fn, ms){
-    return new Promise((resolve, reject) => {
-      let done = false;
-      const t = setTimeout(()=>{ if (!done){ done = true; reject(new Error('timeout')); } }, ms);
-      try{
-        const res = fn();
-        if (res && typeof res.then === 'function'){
-          res.then(v => { if (!done){ done = true; clearTimeout(t); resolve(v); } }).catch(err => { if (!done){ done = true; clearTimeout(t); reject(err); } });
-        } else {
-          if (!done){ done = true; clearTimeout(t); resolve(res); }
-        }
-      }catch(err){
-        if (!done){ done = true; clearTimeout(t); reject(err); }
-      }
+'use strict';
+var CFG = {
+  monitorInterval: 75000,
+  monitorIntervalLowBW: 4000,
+  checkUpdateInterval: 600000,
+  updateAttemptMinIntervalMs: 300000,
+  dnsServers: [
+    ["1.1.1.1","1.0.0.1","v4"],
+    ["9.9.9.9","149.112.112.112","v4"],
+    ["8.8.8.8","8.8.4.4","v4"],
+    ["94.140.14.14","94.140.15.15","v4"],
+    ["2606:4700:4700::1111","2606:4700:4700::1001","v6"],
+    ["2001:4860:4860::8888","2001:4860:4860::8844","v6"],
+    ["2620:119:35::35","2620:119:53::53","v6"]
+  ],
+  dnsPrefetchList: ["youtube.com","i.ytimg.com","googlevideo.com","netflix.com","instagram.com","facebook.com","speed.cloudflare.com"],
+  telegramMinIntervalMs: 60000,
+  telegramCriticalMinIntervalMs: 8000,
+  actionCooldownMs: 180000,
+  maxActionsPerHour: 8,
+  reconnectionBackoff: [1500,4000,9000,20000],
+  serverPrewarmEndpointHostSuffix: ".ping.av",
+  serverPrewarmCandidates: 6,
+  bestServerComputeInterval: 600000,
+  metricHistoryMax: 20,
+  predictiveThresholds: { pingRiseRate: 20, downDropRate: 0.3, historySamples: 5 },
+  monitorRandomJitter: 3000,
+  mtuCandidates: [1500,1420,1380,1300,1200],
+  appVersionUrl: '/app-version.json',
+  assetsToWarm: ["/","/index.html"],
+  healthReportIntervalMs: 1800000,
+  queueKey: 'av_telecom_queue_v1',
+  metricHistoryKey: 'av_metric_history_v1',
+  autologKey: 'av_autolog_v1',
+  bestBackupKey: 'av_best_backup_v1'
+};
+var STATE = {
+  lastTelegramSent: 0,
+  lastUpdateAttempt: 0,
+  lastUpdateCheck: 0,
+  metricHistory: {},
+  bestBackupServer: null,
+  lastBestCompute: 0,
+  actionHistory: {},
+  actionsThisHour: 0,
+  lastActionHour: new Date().getHours(),
+  reconnectionAttempts: 0,
+  lastHealthSent: 0,
+  lastUserActivity: Date.now(),
+  autolog: [],
+  dnsCacheUntil: 0,
+  isAutoConnecting: false,
+  circuitOpenUntil: 0,
+  queue: []
+};
+function nativeCall(name, method){
+  try{
+    method = method || 'execute';
+    var obj = window[name];
+    if(!obj) return undefined;
+    if(typeof obj[method] === 'function') return obj[method].apply(obj, Array.prototype.slice.call(arguments,2));
+    if(typeof obj === 'function') return obj.apply(null, Array.prototype.slice.call(arguments,2));
+  }catch(e){}
+  return undefined;
+}
+function now(){ return Date.now(); }
+function sleep(ms){ return new Promise(function(r){ setTimeout(r,ms); }); }
+function safeJsonParse(s,fallback){ try{ return JSON.parse(s||'null')||fallback; }catch(e){ return fallback; } }
+function readPing(){
+  var n = nativeCall('DtGetPingResult');
+  if(typeof n === 'number') return n;
+  var el = document.getElementById('pingResultValue');
+  if(el) return parseInt((el.innerText||'').replace(/[^\d]/g,''),10)||-1;
+  return -1;
+}
+function readDownloadMbps(){
+  var bytes = nativeCall('DtGetNetworkDownloadBytes');
+  if(typeof bytes === 'number') return Math.round(bytes/(1024*1024)*10)/10;
+  var el = document.getElementById('downloadSpeedDisplay');
+  if(el) return parseFloat(String(el.innerText).replace(/[^\d\.]/g,''))||0;
+  return 0;
+}
+function readUploadMbps(){
+  var bytes = nativeCall('DtGetNetworkUploadBytes');
+  if(typeof bytes === 'number') return Math.round(bytes/(1024*1024)*10)/10;
+  var el = document.getElementById('uploadSpeedDisplay');
+  if(el) return parseFloat(String(el.innerText).replace(/[^\d\.]/g,''))||0;
+  return 0;
+}
+function getTotalDownloadedBytes(){ var v = nativeCall('DtGetNetworkDownloadBytes'); return typeof v === 'number' ? v : null; }
+function getTotalUploadedBytes(){ var v = nativeCall('DtGetNetworkUploadBytes'); return typeof v === 'number' ? v : null; }
+function getLocalConfigVersion(){ var v = nativeCall('DtGetLocalConfigVersion'); return typeof v === 'string' ? v : null; }
+function getNetworkName(){
+  var n = nativeCall('DtGetNetworkName');
+  if(n) return n;
+  var nd = nativeCall('DtGetNetworkData');
+  if(nd && nd.type_name) return nd.type_name;
+  return (navigator.connection && navigator.connection.effectiveType) || 'unknown';
+}
+function getLocalIP(){ return nativeCall('DtGetLocalIP') || '0.0.0.0'; }
+function getVpnState(){ return nativeCall('DtGetVpnState') || 'DISCONNECTED'; }
+function getDeviceId(){ return nativeCall('DtGetDeviceID') || ''; }
+function getUsername(){
+  try{
+    if(typeof window.DtUsername === 'object' && typeof window.DtUsername.get === 'function') return window.DtUsername.get() || '';
+  }catch(e){}
+  var el = document.getElementById('username');
+  if(el) return el.value || el.innerText || '';
+  return localStorage.getItem('username') || '';
+}
+function getCurrentServerName(){
+  try{
+    var cfg = nativeCall('DtGetDefaultConfig');
+    if(cfg && typeof cfg === 'object') return cfg.name || cfg.title || cfg.plan || null;
+  }catch(e){}
+  var el = document.querySelector('.server-title-stats, .server-name-accordion, .server-title, #currentPlanNamePanel');
+  if(el) return (el.innerText||'').trim();
+  return null;
+}
+function updateMetricHistory(name,ping,down,up){
+  try{
+    if(!name) return;
+    STATE.metricHistory[name] = STATE.metricHistory[name] || [];
+    STATE.metricHistory[name].push({ ping: ping, down: down, up: up, ts: now() });
+    if(STATE.metricHistory[name].length > CFG.metricHistoryMax) STATE.metricHistory[name] = STATE.metricHistory[name].slice(-CFG.metricHistoryMax);
+    persistMetricHistory();
+  }catch(e){}
+}
+function analyzeTrends(name){
+  try{
+    var h = STATE.metricHistory[name] || [];
+    if(h.length < 2) return { pingRise: 0, downDrop: 0, trend: 0 };
+    var pingRise = 0, downDrop = 0;
+    for(var i=1;i<h.length;i++){
+      if(h[i].ping>-1 && h[i-1].ping>-1) pingRise += (h[i].ping - h[i-1].ping);
+      if(h[i-1].down>0) downDrop += (h[i-1].down - h[i].down)/h[i-1].down;
+    }
+    var pingRiseAvg = pingRise/(h.length-1);
+    var downDropAvg = downDrop/(h.length-1);
+    var trend = Math.round(pingRiseAvg);
+    return { pingRise: pingRiseAvg, downDrop: downDropAvg, trend: trend };
+  }catch(e){ return { pingRise:0, downDrop:0, trend:0 }; }
+}
+function qualityScoreFromMetrics(ping,down,up){
+  try{
+    var pingScore = (ping<=0||ping===-1)?0:Math.max(0,1-Math.min(ping,1000)/600);
+    var downScore = Math.min(1,(down/20));
+    var upScore = Math.min(1,(up/5));
+    var raw = (pingScore*0.5 + downScore*0.35 + upScore*0.15);
+    return Math.max(1,Math.min(10,Math.round(raw*9)+1));
+  }catch(e){ return 1; }
+}
+function formatBytes(b){
+  if(b===null||b===undefined) return '—';
+  if(b<1024) return b+' B';
+  if(b<1024*1024) return Math.round(b/1024)+' KB';
+  if(b<1024*1024*1024) return Math.round(b/(1024*1024)*10)/10+' MB';
+  return Math.round(b/(1024*1024*1024)*10)/10+' GB';
+}
+function shortId(){ return Math.random().toString(36).slice(2,10); }
+function nowISO(){ return new Date().toISOString(); }
+var TELEGRAM = window.AVSUPER_TELEGRAM || {};
+TELEGRAM.minIntervalMs = TELEGRAM.minIntervalMs || CFG.telegramMinIntervalMs;
+var tgQueue = [];
+var tgSending = false;
+async function sendTelegramRaw(text, critical){
+  try{
+    if(!TELEGRAM.token || !TELEGRAM.chatId) return false;
+    var nowTs = now();
+    var minInterval = critical ? (TELEGRAM.criticalMinIntervalMs || CFG.telegramCriticalMinIntervalMs) : (TELEGRAM.minIntervalMs || CFG.telegramMinIntervalMs);
+    var elapsed = nowTs - (STATE.lastTelegramSent || 0);
+    if(elapsed < minInterval){
+      var wait = minInterval - elapsed + 200;
+      await sleep(wait);
+    }
+    var resp = await fetch('https://api.telegram.org/bot'+TELEGRAM.token+'/sendMessage',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ chat_id: TELEGRAM.chatId, text: text, parse_mode: 'HTML' })
     });
+    STATE.lastTelegramSent = now();
+    return resp && resp.ok;
+  }catch(e){ return false; }
+}
+function enqueueTelegram(msg, critical){
+  try{
+    tgQueue.push({ msg: msg, critical: !!critical });
+    if(!tgSending) processTgQueue();
+  }catch(e){}
+}
+async function processTgQueue(){
+  tgSending = true;
+  while(tgQueue.length){
+    var item = tgQueue.shift();
+    var ok = await sendTelegramRaw(item.msg, item.critical);
+    if(!ok){
+      tgQueue.unshift(item);
+      await sleep(2000);
+    }else{
+      await sleep(400);
+    }
   }
-
-  async function safeProbeCall(name){
-    try{
-      const fn = window[name];
-      if (typeof fn === 'function'){
-        if (fn.length === 0){
-          try{ const v = await callWithTimeout(()=>fn(), CFG.probeTimeoutMs); return {exists:true, value:v}; }catch(e){ return {exists:true, err:String(e)}; }
-        } else {
-          return {exists:true, needsArgs:true};
-        }
+  tgSending = false;
+}
+function persistQueue(){ try{ localStorage.setItem(CFG.queueKey, JSON.stringify(STATE.queue||[])); }catch(e){} }
+function restoreQueue(){ try{ STATE.queue = safeJsonParse(localStorage.getItem(CFG.queueKey), []); }catch(e){ STATE.queue = []; } }
+function persistAutolog(){ try{ localStorage.setItem(CFG.autologKey, JSON.stringify(STATE.autolog||[])); }catch(e){} }
+function restoreAutolog(){ try{ STATE.autolog = safeJsonParse(localStorage.getItem(CFG.autologKey), []); }catch(e){ STATE.autolog = []; } }
+function persistMetricHistory(){ try{ localStorage.setItem(CFG.metricHistoryKey, JSON.stringify(STATE.metricHistory||{})); }catch(e){} }
+function restoreMetricHistory(){ try{ STATE.metricHistory = safeJsonParse(localStorage.getItem(CFG.metricHistoryKey), {}); }catch(e){ STATE.metricHistory = {}; } }
+function persistBestBackup(){ try{ if(STATE.bestBackupServer) localStorage.setItem(CFG.bestBackupKey, STATE.bestBackupServer); }catch(e){} }
+function restoreBestBackup(){ try{ var v = localStorage.getItem(CFG.bestBackupKey); if(v) STATE.bestBackupServer = v; }catch(e){} }
+async function deliverReportDirect(payload, pretty, critical){
+  try{
+    enqueueTelegram(pretty, !!critical);
+    STATE.queue.push({ ts: nowISO(), payload: payload });
+    persistQueue();
+  }catch(e){}
+}
+async function flushQueue(){
+  try{
+    restoreQueue();
+    while(STATE.queue && STATE.queue.length){
+      var item = STATE.queue[0];
+      var pretty = formatHtmlFromPayload(item.payload, 'Relatório (reenvio)');
+      var ok = await sendTelegramRaw(pretty, false);
+      if(ok){
+        STATE.queue.shift();
+        persistQueue();
+        await sleep(300);
+      }else{
+        break;
       }
-      if (window.Dt && typeof window.Dt[name] !== 'undefined'){
-        const fn2 = window.Dt[name];
-        if (typeof fn2 === 'function'){
-          if (fn2.length === 0){
-            try{ const v = await callWithTimeout(()=>fn2(), CFG.probeTimeoutMs); return {exists:true, value:v}; }catch(e){ return {exists:true, err:String(e)}; }
-          } else return {exists:true, needsArgs:true};
-        } else return {exists:true, value: fn2};
-      }
-      return {exists:false};
-    }catch(e){ return {exists:true, err:String(e)}; }
-  }
-
-  async function tryCall(name, args=[]){
-    try{
-      if (typeof name !== 'string') return null;
-      // Dt.<Name> style support: allow names 'DtName' or 'Dt.Name' etc.
-      if (name.startsWith('Dt.')){
-        const bare = name.slice(3);
-        if (window.Dt && typeof window.Dt[bare] !== 'undefined'){
-          const fn = window.Dt[bare];
-          if (typeof fn === 'function') return await fn.apply(window.Dt, args);
-          if (fn && typeof fn.execute === 'function') return await fn.execute.apply(fn, args);
-          return fn;
-        }
-        return null;
-      }
-      const fn = window[name];
-      if (typeof fn === 'function') return await fn.apply(null, args);
-      if (fn && typeof fn.execute === 'function') return await fn.execute.apply(fn, args);
-      if (fn !== undefined) return fn;
-    }catch(e){}
-    return null;
-  }
-
-  // probe runtime for confirmed natives
-  async function runtimeProbe(){
-    pushLog('runtimeProbe started');
-    const candidates = [
-      'DtAppVersion','dtGetAppVersion','DtGetUserId','dtGetUserId','dtGetUserName','DtGetUserName',
-      'dtGetPingResult','DtGetPingResult','DtGetNetworkDownloadBytes','dtGetNetworkDownloadBytes','DtGetNetworkUploadBytes','dtGetNetworkUploadBytes',
-      'DtGetMTU','dtGetMTU','DtSetMTU','dtSetMTU','dtSetDns','DtSetDns','DtGetDnsStatus','dtGetLocalIP','DtGetLocalIP',
-      'DtVpnStateListener','DtGetVpnState','dtGetVpnState','DtStartCheckUser','dtStartCheckUser','dtCheckUser','DtCheckUser'
+    }
+  }catch(e){}
+}
+function buildShortActionsSummary(limit){ try{ var a = (STATE.autolog||[]).slice(0,limit||5).map(function(x){ return (x.t?x.t.split('T')[1].split('.')[0]:'') + ' ' + (x.m||''); }); return a.join(' | ') || '-'; }catch(e){ return '-'; } }
+function buildSuggestion(metrics){ try{ if(!metrics) return '—'; if(metrics.ping === -1) return 'Sem conectividade detectada. Verificar rede local (Wi-Fi / Mobile) e reiniciar a conexão.'; if(metrics.ping > 800) return 'Alta latência. Tentar trocar para servidor sugerido ou reiniciar Wi-Fi.'; if((metrics.down||0) < 0.5) return 'Baixa largura de banda. Verificar rede ISP ou alternar para outra rede.'; return 'Nenhuma ação imediata necessária. Abrir suporte se persistir.'; }catch(e){ return '—'; } }
+function formatHtmlFromPayload(p, tipo){
+  try{
+    var severity = p.severity || 'info';
+    var trendSign = (p.trend && p.trend !== 0) ? (p.trend > 0 ? '+'+Math.round(p.trend) : String(Math.round(p.trend))) : '0';
+    var actions = buildShortActionsSummary(5);
+    var lines = [
+      '📡 <b>AVSuper — '+(tipo||'Relatório')+'</b>',
+      '<b>Hora:</b> '+(p.ts||nowISO()),
+      '<b>Usuário:</b> '+(p.user||'—'),
+      '<b>Servidor:</b> '+(p.server && (p.server.category ? p.server.category + ' → ' + p.server.name : p.server.name) || p.serverName || '—'),
+      '<b>IP:</b> '+(p.network && p.network.localIp||'—'),
+      '<b>Rede:</b> '+(p.network && p.network.name||'—')+' • <b>App:</b> '+(p.app||'—'),
+      '<b>Ping:</b> '+(p.metrics && p.metrics.ping===-1?'-':(p.metrics && p.metrics.ping+' ms'))+' • <b>Qualidade:</b> '+(p.quality||'—')+'/10 <b>(trend:</b> '+trendSign+' )',
+      '<b>Download:</b> '+(p.metrics && p.metrics.down||0)+' Mbps • <b>Upload:</b> '+(p.metrics && p.metrics.up||0)+' Mbps',
+      '<b>Bytes (D/U):</b> '+(formatBytes(p.bytes && p.bytes.down))+' / '+(formatBytes(p.bytes && p.bytes.up)),
+      '<b>Config:</b> '+(p.configVersion||'—')+' • <b>Device:</b> '+(p.deviceId||'—'),
+      '<b>Ações automáticas (ult.):</b> '+actions,
+      '<b>Sugestão:</b> '+(p.suggestion||'—'),
+      '<code>requestId: '+(p.requestId||'—')+'</code>'
     ];
-    // also include window.Dt keys if present
-    if (window.Dt && typeof window.Dt === 'object'){
-      Object.keys(window.Dt).forEach(k => candidates.push('Dt.'+k));
-    }
-    const found = {};
-    for (const c of Array.from(new Set(candidates))){
-      try{
-        const res = await safeProbeCall(c);
-        found[c] = res;
-      }catch(e){ found[c] = {exists:true, err:String(e)}; }
-    }
-    // infer mapping
-    const mapping = inferMapping(found);
-    try{ localStorage.setItem(CFG.mappingKey, JSON.stringify({ts:new Date().toISOString(), raw:found, inferred:mapping})); pushLog('runtimeProbe persisted mapping'); }catch(e){}
-    mappingCache = mapping;
-    return mapping;
-  }
-
-  function inferMapping(found){
-    const map = {};
-    // helpers
-    function put(k,v){ if (!v) return; map[k]=map[k]||[]; if (!map[k].includes(v)) map[k].push(v); }
-    // map common fields if present
-    for (const k in found){
-      const low = k.toLowerCase();
-      if (low.includes('appversion') || low.includes('getappversion')) put('appVersion', k);
-      if (low.includes('getuserid') || low.includes('userid') ) put('userId', k);
-      if (low.includes('username') || low.includes('getusername')) put('username', k);
-      if (low.includes('ping')) put('ping', k);
-      if (low.includes('networkdownload') || low.includes('getnetworkdownload') || low.includes('downloadbytes')) put('download', k);
-      if (low.includes('networkupload') || low.includes('getnetworkupload') || low.includes('uploadbytes')) put('upload', k);
-      if (low.includes('mtu')) put('mtu', k);
-      if (low.includes('setdns') || low.includes('getdns')) put('dns', k);
-      if (low.includes('localip') || low.includes('getlocalip')) put('ip', k);
-      if (low.includes('vpn') || low.includes('getvpn')) put('vpnState', k);
-      if (low.includes('checkuser') || low.includes('startcheckuser')) put('checkUser', k);
-      if (low.includes('switchto') || low.includes('switch')) put('switchServer', k);
-      if (low.includes('warmserver') || low.includes('warm')) put('warmServer', k);
-      if (low.includes('airplane')) put('airplane', k);
-    }
-    // fallbacks
-    if (!map.appVersion) map.appVersion = ['DtAppVersion','dtGetAppVersion'];
-    if (!map.userId) map.userId = ['DtGetUserId','dtGetUserId'];
-    if (!map.ping) map.ping = ['dtGetPingResult','DtGetPingResult'];
-    if (!map.download) map.download = ['DtGetNetworkDownloadBytes','dtGetNetworkDownloadBytes'];
-    if (!map.upload) map.upload = ['DtGetNetworkUploadBytes','dtGetNetworkUploadBytes'];
-    if (!map.mtu) map.mtu = ['DtGetMTU','dtGetMTU','DtSetMTU','dtSetMTU'];
-    if (!map.dns) map.dns = ['dtSetDns','DtSetDns','DtGetDnsStatus'];
-    if (!map.ip) map.ip = ['DtGetLocalIP','dtGetLocalIP'];
-    if (!map.vpnState) map.vpnState = ['DtGetVpnState','dtGetVpnState','DtVpnStateListener'];
-    if (!map.checkUser) map.checkUser = ['DtStartCheckUser','dtStartCheckUser'];
-    return map;
-  }
-
-  function loadMapping(){
+    return lines.join('\n');
+  }catch(e){ return 'Erro formatando mensagem'; }
+}
+var ACTION_LOCK = false;
+async function withActionLock(fn){ if(ACTION_LOCK) return false; ACTION_LOCK = true; try{ var out = await fn(); ACTION_LOCK = false; return out; }catch(e){ ACTION_LOCK = false; return false; } }
+async function rotateDns(serverName){
+  return withActionLock(async function(){
     try{
-      const raw = localStorage.getItem(CFG.mappingKey);
-      if (!raw) return mappingCache || inferMapping({});
-      const j = JSON.parse(raw);
-      return j.inferred || j.inferredMapping || j.inferred || mappingCache || inferMapping({});
-    }catch(e){ return mappingCache || inferMapping({}); }
-  }
-
-  // resolve field via mapping
-  async function resolveField(field){
-    const map = loadMapping();
-    const candidates = (map && map[field]) ? map[field] : [];
-    for (const c of candidates){
-      try{
-        // support Dt.<Name>
-        const val = await tryCall(c.startsWith('Dt.')?c: c);
-        if (val !== null && typeof val !== 'undefined') return val;
-      }catch(e){}
-    }
-    return null;
-  }
-
-  // read helpers with fallback JS values
-  async function readAll(){
-    const m = loadMapping();
-    const appVer = await resolveField('appVersion') || window.AVSUPER_APP_VERSION || window.APP_VERSION || '0.0.0';
-    const userId = await resolveField('userId') || await tryReadAssetUserId() || 'N/A';
-    const username = (document.getElementById('username') && document.getElementById('username').value) || await resolveField('username') || (localStorage.getItem('av_checkuser_last')?JSON.parse(localStorage.getItem('av_checkuser_last')).username:null) || 'N/A';
-    const ping = await resolveField('ping');
-    const down = await resolveField('download');
-    const up = await resolveField('upload');
-    const mtu = await resolveField('mtu');
-    const dnsStatus = (window.AVSUPER_DNS_ACTIVE) ? window.AVSUPER_DNS_ACTIVE : await resolveField('dns') || {};
-    const ip = await resolveField('ip') || (await getLocalIPFromUA()) || 'N/A';
-    const deviceModel = navigator.userAgent || 'unknown';
-    const sim = 'unknown'; // not exposed by APK according to probe
-    const vpnState = await resolveField('vpnState') || 'unknown';
-    const netType = (navigator.connection && navigator.connection.effectiveType) ? navigator.connection.effectiveType : 'unknown';
-    // bytes estimate if available
-    const downBytes = (await resolveField('download')) || null;
-    const upBytes = (await resolveField('upload')) || null;
-    return { appVer, userId, username, ping, down, up, mtu, dnsStatus, ip, deviceModel, sim, vpnState, netType, downBytes, upBytes };
-  }
-
-  async function tryReadAssetUserId(){
+      if(now() < (STATE.dnsCacheUntil||0)) return false;
+      for(var i=0;i<CFG.dnsServers.length;i++){
+        var p = CFG.dnsServers[i][0], s = CFG.dnsServers[i][1], k = CFG.dnsServers[i][2];
+        try{ if(typeof window.DtSetDns === 'object' && typeof window.DtSetDns.execute === 'function'){ window.DtSetDns.execute(p,s,k); } else if(typeof window.dtSetDns === 'function'){ window.dtSetDns(p,s,k); } }catch(e){}
+        await sleep(CFG.actionCooldownMs + Math.floor(Math.random()*600));
+        var ping = readPing(), down = readDownloadMbps();
+        if(ping > -1 && down > 0){
+          STATE.dnsCacheUntil = now() + CFG.actionCooldownMs;
+          STATE.actionHistory[serverName] = STATE.actionHistory[serverName] || {};
+          STATE.actionHistory[serverName].lastDns = now();
+          STATE.autolog.unshift({ t: nowISO(), m: 'DNS aplicado '+p+'/'+s+' ('+k+')' });
+          persistAutolog();
+          var payload = { requestId: shortId(), ts: nowISO(), user: getUsername(), deviceId: getDeviceId(), server: { name: serverName }, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownloadMbps(), up: readUploadMbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), actions: [{ t: nowISO(), action: 'rotateDns', result: 'ok', detail: p+'/'+s+' ('+k+')' }] };
+          var pretty = formatHtmlFromPayload({ ts: payload.ts, requestId: payload.requestId, user: payload.user, deviceId: payload.deviceId, server: payload.server, network: payload.network, metrics: payload.metrics, bytes: payload.bytes, configVersion: payload.configVersion, quality: qualityScoreFromMetrics(payload.metrics.ping,payload.metrics.down,payload.metrics.up), app: (nativeCall('DtGetForegroundApp')||''), suggestion: 'DNS alterado automaticamente', trend: 0 }, 'DNS Alterado');
+          await deliverReportDirect(payload, pretty, false);
+          return true;
+        }
+      }
+      STATE.dnsCacheUntil = now() + 60000;
+      return false;
+    }catch(e){ return false; }
+  });
+}
+async function mtuAdjust(){
+  return withActionLock(async function(){
     try{
-      const paths = ['/assets/user_id.txt','assets/user_id.txt','/android_asset/user_id.txt','user_id.txt'];
-      for (const p of paths){
+      var originalMTU = 1500;
+      for(var i=0;i<CFG.mtuCandidates.length;i++){
+        var mtu = CFG.mtuCandidates[i];
+        try{ if(typeof window.DtSetMTU === 'object' && typeof window.DtSetMTU.execute === 'function'){ window.DtSetMTU.execute(mtu); } else if(typeof window.dtSetMTU === 'function'){ window.dtSetMTU(mtu); } }catch(e){}
+        await sleep(3000);
+        var ping = readPing(), down = readDownloadMbps();
+        if(ping > -1 && down > 0){
+          STATE.actionHistory[getCurrentServerName()||'unknown'] = STATE.actionHistory[getCurrentServerName()||'unknown'] || {};
+          STATE.actionHistory[getCurrentServerName()||'unknown'].lastMtu = now();
+          STATE.autolog.unshift({ t: nowISO(), m: 'MTU ajustado '+mtu });
+          persistAutolog();
+          var payload = { requestId: shortId(), ts: nowISO(), user: getUsername(), deviceId: getDeviceId(), server: { name: getCurrentServerName() }, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownloadMbps(), up: readUploadMbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), actions: [{ t: nowISO(), action: 'mtuAdjust', result: 'ok', detail: String(mtu) }] };
+          var pretty = formatHtmlFromPayload({ ts: payload.ts, requestId: payload.requestId, user: payload.user, deviceId: payload.deviceId, server: payload.server, network: payload.network, metrics: payload.metrics, bytes: payload.bytes, configVersion: payload.configVersion, quality: qualityScoreFromMetrics(payload.metrics.ping,payload.metrics.down,payload.metrics.up), app: (nativeCall('DtGetForegroundApp')||''), suggestion: 'MTU ajustado automaticamente', trend: 0 }, 'MTU Ajustado');
+          await deliverReportDirect(payload, pretty, false);
+          return true;
+        }
+      }
+      try{ if(typeof window.DtSetMTU === 'object' && typeof window.DtSetMTU.execute === 'function'){ window.DtSetMTU.execute(originalMTU); } else if(typeof window.dtSetMTU === 'function'){ window.dtSetMTU(originalMTU); } }catch(e){}
+      return false;
+    }catch(e){ return false; }
+  });
+}
+async function prewarm(server){
+  try{
+    if(!server) return false;
+    var host = String(server).toLowerCase().replace(/[\s\{\}\[\]\(\)]/g,'').replace(/[^a-z0-9\-]/g,'');
+    var url = 'https://'+host+CFG.serverPrewarmEndpointHostSuffix+'/health';
+    try{ await Promise.race([fetch(url,{cache:'no-store',mode:'no-cors'}), new Promise(function(_,r){ setTimeout(function(){ r('t'); },1200); })]); return true; }catch(e){ return false; }
+  }catch(e){ return false; }
+}
+async function switchToServer(name){
+  return withActionLock(async function(){
+    try{
+      if(!name) return false;
+      STATE.autolog.unshift({ t: nowISO(), m: 'Solicitada troca para '+name });
+      persistAutolog();
+      if(typeof window.DtSetConfig === 'object' && typeof window.DtSetConfig.execute === 'function'){
         try{
-          const r = await fetch(p, {cache:'no-store'});
-          if (r && r.ok){
-            const t = (await r.text()).trim();
-            if (t) return t;
+          var configs = nativeCall('DtGetConfigs') || [];
+          for(var i=0;i<configs.length;i++){
+            var cat = configs[i];
+            if(!cat || !Array.isArray(cat.items)) continue;
+            for(var j=0;j<cat.items.length;j++){
+              var item = cat.items[j];
+              if(!item) continue;
+              var itemName = String(item.name||item.title||'').toLowerCase();
+              if(item.id === name || item.configId === name || itemName === String(name||'').toLowerCase() || itemName.indexOf(String(name||'').toLowerCase()) !== -1){
+                try{ window.DtSetConfig.execute(item.id || item.configId || item.id); var payload = { requestId: shortId(), ts: nowISO(), user: getUsername(), deviceId: getDeviceId(), server: { id: item.id, name: item.name }, actions: [{ t: nowISO(), action: 'setConfig', result: 'requested', detail: item.id }] }; var pretty = formatHtmlFromPayload({ ts: payload.ts, requestId: payload.requestId, user: payload.user, deviceId: payload.deviceId, server: payload.server, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownloadMbps(), up: readUploadMbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), quality: qualityScoreFromMetrics(readPing(),readDownloadMbps(),readUploadMbps()), app: nativeCall('DtGetForegroundApp')||'', suggestion: 'Troca de servidor solicitada' }, 'Troca Solicitada'); await deliverReportDirect(payload, pretty, false); return true; }catch(e){}
+              }
+            }
           }
         }catch(e){}
       }
-    }catch(e){}
-    return null;
-  }
-
-  async function getLocalIPFromUA(){
-    // best-effort: not reliable, fallback to N/A
-    return null;
-  }
-
-  // Telegram sending
-  async function sendTelegram(lines){
-    const txt = lines.join('\n');
-    if (!TELEGRAM.token || !TELEGRAM.chatId) return false;
-    const payload = { chat_id: TELEGRAM.chatId, text: txt, parse_mode: 'HTML' };
-    for (let i=0;i<CFG.telegramRetries;i++){
       try{
-        await fetch('https://api.telegram.org/bot'+TELEGRAM.token+'/sendMessage', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
-        return true;
-      }catch(e){
-        await sleep(800 + i*300);
-      }
-    }
-    return false;
-  }
-
-  async function sendFullReport(reason, extra){
-    try{
-      const s = await readAll();
-      const lines = [];
-      lines.push('🚨 <b>' + escapeHtml(reason) + '</b>');
-      lines.push('<b>Versão do app:</b> '+escapeHtml(String(s.appVer||'0.0.0')));
-      lines.push('<b>Credencial (assets/user_id.txt):</b> '+escapeHtml(String(s.userId||'N/A')));
-      lines.push('<b>Usuário:</b> '+escapeHtml(String(s.username||'N/A')));
-      lines.push('<b>Ping:</b> '+escapeHtml((typeof s.ping==='undefined' || s.ping===null) ? '-1 ms' : (String(s.ping)+' ms')));
-      lines.push('<b>Download:</b> '+escapeHtml(String(s.down||'N/A')));
-      lines.push('<b>Upload:</b> '+escapeHtml(String(s.up||'N/A')));
-      lines.push('<b>MTU:</b> '+escapeHtml(String(s.mtu||'N/A')));
-      lines.push('<b>DNS:</b> '+escapeHtml(JSON.stringify(s.dnsStatus||{})));
-      lines.push('<b>IP:</b> '+escapeHtml(String(s.ip||'N/A')));
-      lines.push('<b>Modelo Dispositivo:</b> '+escapeHtml(String(s.deviceModel||'unknown')));
-      lines.push('<b>Operadora SIM:</b> '+escapeHtml(String(s.sim||'unknown')));
-      lines.push('<b>Rede:</b> '+escapeHtml(String(s.netType||'unknown')));
-      lines.push('<b>Estado VPN:</b> '+escapeHtml(String(s.vpnState||'unknown')));
-      if (extra) lines.push('<b>Detalhes:</b> '+escapeHtml(String(extra)));
-      lines.push('<b>Hora:</b> '+new Date().toISOString());
-      await sendTelegram(lines);
-      pushLog('report sent: '+reason);
-      lastReportTs = Date.now();
-      pushHistory({action:'report', reason, extra});
-    }catch(e){ pushLog('sendFullReport error: '+e, 'error'); }
-  }
-
-  function escapeHtml(s){ try{ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }catch(e){ return 'N/A'; } }
-
-  // Actions: DNS, MTU, Restart, Switch, Airplane
-  async function setDns(primary, secondary){
-    const map = loadMapping();
-    const cands = (map && map.dns) ? map.dns.slice() : [];
-    if (window.dtSetDns) cands.push('dtSetDns');
-    if (window.DtSetDns) cands.push('DtSetDns');
-    for (const n of cands){
-      try{
-        if (!n) continue;
-        const r = await tryCall(n, [primary, secondary]);
-        // many implementations return undefined; treat as success if no exception
-        window.AVSUPER_DNS_ACTIVE = {primary,secondary};
-        pushLog('setDns: called '+n+' => result:'+String(r));
-        return true;
-      }catch(e){ pushLog('setDns error '+n+': '+e, 'warn'); }
-    }
-    // fallback: try DtSetAppConfig if available
-    try{
-      if (typeof window.DtSetAppConfig === 'function'){
-        await tryCall('DtSetAppConfig', ['APP_DNS', JSON.stringify({primary,secondary})]);
-        window.AVSUPER_DNS_ACTIVE = {primary,secondary};
-        pushLog('setDns via DtSetAppConfig');
-        return true;
-      }
-    }catch(e){}
-    return false;
-  }
-
-  async function testDnsCombos(){
-    for (const [p,s] of CFG.dnsCandidates){
-      try{
-        const ok = await setDns(p,s);
-        await sleep(CFG.dnsTestDelay);
-        const ping = await resolveField('ping');
-        const down = parseFloat(await resolveField('download')) || 0;
-        pushLog('dns test '+p+'/'+s+' => ping:'+ping+' down:'+down);
-        if ((typeof ping === 'number' && ping > -1) && down >= CFG.minDownloadThreshold) return {primary:p,secondary:s, ping, down};
-      }catch(e){ pushLog('dns combo test error: '+e); }
-    }
-    return null;
-  }
-
-  async function testMtuAndQoS(){
-    const map = loadMapping();
-    const mtuCands = (map && map.mtu) ? map.mtu.slice() : [];
-    if (window.dtSetMTU) mtuCands.push('dtSetMTU');
-    if (window.DtSetMTU) mtuCands.push('DtSetMTU');
-    const qosCands = (map && map.setQoS) ? map.setQoS.slice() : [];
-    if (window.dtSetQoS) qosCands.push('dtSetQoS');
-    if (window.DtSetQoS) qosCands.push('DtSetQoS');
-
-    let best = {mtu:null, qos:null, score:-9999};
-    for (const m of CFG.mtuCandidates){
-      for (const name of mtuCands){
-        try{
-          await tryCall(name, [m]);
-          await sleep(CFG.mtuTestDelay);
-          const ping = await resolveField('ping');
-          const down = parseFloat(await resolveField('download')) || 0;
-          const score = (down*2) - (ping>0?ping/100:0);
-          if (score > best.score) best = {mtu:m, qos:best.qos, score};
-        }catch(e){}
-      }
-    }
-    const modes = ['latency','stability','throughput','balanced','auto'];
-    for (const mode of modes){
-      for (const name of qosCands){
-        try{
-          await tryCall(name, [mode]);
-          await sleep(700);
-          const ping = await resolveField('ping');
-          const down = parseFloat(await resolveField('download')) || 0;
-          const score = (down*2) - (ping>0?ping/100:0);
-          if (score > best.score) best = {mtu:best.mtu, qos:mode, score};
-        }catch(e){}
-      }
-    }
-    // apply best (canary before apply permanently)
-    if (best.mtu){
-      // canary: apply, wait, measure, revert if worse
-      const applied = await applyCanaryMTU(best.mtu);
-      if (!applied) pushLog('canary MTU failed to apply');
-    }
-    if (best.qos){
-      // apply QoS directly if function exists
-      for (const q of qosCands){ try{ await tryCall(q, [best.qos]); }catch(e){} }
-    }
-    return best;
-  }
-
-  async function applyCanaryMTU(mtu){
-    try{
-      // set mtu for canary
-      const map = loadMapping();
-      const mtuNames = (map && map.mtu)? map.mtu.slice() : [];
-      if (window.dtSetMTU) mtuNames.push('dtSetMTU');
-      if (window.DtSetMTU) mtuNames.push('DtSetMTU');
-      // record baseline
-      const baselinePing = await resolveField('ping');
-      const baselineDown = parseFloat(await resolveField('download')) || 0;
-      // apply
-      for (const n of mtuNames){
-        try{ await tryCall(n, [mtu]); }catch(e){}
-      }
-      // wait canarySeconds
-      await sleep(CFG.canarySeconds * 1000);
-      const newPing = await resolveField('ping');
-      const newDown = parseFloat(await resolveField('download')) || 0;
-      pushLog('canary mtu '+mtu+' baseline down:'+baselineDown+' new down:'+newDown);
-      // accept if performance improved or equal
-      if (newDown >= baselineDown - 0.1) {
-        pushHistory({action:'mtu_apply', mtu, baselineDown, newDown});
-        return true;
-      } else {
-        // revert: try revert to default 1400 or first candidate
-        const revert = 1400;
-        for (const n of mtuNames){ try{ await tryCall(n, [revert]); }catch(e){} }
-        pushHistory({action:'mtu_revert', mtu, revert, baselineDown, newDown});
-        return false;
-      }
-    }catch(e){ pushLog('applyCanaryMTU error: '+e); return false; }
-  }
-
-  async function restartVpn(){
-    const map = loadMapping();
-    const stop = (map && map.stopVpn) ? map.stopVpn.slice() : [];
-    const start = (map && map.startVpn) ? map.startVpn.slice() : [];
-    if (window.dtStopVpn) stop.push('dtStopVpn');
-    if (window.DtStopVpn) stop.push('DtStopVpn');
-    if (window.dtStartVpn) start.push('dtStartVpn');
-    if (window.DtStartVpn) start.push('DtStartVpn');
-    for (const n of stop){ try{ await tryCall(n); }catch(e){} }
-    await sleep(1000);
-    for (const n of start){ try{ await tryCall(n); }catch(e){} }
-    await sleep(1400);
-    pushHistory({action:'vpn_restart'});
-    return true;
-  }
-
-  async function switchServerFamily(families){
-    const map = loadMapping();
-    // try to get server list via mapped function or DtQueryServerList style
-    let servers = [];
-    const qlist = (map && map.queryServerList) ? map.queryServerList.slice() : [];
-    if (!qlist.length){
-      qlist.push('DtQueryServerList','dtQueryServerList','DtGetConfigs','dtGetConfigs');
-    }
-    for (const q of qlist){
-      try{
-        const res = await tryCall(q);
-        if (Array.isArray(res)) { servers = res; break; }
-        if (typeof res === 'string') { servers = [res]; break; }
+        var candidateEl = Array.prototype.slice.call(document.querySelectorAll('[data-server-raw],[data-server]')).find(function(el){
+          var dsr = el.getAttribute('data-server-raw')||el.getAttribute('data-server')||'';
+          var text = (el.innerText||'')+'';
+          return dsr===name || text.indexOf(name) !== -1;
+        });
+        if(candidateEl){ try{ candidateEl.click(); STATE.autolog.unshift({ t: nowISO(), m: 'Clicou em elemento servidor para '+name }); persistAutolog(); return true; }catch(e){} }
       }catch(e){}
-    }
-    if (!servers.length){
-      servers = ['TIM FLARE {01}','TIM FLARE {02}','TIM FLARE {03}','Vivo Premium 01','Vivo Premium 02','Claro Prime 01'];
-    }
-    for (const fam of families){
-      const matches = servers.filter(s => (s||'').toUpperCase().includes(fam.toUpperCase()));
-      for (const s of matches){
-        // warm
-        const warms = (map && map.warmServer) ? map.warmServer : [];
-        for (const w of warms){ try{ await tryCall(w, [s]); }catch(e){} }
-        await sleep(CFG.warmDelay);
-        const switches = (map && map.switchServer) ? map.switchServer : [];
-        for (const sw of switches){
-          try{ await tryCall(sw, [s]); await sleep(1200); const ping = await resolveField('ping'); const down = parseFloat(await resolveField('download'))||0; if ((typeof ping==='number' && ping>-1) && down>0.5){ pushHistory({action:'server_switch', server:s, ping, down}); return {server:s,ping,down}; } }catch(e){}
-        }
+      return false;
+    }catch(e){ return false; }
+  });
+}
+async function shortlist(){
+  var out = [];
+  try{
+    var lastGood = safeJsonParse(localStorage.getItem('av_last_good')||'[]',[]);
+    if(lastGood && lastGood.forEach) lastGood.forEach(function(x){ if(!out.includes(x.n)) out.push(x.n); });
+    var favs = safeJsonParse(localStorage.getItem('av_favorites')||'[]',[]);
+    if(favs && favs.forEach) favs.forEach(function(x){ if(!out.includes(x.n)) out.push(x.n); });
+    var els = document.querySelectorAll('.server-name-accordion, .server-title-stats, .server-title, .server-item, [data-server], .server-name');
+    for(var i=0;i<els.length;i++){ var t = (els[i].innerText||'').trim(); if(t && !out.includes(t)) out.push(t); }
+  }catch(e){}
+  return Array.from(new Set(out)).slice(0,40);
+}
+async function testLatency(servers){
+  var out = {};
+  for(var i=0;i<Math.min(servers.length,CFG.serverPrewarmCandidates);i++){
+    var server = servers[i];
+    var host = server.toLowerCase().replace(/[\s\{\}\[\]\(\)]/g,'').replace(/[^a-z0-9\-]/g,'');
+    var url = 'https://'+host+CFG.serverPrewarmEndpointHostSuffix+'/ping?ts='+Date.now();
+    var t0 = performance.now();
+    try{ await Promise.race([fetch(url,{cache:'no-store',mode:'no-cors'}), new Promise(function(_,r){ setTimeout(function(){ r('t'); },1200); })]); out[server] = Math.round(performance.now()-t0); }catch(e){ out[server] = Infinity; }
+    await sleep(220);
+  }
+  return out;
+}
+async function chooseAndSwitchBest(){
+  return withActionLock(async function(){
+    try{
+      var pool = await shortlist();
+      if(!pool.length) return null;
+      var lat = await testLatency(pool.slice(0,12));
+      var ordered = Object.keys(lat).sort(function(a,b){ return (lat[a]||Infinity)-(lat[b]||Infinity); });
+      var best = ordered[0];
+      if(best){
+        await prewarm(best);
+        await switchToServer(best);
+        STATE.autolog.unshift({ t: nowISO(), m: 'Escolhido fallback por latência: '+best });
+        persistAutolog();
+        var payload = { requestId: shortId(), ts: nowISO(), user: getUsername(), deviceId: getDeviceId(), server: { name: best }, actions: [{ t: nowISO(), action: 'chooseAndSwitchBest', result: 'requested', detail: best }] };
+        var pretty = formatHtmlFromPayload({ ts: payload.ts, requestId: payload.requestId, user: payload.user, deviceId: payload.deviceId, server: payload.server, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownloadMbps(), up: readUploadMbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), quality: qualityScoreFromMetrics(readPing(),readDownloadMbps(),readUploadMbps()), app: nativeCall('DtGetForegroundApp')||'', suggestion: 'Escolha automática por latência' }, 'Escolha Automática');
+        await deliverReportDirect(payload, pretty, false);
+        return best;
       }
-    }
+    }catch(e){}
     return null;
-  }
-
-  async function toggleAirplane(){
-    const map = loadMapping();
-    const on = (map && map.airplaneOn)? map.airplaneOn.slice(): [];
-    const off = (map && map.airplaneOff)? map.airplaneOff.slice(): [];
-    if (window.DtAirplaneActivate) on.push('DtAirplaneActivate');
-    if (window.dtAirplaneActivate) on.push('dtAirplaneActivate');
-    if (window.DtAirplaneDeactivate) off.push('DtAirplaneDeactivate');
-    if (window.dtAirplaneDeactivate) off.push('dtAirplaneDeactivate');
-    for (const n of on){ try{ await tryCall(n); }catch(e){} }
-    await sleep(6000);
-    for (const n of off){ try{ await tryCall(n); }catch(e){} }
-    await sleep(1500);
-    pushHistory({action:'airplane_toggle'});
-    return true;
-  }
-
-  // Full maintenance flow in requested order
-  async function maintainFlow(){
-    try{
-      pushLog('maintainFlow started');
-      const base = await readAll();
-      if ((typeof base.ping === 'number' && base.ping >= 0) && (parseFloat(base.down) >= CFG.minDownloadThreshold)) {
-        pushLog('connection healthy, skipping maintain');
-        await sendFullReport('Conexão estável - nenhuma ação necessária');
-        return;
-      }
-      // 1) DNS combos
-      const dnsRes = await testDnsCombos();
-      if (dnsRes){ await sendFullReport('DNS trocado com sucesso', JSON.stringify(dnsRes)); return; }
-      // 2) MTU/QoS
-      const mtuRes = await testMtuAndQoS();
-      if (mtuRes && mtuRes.score > -900){ await sendFullReport('MTU/QoS test aplicado', JSON.stringify(mtuRes)); }
-      // check again
-      const afterMtu = await readAll();
-      if ((typeof afterMtu.ping==='number' && afterMtu.ping>-1) && parseFloat(afterMtu.down) >= CFG.minDownloadThreshold){
-        await sendFullReport('Melhorias após MTU resolveram', JSON.stringify({mtuRes}));
-        return;
-      }
-      // 3) restart VPN
-      await sendFullReport('Tentando reiniciar VPN antes de trocar servidor');
-      await restartVpn();
-      await sleep(1800);
-      const afterRestart = await readAll();
-      if ((typeof afterRestart.ping==='number' && afterRestart.ping>-1) && parseFloat(afterRestart.down) >= CFG.minDownloadThreshold){
-        await sendFullReport('Reconexão nativa resolveu', JSON.stringify(afterRestart));
-        return;
-      }
-      // 4) switch server by same family
-      const sw = await switchServerFamily(['TIM','VIVO','CLARO']);
-      if (sw){ await sendFullReport('Servidor trocado', JSON.stringify(sw)); return; }
-      // 5) airplane toggle
-      await sendFullReport('Tentando alternar modo avião como último recurso');
-      await toggleAirplane();
-      const afterAir = await readAll();
-      await sendFullReport('Pós modo avião', JSON.stringify({ping: afterAir.ping, down: afterAir.down}));
-    }catch(e){ pushLog('maintainFlow error: '+e, 'error'); await sendFullReport('Erro em maintainFlow', String(e)); }
-  }
-
-  // CheckUser integration: start and listeners
-  function attachCheckUser(){
-    try{
-      const map = loadMapping();
-      const okNames = (map && map.checkUser) ? map.checkUser.slice() : ['DtStartCheckUser','dtStartCheckUser','startCheckUser','checkUser'];
-      const listenNames = ['dtCheckUser','DtCheckUser','dtCheckUserListener','DtCheckUserListener'];
-      const errNames = ['dtCheckUserErrorListener','DtCheckUserErrorListener','dtCheckUserError','DtCheckUserError'];
-      // wrap possible listeners to capture payload
-      for (const n of listenNames){
-        if (typeof window[n] === 'function'){
-          const orig = window[n];
-          window[n] = function(...args){ try{ handleCheckUserSuccess(args); }catch(e){} return orig.apply(this, args); };
-        }
-        if (window.Dt && typeof window.Dt[n] === 'function'){
-          const orig = window.Dt[n];
-          window.Dt[n] = function(...args){ try{ handleCheckUserSuccess(args); }catch(e){} return orig.apply(this, args); };
-        }
-      }
-      for (const n of errNames){
-        if (typeof window[n] === 'function'){
-          const orig = window[n];
-          window[n] = function(...args){ try{ handleCheckUserError(args); }catch(e){} return orig.apply(this, args); };
-        }
-        if (window.Dt && typeof window.Dt[n] === 'function'){
-          const orig = window.Dt[n];
-          window.Dt[n] = function(...args){ try{ handleCheckUserError(args); }catch(e){} return orig.apply(this, args); };
-        }
-      }
-      // if DtVpnStateListener exists, ensure checkUser runs on CONNECTED
-      if (typeof window.DtVpnStateListener === 'function'){
-        try{
-          window.DtVpnStateListener(function(s){
-            try{ if ((String(s||'')).toUpperCase() === 'CONNECTED'){ startCheckUser(); runOnNetworkChange(); } }catch(e){}
-          });
-        }catch(e){}
-      }
-      pushLog('attachCheckUser done');
-    }catch(e){ pushLog('attachCheckUser error: '+e, 'warn'); }
-  }
-
-  async function startCheckUser(){
-    const map = loadMapping();
-    const starts = (map && map.checkUser) ? map.checkUser.slice() : [];
-    starts.push('DtStartCheckUser','dtStartCheckUser','startCheckUser','DtStartCheckuser');
-    for (const s of starts){
-      try{ const r = await tryCall(s); pushLog('startCheckUser called '+s+' => '+String(r)); return true; }catch(e){}
+  });
+}
+async function predictiveRemedy(name){
+  try{
+    var trends = analyzeTrends(name);
+    if(trends.pingRise > CFG.predictiveThresholds.pingRiseRate || trends.downDrop > CFG.predictiveThresholds.downDropRate){
+      STATE.autolog.unshift({ t: nowISO(), m: 'Tendência de degradação detectada em '+name });
+      persistAutolog();
+      var payload = { requestId: shortId(), ts: nowISO(), user: getUsername(), deviceId: getDeviceId(), server: { name: name }, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownload Mbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), actions: [] };
+      var pretty = formatHtmlFromPayload({ ts: payload.ts, requestId: payload.requestId, user: payload.user, deviceId: payload.deviceId, server: payload.server, network: payload.network, metrics: payload.metrics, bytes: payload.bytes, configVersion: payload.configVersion, quality: qualityScoreFromMetrics(payload.metrics.ping,payload.metrics.down,payload.metrics.up), app: nativeCall('DtGetForegroundApp')||'', suggestion: 'Iniciando remediação preventiva', trend: trends.trend }, 'Previsão de Problema');
+      await deliverReportDirect(payload, pretty, true);
+      var remedied = await rotateDns(name);
+      if(!remedied) remedied = await mtuAdjust();
+      if(!remedied){ var best = await chooseAndSwitchBest(); if(best){ STATE.autolog.unshift({ t: nowISO(), m: 'Switch preventivo para '+best }); persistAutolog(); } }
+      return true;
     }
-    return false;
-  }
-
-  async function handleCheckUserSuccess(args){
-    try{
-      pushLog('checkUser success payload: ' + JSON.stringify(args));
-      const payload = (args && args[0]) ? args[0] : args;
-      let username=null, cred=null, plan=null, validity=null;
-      if (typeof payload === 'string'){
-        try{ const j = JSON.parse(payload); if (j){ username = j.username || j.user || j.account; cred = j.user_id || j.id || j.uid; plan = j.plan || j.product; validity = j.validity || j.expires; } }catch(e){}
-      } else if (typeof payload === 'object'){
-        username = username || payload.username || payload.user || payload.account;
-        cred = cred || payload.user_id || payload.uid || payload.id;
-        plan = plan || payload.plan || payload.product;
-        validity = validity || payload.validity || payload.expires;
-      }
-      const rec = {username: username || 'N/A', cred: cred || 'N/A', plan: plan || null, validity: validity || null, ts: new Date().toISOString()};
-      localStorage.setItem('av_checkuser_last', JSON.stringify(rec));
-      pushHistory({action:'checkuser_success', payload:rec});
-      updateUI(); // refresh UI with cred info
-      await sendFullReport('CheckUser sucesso', JSON.stringify(rec));
-    }catch(e){ pushLog('handleCheckUserSuccess error: '+e, 'error'); }
-  }
-
-  async function handleCheckUserError(args){
-    try{ pushLog('checkUser error payload: '+JSON.stringify(args)); pushHistory({action:'checkuser_error', payload: args}); await sendFullReport('CheckUser erro', JSON.stringify(args)); }catch(e){}
-  }
-
-  // auto-run on network change
-  function runOnNetworkChange(){
-    try{
-      if (navigator.connection && typeof navigator.connection.addEventListener === 'function'){
-        navigator.connection.addEventListener('change', async function(){ pushLog('network change detected'); if (AUTO_MODE) await maintainFlow(); updateUI(); });
-      } else if (typeof window.addEventListener === 'function'){
-        window.addEventListener('online', async ()=>{ pushLog('went online'); if (AUTO_MODE) await maintainFlow(); updateUI(); });
-      }
-    }catch(e){ pushLog('runOnNetworkChange error: '+e); }
-  }
-
-  // UI functions
-  function showPanel(){ if (UI.panel) UI.panel.style.display = 'block'; }
-  function hidePanel(){ if (UI.panel) UI.panel.style.display = 'none'; }
-  UI.close && UI.close.addEventListener('click', ()=>{ hidePanel(); });
-
-  async function updateUI(){
-    try{
-      const s = await readAll();
-      UI.user && (UI.user.innerText = s.username || '—');
-      UI.cred && (UI.cred.innerText = s.userId || '—');
-      UI.ping && (UI.ping.innerText = (typeof s.ping==='undefined' || s.ping===null) ? '-1 ms' : String(s.ping) + ' ms');
-      UI.down && (UI.down.innerText = String(s.down||'—'));
-      UI.up && (UI.up.innerText = String(s.up||'—'));
-      UI.mtu && (UI.mtu.innerText = String(s.mtu||'—'));
-      UI.dns && (UI.dns.innerText = JSON.stringify(s.dnsStatus||{}));
-      UI.server && (UI.server.innerText = (document.querySelector('.server-title')?document.querySelector('.server-title').innerText: (document.querySelector('.server-name')?document.querySelector('.server-name').innerText:'—')));
-      UI.ip && (UI.ip.innerText = String(s.ip||'—'));
-      UI.last && (UI.last.innerText = localStorage.getItem('av_last_action') || '—');
-      showPanel();
-    }catch(e){ pushLog('updateUI error: '+e); }
-  }
-
-  UI.btnResolve && UI.btnResolve.addEventListener('click', async ()=>{ localStorage.setItem('av_last_action', 'manual_resolve_'+new Date().toISOString()); await maintainFlow(); updateUI(); });
-  UI.btnReport && UI.btnReport.addEventListener('click', async ()=>{ await sendFullReport('Manual report'); updateUI(); });
-  UI.btnToggle && UI.btnToggle.addEventListener('click', ()=>{ AUTO_MODE = !AUTO_MODE; UI.btnToggle.innerText = AUTO_MODE ? 'Auto: ON' : 'Auto: OFF'; pushLog('AUTO_MODE toggled: '+AUTO_MODE); });
-
-  // initialization
-  (async function init(){
-    try{
-      // probe
-      await runtimeProbe();
-      // attach listeners
-      attachCheckUser();
-      runOnNetworkChange();
-      // update UI
-      await updateUI();
-      // on start, run checkuser and maintenance if auto
-      await startCheckUser();
-      if (AUTO_MODE) await maintainFlow();
-      // expose debug API
-      window.AVSUPER_FINAL = {
-        probe: runtimeProbe, mapping: loadMapping, logs: ()=>JSON.parse(localStorage.getItem(CFG.logKey)||'[]'),
-        history: ()=>JSON.parse(localStorage.getItem(CFG.historyKey)||'[]'), maintain: maintainFlow, report: sendFullReport, updateUI
-      };
-      pushLog('AVSuper init complete');
-    }catch(e){ pushLog('init error: '+e, 'error'); await sendFullReport('AVSuper init error', String(e)); }
-  })();
-
+  }catch(e){}
+  return false;
+}
+function checkActionBudget(){ var hour = new Date().getHours(); if(hour !== STATE.lastActionHour){ STATE.lastActionHour = hour; STATE.actionsThisHour = 0; } if((STATE.actionsThisHour||0) >= CFG.maxActionsPerHour) return false; STATE.actionsThisHour = (STATE.actionsThisHour||0) + 1; return true; }
+async function smartAutoConnect(){ if(STATE.isAutoConnecting) return; if(now() < (STATE.circuitOpenUntil||0)) return; STATE.isAutoConnecting = true; STATE.autolog.unshift({ t: nowISO(), m: 'Auto-connect iniciado' }); persistAutolog(); var pool = (await shortlist()).slice(0,12); if(!pool.length){ STATE.isAutoConnecting = false; return; } var lat = await testLatency(pool); var scores = {}; for(var i=0;i<pool.length;i++){ var s = pool[i]; var hist = (STATE.metricHistory[s] && STATE.metricHistory[s].length) ? STATE.metricHistory[s].reduce(function(a,c){ return a+c.down; },0)/STATE.metricHistory[s].length : 0; var p = lat[s] || Infinity; var score = 0; if(p !== Infinity) score += 10000/Math.max(1,p); score += hist*10; if(STATE.bestBackupServer === s) score *= 1.05; scores[s] = score; } var ordered = Object.keys(scores).sort(function(a,b){ return scores[b]-scores[a]; }); var attempts = 0; for(var j=0;j<ordered.length;j++){ var candidate = ordered[j]; if(attempts++ > 6) break; if(Date.now() - STATE.lastUserActivity < 3000) break; var warmed = await prewarm(candidate); if(!warmed) STATE.autolog.unshift({ t: nowISO(), m: 'Pré-aquecimento falhou '+candidate }); await switchToServer(candidate); var ok = await waitForCondition(function(){ return (getVpnState()==='CONNECTED') || (readPing()>-1 && readDownloadMbps()>0); }, 9000); if(ok){ STATE.autolog.unshift({ t: nowISO(), m: 'Auto-connect: conectado em '+candidate }); persistAutolog(); var payload = { requestId: shortId(), ts: nowISO(), user: getUsername(), deviceId: getDeviceId(), server: { name: candidate }, actions: [{ t: nowISO(), action: 'autoConnect', result: 'ok', detail: candidate }] }; var pretty = formatHtmlFromPayload({ ts: payload.ts, requestId: payload.requestId, user: payload.user, deviceId: payload.deviceId, server: payload.server, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownloadMbps(), up: readUploadMbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), quality: qualityScoreFromMetrics(readPing(),readDownloadMbps(),readUploadMbps()), app: nativeCall('DtGetForegroundApp')||'', suggestion: 'Auto-connect bem sucedido' }, 'Auto-Connect'); await deliverReportDirect(payload, pretty, false); STATE.isAutoConnecting = false; return; } } STATE.circuitOpenUntil = now() + 30000; STATE.autolog.unshift({ t: nowISO(), m: 'Auto-connect não obteve sucesso' }); persistAutolog(); var msg = formatHtmlFromPayload({ ts: nowISO(), requestId: shortId(), user: getUsername(), deviceId: getDeviceId(), server: { name: getCurrentServerName() }, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownloadMbps(), up: readUploadMbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), quality: qualityScoreFromMetrics(readPing(),readDownloadMbps(),readUploadMbps()), app: nativeCall('DtGetForegroundApp')||'', suggestion: 'Auto-connect falhou' }, 'Auto-Connect Falhou'); enqueueTelegram(msg, true); STATE.isAutoConnecting = false; }
+function waitForCondition(fn, timeout, interval){ timeout = timeout || 5000; interval = interval || 400; return new Promise(function(resolve){ var start = Date.now(); var id = setInterval(function(){ try{ if(fn()){ clearInterval(id); resolve(true); } else if(Date.now()-start > timeout){ clearInterval(id); resolve(false); } }catch(e){ clearInterval(id); resolve(false); } }, interval); }); }
+async function checkAndRecover(){ try{ var state = getVpnState(); var ping = readPing(), down = readDownloadMbps(), up = readUploadMbps(); var bad = (ping===-1 || ping>500 || down<0.5 || up<0.2); if(state !== 'CONNECTED' || bad){ STATE.autolog.unshift({ t: nowISO(), m: 'Recuperação: state='+state+' ping='+ping+' down='+down }); persistAutolog(); STATE.reconnectionAttempts++; if(!checkActionBudget()) return; if(now() < (STATE.circuitOpenUntil||0)) return; if(state !== 'CONNECTED' && STATE.bestBackupServer && STATE.bestBackupServer !== getCurrentServerName()){ await prewarm(STATE.bestBackupServer); await switchToServer(STATE.bestBackupServer); await sleep(1400); if(getVpnState() === 'CONNECTED'){ STATE.autolog.unshift({ t: nowISO(), m: 'Reconectado via backup '+STATE.bestBackupServer }); persistAutolog(); var payload = { requestId: shortId(), ts: nowISO(), user: getUsername(), deviceId: getDeviceId(), server: { name: STATE.bestBackupServer }, actions: [{ t: nowISO(), action: 'autoRecovery', result: 'ok', detail: STATE.bestBackupServer }] }; var pretty = formatHtmlFromPayload({ ts: payload.ts, requestId: payload.requestId, user: payload.user, deviceId: payload.deviceId, server: payload.server, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownloadMbps(), up: readUploadMbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), quality: qualityScoreFromMetrics(readPing(),readDownloadMbps(),readUploadMbps()), app: nativeCall('DtGetForegroundApp')||'', suggestion: 'Reconectado via backup' }, 'Auto-Recovery'); await deliverReportDirect(payload, pretty, false); STATE.reconnectionAttempts = 0; return; } } if(STATE.reconnectionAttempts <= CFG.reconnectionBackoff.length){ var delay = CFG.reconnectionBackoff[Math.min(STATE.reconnectionAttempts-1, CFG.reconnectionBackoff.length-1)]; try{ if(typeof window.DtExecuteVpnStart === 'object' && typeof window.DtExecuteVpnStart.execute === 'function'){ window.DtExecuteVpnStart.execute(); STATE.autolog.unshift({ t: nowISO(), m: 'Reiniciando VPN (API)' }); persistAutolog(); } else if(typeof window.dtStartVpn === 'function'){ window.dtStartVpn(); STATE.autolog.unshift({ t: nowISO(), m: 'Reiniciando VPN (global)' }); persistAutolog(); } else STATE.autolog.unshift({ t: nowISO(), m: 'Reinício VPN solicitado (sem API)' }); }catch(e){} await sleep(delay); }else{ await rotateDns(getCurrentServerName() || 'unknown'); await sleep(500); await mtuAdjust(); var best = await chooseAndSwitchBest(); if(best){ var payload = { requestId: shortId(), ts: nowISO(), user: getUsername(), deviceId: getDeviceId(), server: { name: best }, actions: [{ t: nowISO(), action: 'advancedRecovery', result: 'ok', detail: best }] }; var pretty = formatHtmlFromPayload({ ts: payload.ts, requestId: payload.requestId, user: payload.user, deviceId: payload.deviceId, server: payload.server, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownloadMbps(), up: readUploadMbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), quality: qualityScoreFromMetrics(readPing(),readDownloadMbps(),readUploadMbps()), app: nativeCall('DtGetForegroundApp')||'', suggestion: 'Recuperação avançada aplicada' }, 'Recuperação Avançada'); await deliverReportDirect(payload, pretty, true); } STATE.reconnectionAttempts = 0; } }else{ STATE.reconnectionAttempts = 0; } }catch(e){} }
+async function computeBestBackup(){ try{ if(now() - (STATE.lastBestCompute||0) < CFG.bestServerComputeInterval) return; STATE.lastBestCompute = now(); var ops = ['vivo','tim','claro']; var all = await shortlist(); var pool = []; for(var i=0;i<ops.length;i++){ var op = ops[i]; pool = pool.concat(all.filter(function(n){ return (n||'').toLowerCase().indexOf(op) !== -1; }).slice(0,6)); } if(!pool.length) return; var lat = await testLatency(pool); var ordered = Object.keys(lat).sort(function(a,b){ return (lat[a]||Infinity)-(lat[b]||Infinity); }); var best = ordered[0]; if(best && best !== getCurrentServerName()){ STATE.bestBackupServer = best; STATE.autolog.unshift({ t: nowISO(), m: 'Melhor backup computado: '+best }); persistAutolog(); persistBestBackup(); var payload = { requestId: shortId(), ts: nowISO(), user: getUsername(), deviceId: getDeviceId(), server: { name: best }, actions: [{ t: nowISO(), action: 'computeBestBackup', result: 'computed', detail: best }] }; var pretty = formatHtmlFromPayload({ ts: payload.ts, requestId: payload.requestId, user: payload.user, deviceId: payload.deviceId, server: payload.server, network: { name: getNetworkName(), localIp: getLocalIP() }, metrics: { ping: readPing(), down: readDownloadMbps(), up: readUploadMbps() }, bytes: { down: getTotalDownloadedBytes(), up: getTotalUploadedBytes() }, configVersion: getLocalConfigVersion(), quality: qualityScoreFromMetrics(readPing(),readDownloadMbps(),readUploadMbps()), app: nativeCall('DtGetForegroundApp')||'', suggestion: 'Melhor backup computado' }, 'Backup Computado'); await deliverReportDirect(payload, pretty, false); } }catch(e){} }
+async function preCacheDomains(list){ try{ var head = document.head || document.documentElement; var uniq = Array.from(new Set(list)).slice(0,30); for(var i=0;i<uniq.length;i++){ var host = uniq[i]; if(!document.querySelector('link[data-pref="'+host+'"]')){ var l1 = document.createElement('link'); l1.rel = 'dns-prefetch'; l1.href = '//'+host; l1.setAttribute('data-pref', host); head.appendChild(l1); var l2 = document.createElement('link'); l2.rel = 'preconnect'; l2.href = 'https://'+host; l2.crossOrigin = 'anonymous'; l2.setAttribute('data-pref', host); head.appendChild(l2); } } for(var j=0;j<Math.min(uniq.length,6);j++){ try{ await fetch('https://'+uniq[j]+'/favicon.ico',{ method:'HEAD', cache:'no-store', mode:'no-cors' }); }catch(e){} } }catch(e){} }
+function persistAutolog(){ try{ localStorage.setItem(CFG.autologKey, JSON.stringify(STATE.autolog||[])); }catch(e){} }
+function persistMetricHistory(){ try{ localStorage.setItem(CFG.metricHistoryKey, JSON.stringify(STATE.metricHistory||{})); }catch(e){} }
+function persistBestBackup(){ try{ if(STATE.bestBackupServer) localStorage.setItem(CFG.bestBackupKey, STATE.bestBackupServer); }catch(e){} }
+function persistQueue(){ try{ localStorage.setItem(CFG.queueKey, JSON.stringify(STATE.queue||[])); }catch(e){} }
+function restoreAutolog(){ try{ STATE.autolog = safeJsonParse(localStorage.getItem(CFG.autologKey), []); }catch(e){ STATE.autolog = []; } }
+function restoreMetricHistory(){ try{ STATE.metricHistory = safeJsonParse(localStorage.getItem(CFG.metricHistoryKey), {}); }catch(e){ STATE.metricHistory = {}; } }
+function restoreBestBackup(){ try{ var v = localStorage.getItem(CFG.bestBackupKey); if(v) STATE.bestBackupServer = v; }catch(e){} }
+function restoreQueue(){ try{ STATE.queue = safeJsonParse(localStorage.getItem(CFG.queueKey), []); }catch(e){ STATE.queue = []; } }
+async function deliverReportInit(){
+  try{
+    var r = await buildReport('AVSuper Silent Iniciado','Modo invisível ativo. Relatórios serão enviados ao Telegram.');
+    var pretty = formatHtmlFromPayload(r.payload, 'AVSuper Silent Iniciado');
+    await deliverReportDirect(r.payload, pretty, false);
+  }catch(e){}
+}
+async function periodic(){
+  try{
+    var curServer = getCurrentServerName() || 'unknown';
+    var ping = readPing(), down = readDownloadMbps(), up = readUploadMbps();
+    updateMetricHistory(curServer,ping,down,up);
+    try{ await computeBestBackup(); }catch(e){}
+    try{ await predictiveRemedy(curServer); }catch(e){}
+    try{ if(now() > (STATE.dnsCacheUntil||0)) await rotateDns(curServer); }catch(e){}
+    try{ await preCacheDomains(CFG.dnsPrefetchList); }catch(e){}
+    try{ await backgroundUpdateCheck(); }catch(e){}
+    try{ if((getVpnState()!=='CONNECTED') || ping===-1 || down<0.5) await checkAndRecover(); }catch(e){}
+    try{ if(now() - (STATE.lastHealthSent||0) > CFG.healthReportIntervalMs){ var report = await buildReport('Relatório de Saúde','Relatório periódico de saúde'); var pretty = formatHtmlFromPayload(report.payload, 'Relatório de Saúde'); await deliverReportDirect(report.payload, pretty, false); STATE.lastHealthSent = now(); } }catch(e){}
+    try{ await autoHealCurrentServer(); }catch(e){}
+    STATE.autolog = (STATE.autolog||[]).slice(0,300);
+    persistAutolog();
+  }catch(e){}
+  var bw = (readDownloadMbps()+readUploadMbps())/2;
+  var next = (bw < 0.2) ? CFG.monitorIntervalLowBW : CFG.monitorInterval;
+  setTimeout(periodic, next + Math.floor(Math.random()*CFG.monitorRandomJitter));
+}
+async function buildReport(type, details){
+  try{
+    var requestId = shortId();
+    var ts = nowISO();
+    var user = getUsername() || '—';
+    var deviceId = getDeviceId() || '—';
+    var serverInfo = await getSelectedServerInfo();
+    var serverName = serverInfo && serverInfo.name ? serverInfo.name : getCurrentServerName();
+    var networkName = getNetworkName();
+    var localIp = getLocalIP();
+    var ping = readPing();
+    var down = readDownloadMbps();
+    var up = readUploadMbps();
+    var cfgVersion = getLocalConfigVersion() || '—';
+    var totalDownBytes = getTotalDownloadedBytes();
+    var totalUpBytes = getTotalUploadedBytes();
+    var app = nativeCall('DtGetForegroundApp') || '';
+    var trendObj = analyzeTrends(serverName||'');
+    var quality = qualityScoreFromMetrics(ping,down,up);
+    var severity = (ping===-1 || ping>1000 || down<0.2) ? 'critical' : (ping>500 || down<0.5 ? 'warn' : 'info');
+    var payload = {
+      requestId: requestId,
+      ts: ts,
+      user: user,
+      deviceId: deviceId,
+      server: serverInfo && serverInfo.name ? serverInfo : { name: serverName || '—' },
+      serverName: serverName || '—',
+      network: { name: networkName, localIp: localIp },
+      metrics: { ping: ping, down: down, up: up },
+      bytes: { down: totalDownBytes, up: totalUpBytes },
+      configVersion: cfgVersion,
+      app: app,
+      quality: quality,
+      trend: trendObj.trend || 0,
+      severity: severity,
+      actions: (STATE.autolog||[]).slice(0,20),
+      details: details || '',
+      suggestion: buildSuggestion({ ping: ping, down: down, up: up })
+    };
+    return { requestId: requestId, payload: payload };
+  }catch(e){ return { requestId: shortId(), payload: { requestId: shortId(), ts: nowISO(), error: 'erro building report' } }; }
+}
+function persistAll(){ try{ persistAutolog(); persistMetricHistory(); persistBestBackup(); persistQueue(); }catch(e){} }
+restoreAutolog(); restoreMetricHistory(); restoreBestBackup(); restoreQueue();
+setInterval(function(){ persistAll(); flushQueue(); }, 30000);
+setTimeout(function(){ periodic(); }, 1500 + Math.floor(Math.random()*1000));
+setTimeout(function(){ deliverReportInit(); }, 4000);
+window.AVSUPER_SILENT = { buildReport: buildReport, deliverReportDirect: deliverReportDirect, rotateDns: rotateDns, mtuAdjust: mtuAdjust, prewarm: prewarm, chooseAndSwitchBest: chooseAndSwitchBest, smartAutoConnect: smartAutoConnect, computeBestBackup: computeBestBackup, flushQueue: flushQueue };
 })();
