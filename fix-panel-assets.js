@@ -1,317 +1,204 @@
-/* ===========================================================
-   AutoRepairManager v4.0 – Enterprise Stable Edition (DTunnel)
-   ------------------------------------------------------------
-   - Integrado diretamente aos nativos window.Dt* (DTunnel API)
-   - Repara automaticamente conexões caídas sem interferir na UX
-   - Roda em background e respeita desconexões manuais
-   - Otimizado para mínimo consumo e zero bugs conhecidos
-   =========================================================== */
+/* ===============================================================
+   AutoRepairManager v5 – DTunnel Adaptive Edition
+   ---------------------------------------------------------------
+   Melhora estabilidade, testa 3 configs paralelas e escolhe a mais rápida.
+   Após conectado, ativa manutenção inteligente e reparo silencioso.
+   =============================================================== */
 
 (function(){
   'use strict';
+  const log = (...a)=>console.log('[ARMGR v5]',...a);
+  const warn = (...a)=>console.warn('[ARMGR v5]',...a);
 
-  const PREFIX = 'armgr_v4_';
-  const DEFAULTS = {
-    enabled: 'true',
-    baseCheckMs: '8000',
-    hiddenMinCheckMs: '15000',
-    pingFailThreshold: '3',
-    dnsProbeDelayMs: '3000',
-    mtuProbeDelayMs: '3000',
-    restartDelayMs: '2500',
-    maxRepairsPerHour: '10',
-    manualCooldownMs: String(1000 * 60 * 30)
-  };
+  const DNS_PROFILES = [
+    { name: 'Google', dns: ['8.8.8.8','8.8.4.4'] },
+    { name: 'Cloudflare', dns: ['1.1.1.1','1.0.0.1'] },
+    { name: 'Quad9', dns: ['9.9.9.9','149.112.112.112'] }
+  ];
 
-  // Grava configurações padrão
-  for (const k in DEFAULTS) {
-    const key = PREFIX + k;
-    if (!localStorage.getItem(key)) localStorage.setItem(key, DEFAULTS[k]);
-  }
+  const MTU_LEVELS = [1500, 1400, 1350];
+  const QOS_LEVELS = ['balanced','low-latency','normal'];
 
   const cfg = {
-    enabled: () => localStorage.getItem(PREFIX + 'enabled') === 'true',
-    baseCheckMs: () => parseInt(localStorage.getItem(PREFIX + 'baseCheckMs'), 10),
-    hiddenMinCheckMs: () => parseInt(localStorage.getItem(PREFIX + 'hiddenMinCheckMs'), 10),
-    pingFailThreshold: () => parseInt(localStorage.getItem(PREFIX + 'pingFailThreshold'), 10),
-    dnsProbeDelayMs: () => parseInt(localStorage.getItem(PREFIX + 'dnsProbeDelayMs'), 10),
-    mtuProbeDelayMs: () => parseInt(localStorage.getItem(PREFIX + 'mtuProbeDelayMs'), 10),
-    restartDelayMs: () => parseInt(localStorage.getItem(PREFIX + 'restartDelayMs'), 10),
-    maxRepairsPerHour: () => parseInt(localStorage.getItem(PREFIX + 'maxRepairsPerHour'), 10),
-    manualCooldownMs: () => parseInt(localStorage.getItem(PREFIX + 'manualCooldownMs'), 10)
+    checkInterval: 8000,
+    maxRepairsPerHour: 10,
+    adaptiveParallelTests: 3,
+    adaptiveTimeoutMs: 5000
   };
 
   const STATE = {
     running: false,
-    monitorTimer: null,
     repairing: false,
-    pingFails: 0,
-    lastManualDisconnectTs: parseInt(localStorage.getItem(PREFIX + 'lastManualDisconnectTs') || '0', 10),
+    monitorTimer: null,
     repairTimestamps: [],
-    abortToken: null
+    bestProfile: null,
+    lastPing: -1
   };
 
-  const now = () => Date.now();
-  const sleep = ms => new Promise(res => setTimeout(res, ms));
-
-  function log(...args){ console.log('[ARMGR]', ...args); }
-  function warn(...args){ console.warn('[ARMGR]', ...args); }
-
-  /* ===========================================================
-     Funções nativas DTunnel encapsuladas
-  ============================================================ */
   const native = {
-    ping: () => Number(window.DtGetPingResult.execute?.() ?? -1),
-    vpnState: () => String(window.DtGetVpnState.execute?.() ?? 'DISCONNECTED'),
-    startVpn: () => window.DtExecuteVpnStart.execute?.(),
-    stopVpn: () => window.DtExecuteVpnStop.execute?.(),
-    bytesDown: () => Number(window.DtGetNetworkDownloadBytes.execute?.() ?? 0),
-    netData: () => window.DtGetNetworkData.execute?.() ?? {},
-    airplane: () => String(window.DtAirplaneState.execute?.() ?? 'INACTIVE'),
-    notify: (title,msg,img) => window.DtSendNotification.execute?.(title,msg,img)
+    ping: ()=>Number(window.DtGetPingResult?.execute?.() ?? -1),
+    vpnState: ()=>String(window.DtGetVpnState?.execute?.() ?? 'DISCONNECTED'),
+    startVpn: ()=>window.DtExecuteVpnStart?.execute?.(),
+    stopVpn: ()=>window.DtExecuteVpnStop?.execute?.(),
+    tryNextServer: ()=>window.DtTryNextServer?.execute?.(),
+    notify: (t,m)=>window.DtSendNotification?.execute?.(t,m,'')
   };
 
-  /* ===========================================================
-     Controle manual de desconexão
-  ============================================================ */
-  function markManualDisconnect() {
-    STATE.lastManualDisconnectTs = now();
-    localStorage.setItem(PREFIX + 'lastManualDisconnectTs', String(STATE.lastManualDisconnectTs));
-    log('Desconexão manual marcada');
-  }
+  function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+  const now = ()=>Date.now();
 
-  function clearManualDisconnect() {
-    STATE.lastManualDisconnectTs = 0;
-    localStorage.removeItem(PREFIX + 'lastManualDisconnectTs');
-  }
+  // ---------- Adaptive Connection ----------
+  async function adaptiveConnect(){
+    log('Iniciando conexão adaptativa...');
 
-  function userRecentlyDisconnected() {
-    if (!STATE.lastManualDisconnectTs) return false;
-    return (now() - STATE.lastManualDisconnectTs) < cfg.manualCooldownMs();
-  }
-
-  /* ===========================================================
-     Segurança: abort token e limite de reparos
-  ============================================================ */
-  function makeAbortToken() {
-    const t = { aborted: false };
-    STATE.abortToken = t;
-    return t;
-  }
-
-  function abortRepair() {
-    if (STATE.abortToken) STATE.abortToken.aborted = true;
-    STATE.abortToken = null;
-  }
-
-  function recordRepair() {
-    const oneHour = now() - 3600000;
-    STATE.repairTimestamps = STATE.repairTimestamps.filter(t => t > oneHour);
-    STATE.repairTimestamps.push(now());
-  }
-
-  function tooManyRepairs() {
-    const oneHour = now() - 3600000;
-    STATE.repairTimestamps = STATE.repairTimestamps.filter(t => t > oneHour);
-    return STATE.repairTimestamps.length >= cfg.maxRepairsPerHour();
-  }
-
-  /* ===========================================================
-     Sequência de Reparo Inteligente
-  ============================================================ */
-  async function repairSequence() {
-    if (STATE.repairing || tooManyRepairs() || userRecentlyDisconnected()) return;
-    STATE.repairing = true;
-    const token = makeAbortToken();
-    recordRepair();
-    log('Iniciando reparo automático...');
-
-    try {
-      // 1) Teste DNS / reconexão leve
-      log('Verificando rede...');
-      const net = native.netData();
-      if (net.detailed_state === 'NO_NETWORK' || native.airplane() === 'ACTIVE') {
-        warn('Sem rede ou modo avião ativo, abortando reparo.');
-        STATE.repairing = false;
-        return;
-      }
-
-      // 2) Reiniciar túnel (melhor abordagem no DTunnel)
-      log('Parando túnel...');
-      native.stopVpn();
-      await sleep(800);
-      if (token.aborted) return;
-
-      log('Reiniciando túnel...');
-      native.startVpn();
-      await sleep(cfg.restartDelayMs());
-
-      // 3) Verificação pós-reparo
-      if (token.aborted) return;
-      const ping = native.ping();
-      const bytes = native.bytesDown();
-      if (ping !== -1 && bytes > 0) {
-        log('Reparo bem-sucedido (ping ok, tráfego ativo).');
-        native.notify('Reconectado com sucesso', 'Sua conexão foi restabelecida automaticamente.', '');
-        STATE.repairing = false;
-        return;
-      }
-
-      warn('Reparo não teve efeito. Tentando reinício completo...');
-      native.stopVpn();
-      await sleep(1500);
-      native.startVpn();
-      await sleep(cfg.restartDelayMs());
-
-      const ping2 = native.ping();
-      if (ping2 !== -1) {
-        log('Reparo bem-sucedido na segunda tentativa.');
-        native.notify('Reconectado', 'A estabilidade foi restaurada.', '');
-      } else {
-        warn('Reparo falhou completamente.');
-        native.notify('Falha ao reconectar', 'Verifique sua conexão de rede.', '');
-      }
-
-    } catch(e) {
-      warn('Erro no reparo:', e);
-    } finally {
-      STATE.repairing = false;
-      abortRepair();
+    const combos = [];
+    for(let i=0;i<cfg.adaptiveParallelTests;i++){
+      combos.push({
+        dns: DNS_PROFILES[i % DNS_PROFILES.length],
+        mtu: MTU_LEVELS[i % MTU_LEVELS.length],
+        qos: QOS_LEVELS[i % QOS_LEVELS.length]
+      });
     }
-  }
 
-  /* ===========================================================
-     Loop de monitoramento
-  ============================================================ */
-  async function monitorLoop() {
-    if (!cfg.enabled() || userRecentlyDisconnected()) {
-      scheduleNextCheck();
+    const results = await Promise.allSettled(combos.map((c,i)=>testConnection(c,i)));
+    const success = results.filter(r=>r.status==='fulfilled' && r.value.success);
+    if(!success.length){
+      warn('Nenhuma tentativa teve sucesso. Usando fallback padrão.');
+      native.startVpn();
       return;
     }
 
-    const vpn = native.vpnState();
-    const ping = native.ping();
-    const bytes = native.bytesDown();
+    success.sort((a,b)=>a.value.time-b.value.time);
+    const best = success[0].value;
+    STATE.bestProfile = best.combo;
+    localStorage.setItem('armgr_bestProfile', JSON.stringify(best.combo));
+    log(`Melhor combinação: ${best.combo.dns.name} / MTU ${best.combo.mtu} / QoS ${best.combo.qos}`);
 
-    if (vpn === 'CONNECTED') {
-      if (ping === -1 || bytes === 0) {
-        STATE.pingFails++;
-        log(`Falha de ping #${STATE.pingFails}`);
-        if (STATE.pingFails >= cfg.pingFailThreshold()) {
-          STATE.pingFails = 0;
-          await repairSequence();
+    native.notify('Conectando','Melhor rota detectada: '+best.combo.dns.name);
+    await sleep(400);
+    native.stopVpn();
+    await sleep(800);
+    native.startVpn();
+  }
+
+  async function testConnection(combo,index){
+    return new Promise(async(resolve)=>{
+      const tag = `#${index+1}`;
+      try{
+        log(`${tag} Testando ${combo.dns.name}, MTU ${combo.mtu}, QoS ${combo.qos}`);
+        window.DtSetDnsServers?.execute?.(combo.dns.dns);
+        window.DtSetTunMtu?.execute?.(combo.mtu);
+        window.DtSetQosLevel?.execute?.(combo.qos);
+        native.startVpn();
+        const t0 = now();
+        let ping = -1;
+        const limit = cfg.adaptiveTimeoutMs;
+        while(now()-t0<limit){
+          await sleep(700);
+          ping = native.ping();
+          if(ping!==-1){
+            const time=now()-t0;
+            log(`${tag} sucesso em ${time}ms`);
+            native.stopVpn();
+            return resolve({success:true,time,combo});
+          }
         }
-      } else {
-        STATE.pingFails = 0;
+        warn(`${tag} falhou (timeout)`);
+        native.stopVpn();
+        return resolve({success:false});
+      }catch(e){
+        warn(`${tag} erro`,e);
+        resolve({success:false});
       }
-    } else if (vpn === 'DISCONNECTED' && !userRecentlyDisconnected()) {
+    });
+  }
+
+  // ---------- Reparos e monitoramento ----------
+  function recordRepair(){
+    const oneHour = now()-3600000;
+    STATE.repairTimestamps=STATE.repairTimestamps.filter(t=>t>oneHour);
+    STATE.repairTimestamps.push(now());
+  }
+  function tooManyRepairs(){
+    const oneHour = now()-3600000;
+    STATE.repairTimestamps=STATE.repairTimestamps.filter(t=>t>oneHour);
+    return STATE.repairTimestamps.length>=cfg.maxRepairsPerHour;
+  }
+
+  async function repairSequence(){
+    if(STATE.repairing||tooManyRepairs())return;
+    STATE.repairing=true;
+    recordRepair();
+    log('Iniciando reparo silencioso...');
+    try{
+      native.stopVpn();
+      await sleep(700);
+      native.startVpn();
+      await sleep(2000);
+      const ping=native.ping();
+      if(ping!==-1)native.notify('Reconectado','A conexão foi restabelecida.');
+      else warn('Reparo não teve efeito imediato.');
+    }catch(e){warn('Erro no reparo',e);}
+    finally{STATE.repairing=false;}
+  }
+
+  async function monitorLoop(){
+    const vpn=native.vpnState();
+    const ping=native.ping();
+    STATE.lastPing=ping;
+    if(vpn==='CONNECTED' && ping===-1){
+      warn('Ping -1 detectado. Tentando reparo.');
+      await repairSequence();
+    } else if(vpn==='DISCONNECTED'){
       warn('VPN desconectada inesperadamente.');
       await repairSequence();
     }
-
-    scheduleNextCheck();
+    scheduleNext();
   }
 
-  function scheduleNextCheck(delay) {
-    if (!STATE.running) return;
-    if (STATE.monitorTimer) clearTimeout(STATE.monitorTimer);
-    const base = cfg.baseCheckMs();
-    const hidden = cfg.hiddenMinCheckMs();
-    const ms = (document.visibilityState === 'hidden') ? hidden : base;
-    STATE.monitorTimer = setTimeout(monitorLoop, delay || ms);
+  function scheduleNext(){
+    if(!STATE.running)return;
+    if(STATE.monitorTimer)clearTimeout(STATE.monitorTimer);
+    STATE.monitorTimer=setTimeout(monitorLoop,cfg.checkInterval);
   }
 
-  /* ===========================================================
-     Controle geral
-  ============================================================ */
-  function start() {
-    if (STATE.running || !cfg.enabled()) return;
-    STATE.running = true;
-    log('AutoRepairManager iniciado.');
-    scheduleNextCheck(1500);
+  function startMonitor(){
+    if(STATE.running)return;
+    STATE.running=true;
+    log('Monitor iniciado.');
+    scheduleNext();
+  }
+  function stopMonitor(){
+    STATE.running=false;
+    if(STATE.monitorTimer)clearTimeout(STATE.monitorTimer);
+    STATE.monitorTimer=null;
+    log('Monitor parado.');
   }
 
-  function stop() {
-    STATE.running = false;
-    if (STATE.monitorTimer) clearTimeout(STATE.monitorTimer);
-    STATE.monitorTimer = null;
-    abortRepair();
-    STATE.pingFails = 0;
-    STATE.repairing = false;
-    log('AutoRepairManager parado.');
-  }
-
-  async function resetToInitialState() {
-    log('Resetando para estado inicial...');
-    markManualDisconnect();
-    stop();
-    abortRepair();
-
-    try {
-      native.stopVpn();
-      await sleep(1000);
-    } catch(e){ warn('Erro ao parar VPN', e); }
-
-    const btn = document.getElementById('connectBtn');
-    const status = document.getElementById('statusText');
-    if (btn) {
-      btn.innerText = 'Conectar';
-      btn.classList.remove('connected');
-      btn.classList.add('disconnected');
-    }
-    if (status) status.innerText = 'Desconectado';
-
-    native.notify('Desconectado', 'Sua sessão foi encerrada com segurança.', '');
-    log('Estado inicial restaurado.');
-  }
-
-  /* ===========================================================
-     Interação com botão principal
-  ============================================================ */
-  (function bindButton(){
-    const btn = document.getElementById('connectBtn');
-    if (!btn) return;
-    btn.addEventListener('click', async ()=>{
-      const text = (btn.innerText || '').trim();
-      if (/Desconectar/i.test(text)) {
-        await resetToInitialState();
-      } else if (/Conectar/i.test(text)) {
-        clearManualDisconnect();
-        native.startVpn();
-        setTimeout(()=>start(), 1000);
+  // ---------- UI binding ----------
+  function bindButtons(){
+    const btn=document.getElementById('connectBtn');
+    if(!btn)return;
+    btn.addEventListener('click',async()=>{
+      const txt=(btn.innerText||'').trim();
+      if(/Conectar/i.test(txt)){
+        btn.innerText='Conectando...';
+        await adaptiveConnect();
+        startMonitor();
+        btn.innerText='Desconectar';
+      } else if(/Desconectar/i.test(txt)){
+        stopMonitor();
+        native.stopVpn();
+        btn.innerText='Conectar';
       }
     });
-  })();
-
-  /* ===========================================================
-     Eventos de visibilidade
-  ============================================================ */
-  document.addEventListener('visibilitychange', ()=>{
-    if (!STATE.running) return;
-    if (document.visibilityState === 'visible') {
-      scheduleNextCheck(500);
-    } else {
-      scheduleNextCheck();
-    }
-  });
-
-  /* ===========================================================
-     API pública
-  ============================================================ */
-  window.AutoRepairManager = {
-    start,
-    stop,
-    resetToInitialState,
-    getState: ()=>({...STATE})
-  };
-
-  /* ===========================================================
-     Inicialização automática
-  ============================================================ */
-  if (cfg.enabled() && !userRecentlyDisconnected()) {
-    setTimeout(()=>start(), 1200);
-  } else {
-    log('Auto start ignorado (cooldown ou desabilitado).');
   }
 
+  // ---------- Inicialização ----------
+  document.addEventListener('DOMContentLoaded',()=>{
+    bindButtons();
+    log('v5 pronto.');
+    const saved=localStorage.getItem('armgr_bestProfile');
+    if(saved)STATE.bestProfile=JSON.parse(saved);
+  });
 })();
